@@ -6,4 +6,4 @@ year: 2026
 
 Hier steht dein Beschreibungstext.
 
-![Bildbeschreibung](/images/projekt1_bild1.jpg)
+![Bildbeschreibung](/images/bild2.jpg)
