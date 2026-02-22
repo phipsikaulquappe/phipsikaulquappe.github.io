@@ -56,16 +56,28 @@ nav {
 /* Projektliste links */
 .projects-list {
     width: 300px;
-    margin-top: 1px;   /* Liste beginnt höher */
-    padding-left: 40px; /* Einrücken der Liste nach innen */
+    margin-top: 1px;   
+    padding-left: 40px; 
     padding-right: 10px;
+    background-color: #f6f1c4; /* Hintergrundfarbe, um Milimeterpapier auszublenden */
+    border-radius: 5px; /* optional: abgerundete Ecken für schöne Optik */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* Links in der Liste */
 .projects-list a {
     display: block;
     font-size: 14px;  
-    margin-bottom: 12px; /* etwas mehr Abstand zwischen den Links */
+    margin-bottom: 12px; 
+    padding: 4px 8px; /* etwas Innenabstand für Highlight */
+    border-radius: 3px; /* abgerundeter Hintergrund für aktive Links */
+}
+
+/* Aktiver/ausgewählter Link */
+.projects-list a.active {
+    background-color: #add8e6; /* hellblauer Hintergrund */
+    font-weight: bold;
 }
 
 /* Rechte Seite */
