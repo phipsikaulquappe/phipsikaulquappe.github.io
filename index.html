@@ -1,65 +1,35 @@
-body {
-    margin: 0;
-    padding: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f6f1c4;
-    background-image:
-        linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0,0,0,0.18) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.18) 1px, transparent 1px);
-    background-size:
-        10px 10px,
-        10px 10px,
-        100px 100px,
-        100px 100px;
-    color: black;
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEIN NAME – Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* GLOBAL: alle Links schwarz und ohne Unterstreichung */
-a,
-a:visited {
-    color: black;
-    text-decoration: none;
-}
+<nav>
+    <div class="nav-left">
+        <a href="index.html">DEIN NAME</a>
+    </div>
+    <div class="nav-right">
+        <a href="index.html">PROJECTS</a>
+        <a href="drawings.html">DRAWINGS</a>
+        <a href="archive.html">ARCHIVE</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+</nav>
 
-a:hover {
-    opacity: 0.4;
-}
+<div class="projects-layout">
+    <div class="projects-list">
+        <a href="projects/project1.html">Project Title 1</a>
+        <a href="projects/project2.html">Project Title 2</a>
+        <a href="#">Project Title 3</a>
+        <a href="#">Project Title 4</a>
+    </div>
 
-nav {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    margin-bottom: 80px;
-    font-size: 18px;
-    letter-spacing: 1px;
-}
+    <div class="projects-content">
+        <!-- optional content area -->
+    </div>
+</div>
 
-.nav-right {
-    display: flex;
-    gap: 30px;
-    justify-self: end;
-}
-
-/* Layout */
-.projects-layout {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 80px;
-}
-
-/* Projekttitel links */
-.projects-list {
-    font-size: 30px;
-}
-
-.projects-list a {
-    display: block;
-    margin-bottom: 30px;
-}
-
-/* rechte Seite */
-.projects-content {
-    min-height: 400px;
-}
+</body>
+</html>
