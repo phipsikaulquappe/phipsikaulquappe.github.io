@@ -1,75 +1,86 @@
 body {
     margin: 0;
-    padding: 40px;
-    font-family: "Courier New", Courier, monospace;
+    padding: 60px 70px;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #f6f1c4;
     background-image:
-        linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0,0,0,0.18) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.18) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.14) 1px, transparent 1px);
     background-size:
         10px 10px,
         10px 10px,
         100px 100px,
         100px 100px;
-    color: black;
+    color: #111;
+    line-height: 1.5;
 }
 
-/* Globale Links */
-a, a:visited {
-    color: black;
+/* Links */
+a,
+a:visited {
+    color: #111;
     text-decoration: none;
 }
 
 a:hover {
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 /* Navigation */
 nav {
     display: grid;
     grid-template-columns: 1fr auto;
-    align-items: center;
-    margin-bottom: 60px;
+    align-items: baseline;
+    margin-bottom: 120px;
 }
 
-/* Name links */
 .nav-left a {
-    font-size: 18px;
-    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.5px;
 }
 
-/* Rechte Navigation */
 .nav-right {
     display: flex;
-    gap: 30px;
+    gap: 40px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Layout */
+.projects-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    column-gap: 120px;
+}
+
+/* Projektliste */
+.projects-list {
     font-size: 18px;
 }
 
-/* projects.html */
-/* Layout projects.html */
-.projects-layout {
-    display: flex;
-    gap: 40px;
-}
-
-/* Projektliste links */
-.projects-list {
-    width: 300px;
-    margin-top: 1px;
-    padding-left: 30px;
-    padding-right: 10px;
-}
-
-/* Links in der Projektliste */
 .projects-list a {
     display: block;
-    font-size: 18px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
-/* Rechte Content-Seite */
-.projects-content {
-    flex: 1;
+/* Projektinhalt */
+.projects-content h1 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.projects-content p {
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+.projects-content img {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
 }
