@@ -36,25 +36,34 @@ nav a {
     color: black;
 }
 
+nav a:visited {
+    color: black;
+}
+
 nav a:hover {
     opacity: 0.4;
 }
 
 .projects-layout {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 60px;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
 }
 
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    font-size: 20px;
+    gap: 25px;
+    font-size: 26px;
 }
 
 .projects-list a {
+    display: block;
     text-decoration: none;
+    color: black;
+}
+
+.projects-list a:visited {
     color: black;
 }
 
