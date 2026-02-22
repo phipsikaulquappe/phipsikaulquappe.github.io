@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Projekt 1
+title: Projekt 2
 year: 2027
 ---
 
