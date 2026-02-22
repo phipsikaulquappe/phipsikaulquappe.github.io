@@ -3,7 +3,7 @@ body {
     padding: 40px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    background-image: url("images/scan_26.jpg");
+    background-image: src("images/scan_26.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     background-size: 1200px auto;
