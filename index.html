@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Personal Homepage</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,34 +20,5 @@
         </div>
     </nav>
 
-    <!-- Hauptbereich -->
-    <div class="projects-layout">
-        <!-- Linke Liste -->
-        <div class="projects-list">
-            <a href="#">Projekt 1</a>
-            <a href="#">Projekt 2</a>
-            <a href="#">Projekt 3</a>
-            <a href="#">Projekt 4</a>
-        </div>
-
-        <!-- Rechte Seite -->
-        <div class="projects-content">
-            <h1>Projects</h1>
-            <p>Hier kommt der Inhalt deiner Projekte hin.</p>
-        </div>
-    </div>
-
-    <!-- Automatische Hervorhebung der Navigation -->
-    <script>
-        const navLinks = document.querySelectorAll('.nav-right a');
-        const currentPage = window.location.pathname.split("/").pop();
-
-        navLinks.forEach(link => {
-            const linkPage = link.getAttribute('href');
-            if (linkPage === currentPage) {
-                link.classList.add('active');
-            }
-        });
-    </script>
 </body>
 </html>
