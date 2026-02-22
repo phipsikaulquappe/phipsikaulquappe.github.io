@@ -2,18 +2,18 @@ body {
     margin: 0;
     padding: 40px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f6f1c4;
-    background-image:
-        linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0,0,0,0.18) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.18) 1px, transparent 1px);
-    background-size:
-        10px 10px,
-        10px 10px,
-        100px 100px,
-        100px 100px;
+    background: #f6f1c4;
     color: black;
+}
+
+/* Alle Links schwarz, ohne Unterstreichung */
+a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.4;
 }
 
 nav {
@@ -22,49 +22,30 @@ nav {
     align-items: center;
     margin-bottom: 80px;
     font-size: 18px;
-    letter-spacing: 1px;
 }
 
 .nav-right {
     display: flex;
     gap: 30px;
-    justify-self: end;
-}
-
-nav a,
-nav a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-nav a:hover {
-    opacity: 0.4;
 }
 
 /* Projektlayout */
 .projects-layout {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 80px;
+    display: flex;
 }
 
-/* WICHTIG: greift auf ALLE Links innerhalb der Liste */
+/* Linke Spalte */
 .projects-list {
-    font-size: 28px;
+    width: 300px;
 }
 
-.projects-list a,
-.projects-list a:visited {
+.projects-list a {
     display: block;
+    font-size: 32px;
     margin-bottom: 25px;
-    text-decoration: none;
-    color: black;
 }
 
-.projects-list a:hover {
-    opacity: 0.4;
-}
-
+/* Rechte Spalte */
 .projects-content {
-    min-height: 400px;
+    flex: 1;
 }
