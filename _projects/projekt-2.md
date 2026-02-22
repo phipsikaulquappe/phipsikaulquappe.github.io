@@ -6,4 +6,4 @@ year: 2027
 
 Hier steht dein Beschreibungstext.
 
-![Bildbeschreibung](images/bild1.jpg)
+![Bildbeschreibung](/images/bild1.jpg)
