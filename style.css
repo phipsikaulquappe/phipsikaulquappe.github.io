@@ -31,12 +31,9 @@ nav {
     justify-self: end;
 }
 
-nav a {
-    text-decoration: none;
-    color: black;
-}
-
+nav a,
 nav a:visited {
+    text-decoration: none;
     color: black;
 }
 
@@ -44,26 +41,23 @@ nav a:hover {
     opacity: 0.4;
 }
 
+/* Projektlayout */
 .projects-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 80px;
 }
 
+/* WICHTIG: greift auf ALLE Links innerhalb der Liste */
 .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    font-size: 26px;
+    font-size: 28px;
 }
 
-.projects-list a {
-    display: block;
-    text-decoration: none;
-    color: black;
-}
-
+.projects-list a,
 .projects-list a:visited {
+    display: block;
+    margin-bottom: 25px;
+    text-decoration: none;
     color: black;
 }
 
