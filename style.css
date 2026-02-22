@@ -24,7 +24,7 @@ nav {
     margin-bottom: 80px;
 }
 
-/* DEIN NAME größer */
+/* DEIN NAME */
 .nav-left a {
     font-size: 18px;
     font-weight: normal;
@@ -49,8 +49,8 @@ nav {
 
 .projects-list a {
     display: block;
-    font-size: 26px;  /* kleiner als DEIN NAME */
-    margin-bottom: 20px;
+    font-size: 14px;  
+    margin-bottom: 10px;
 }
 
 /* Rechte Seite */
