@@ -25,10 +25,6 @@ nav {
     letter-spacing: 1px;
 }
 
-.nav-left {
-    justify-self: start;
-}
-
 .nav-right {
     display: flex;
     gap: 30px;
@@ -44,28 +40,28 @@ nav a:hover {
     opacity: 0.4;
 }
 
-.grid {
+.projects-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
 }
 
-.grid img {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
 }
 
-.project-container {
-    max-width: 800px;
+.projects-list a {
+    text-decoration: none;
+    color: black;
 }
 
-.project-container img {
-    width: 100%;
-    margin-bottom: 20px;
+.projects-list a:hover {
+    opacity: 0.4;
 }
 
-.small-text {
-    font-size: 13px;
-    line-height: 1.6;
+.projects-content {
+    min-height: 400px;
 }
