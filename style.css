@@ -6,7 +6,6 @@ body {
     color: black;
 }
 
-/* Links global */
 a, a:visited {
     color: black;
     text-decoration: none;
@@ -16,44 +15,33 @@ a:hover {
     opacity: 0.4;
 }
 
-/* Navigation */
 nav {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     margin-bottom: 80px;
+    font-size: 18px; /* bleibt wie vorher */
 }
 
-/* DEIN NAME größer */
-.nav-left a {
-    font-size: 40px;
-    font-weight: normal;
-}
-
-/* Rechte Navigation */
 .nav-right {
     display: flex;
     gap: 30px;
-    font-size: 18px;
 }
 
-/* Layout */
 .projects-layout {
     display: flex;
 }
 
-/* Projektliste links */
 .projects-list {
     width: 300px;
 }
 
 .projects-list a {
     display: block;
-    font-size: 26px;  /* kleiner als DEIN NAME */
-    margin-bottom: 20px;
+    font-size: 20px;   /* kleiner als Navigation */
+    margin-bottom: 18px;
 }
 
-/* Rechte Seite */
 .projects-content {
     flex: 1;
 }
