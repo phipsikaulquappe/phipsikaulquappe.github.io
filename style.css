@@ -17,17 +17,22 @@ body {
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     font-size: 18px;
     letter-spacing: 1px;
 }
 
+.nav-left {
+    justify-self: start;
+}
+
 .nav-right {
     display: flex;
-    gap: 40px;
+    gap: 30px;
+    justify-self: end;
 }
 
 nav a {
