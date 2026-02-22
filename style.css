@@ -16,7 +16,7 @@ body {
     color: black;
 }
 
-/* Links global */
+/* Globale Links */
 a, a:visited {
     color: black;
     text-decoration: none;
@@ -31,10 +31,10 @@ nav {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    margin-bottom: 60px; /* etwas enger zur Liste */
+    margin-bottom: 60px;
 }
 
-/* DEIN NAME */
+/* Name links */
 .nav-left a {
     font-size: 18px;
     font-weight: normal;
@@ -47,40 +47,36 @@ nav {
     font-size: 18px;
 }
 
+/* Aktive Hauptnavigation */
+.nav-right a.active {
+    background-color: #add8e6;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
 /* Layout */
 .projects-layout {
     display: flex;
-    gap: 40px; /* Abstand zwischen Liste und Inhalt */
+    gap: 40px;
 }
 
 /* Projektliste links */
 .projects-list {
     width: 300px;
-    margin-top: 1px;   
-    padding-left: 40px; 
+    margin-top: 1px;
+    padding-left: 40px;
     padding-right: 10px;
-    background-color: #f6f1c4; /* Hintergrundfarbe, um Milimeterpapier auszublenden */
-    border-radius: 5px; /* optional: abgerundete Ecken für schöne Optik */
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
-/* Links in der Liste */
+/* Links in der Projektliste */
 .projects-list a {
     display: block;
-    font-size: 14px;  
-    margin-bottom: 12px; 
-    padding: 4px 8px; /* etwas Innenabstand für Highlight */
-    border-radius: 3px; /* abgerundeter Hintergrund für aktive Links */
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
-/* Aktiver/ausgewählter Link */
-.projects-list a.active {
-    background-color: #add8e6; /* hellblauer Hintergrund */
-    font-weight: bold;
-}
-
-/* Rechte Seite */
+/* Rechte Content-Seite */
 .projects-content {
     flex: 1;
 }
