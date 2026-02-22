@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 60px 70px;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #f6f1c4;
+    background-image:
+        linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.14) 1px, transparent 1px);
+    background-size:
+        10px 10px,
+        10px 10px,
+        100px 100px,
+        100px 100px;
+    color: #111;
+    line-height: 1.5;
+}
+
+/* Links */
+a,
+a:visited {
+    color: #111;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+/* Navigation */
+nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    margin-bottom: 120px;
+}
+
+.nav-left a {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 40px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+.nav-right a.active {
+    border-bottom: 1px solid #111;
+}
+
+/* Layout */
+.projects-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    column-gap: 120px;
+}
+
+/* Projektliste */
+.projects-list {
+    font-size: 18px;
+}
+
+.projects-list a {
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* Projektinhalt */
+.projects-content h1 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.projects-content p {
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+.projects-content img {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
