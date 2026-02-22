@@ -47,6 +47,9 @@ nav {
     font-size: 15px;
     letter-spacing: 0.5px;
 }
+.nav-right a.active {
+    border-bottom: 1px solid #111;
+}
 
 /* Layout */
 .projects-layout {
