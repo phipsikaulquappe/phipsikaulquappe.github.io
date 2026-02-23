@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================
-       SIDEBAR AUTOMATISCH LADEN
-    ========================== */
-
     const container = document.getElementById("sidebar-container");
-    const path = window.location.pathname;
+    const currentPath = window.location.pathname;
+
+    /* =========================
+       SIDEBAR LADEN
+    ========================== */
 
     if (container) {
 
         let sidebarFile = null;
 
-        if (path.includes("projects")) {
+        if (currentPath.includes("projects")) {
             sidebarFile = "projects-list.html";
-        } else if (path.includes("drawings")) {
+        } else if (currentPath.includes("drawings")) {
             sidebarFile = "drawings-list.html";
-        } else if (path.includes("archive")) {
+        } else if (currentPath.includes("archive")) {
             sidebarFile = "archive-list.html";
-        } else if (path.includes("about")) {
+        } else if (currentPath.includes("about")) {
             sidebarFile = "about-list.html";
         }
 
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     container.innerHTML = data;
 
-                    const currentPath = window.location.pathname;
                     const links = container.querySelectorAll("a");
 
                     /* =========================
@@ -37,14 +36,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     ========================== */
 
                     links.forEach(link => {
-                        const linkPath = new URL(link.href).pathname;
 
-                        if (linkPath === currentPath) {
+                        const href = link.getAttribute("href");
+
+                        if (!href) return;
+
+                        if (currentPath.endsWith(href)) {
                             link.classList.add("active");
 
                             const group = link.closest(".sidebar-group");
                             if (group) group.classList.add("open");
                         }
+
                     });
 
                     /* =========================
@@ -57,31 +60,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const sub = group.querySelector(".sidebar-sub");
 
-                        if (sub) {
+                        if (!sub) return;
 
-                            const mainLink = group.querySelector("a");
-                            const firstSub = sub.querySelector("a");
+                        const mainLink = group.querySelector("a");
+                        const firstSub = sub.querySelector("a");
 
-                            if (mainLink && firstSub) {
+                        if (!mainLink || !firstSub) return;
 
-                                mainLink.addEventListener("click", function (e) {
+                        mainLink.addEventListener("click", function (e) {
 
-                                    // Nur umleiten wenn nicht direkt ein Sublink geklickt wurde
-                                    if (!e.target.closest(".sidebar-sub")) {
-                                        e.preventDefault();
-                                        window.location.href = firstSub.href;
-                                    }
-
-                                });
-
+                            if (!e.target.closest(".sidebar-sub")) {
+                                e.preventDefault();
+                                window.location.href = firstSub.getAttribute("href");
                             }
-                        }
+
+                        });
 
                     });
 
                 })
-                .catch(error => {
-                    console.error("Sidebar konnte nicht geladen werden:", error);
+                .catch(err => {
+                    console.error("Sidebar Fehler:", err);
                 });
         }
     }
@@ -90,21 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
        HEADER ACTIVE STATE
     ========================== */
 
-    const currentPathNav =
-        window.location.pathname === "/"
-            ? "/index.html"
-            : window.location.pathname;
-
     const navLinks = document.querySelectorAll(".nav-right a");
 
     navLinks.forEach(link => {
 
-        const linkPath = new URL(link.href).pathname;
+        const href = link.getAttribute("href");
 
-        if (
-            currentPathNav === linkPath ||
-            currentPathNav.startsWith(linkPath.replace(".html", "/"))
-        ) {
+        if (!href) return;
+
+        if (currentPath.endsWith(href)) {
             link.classList.add("active");
         }
 
