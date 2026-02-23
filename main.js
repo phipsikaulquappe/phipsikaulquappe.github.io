@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
-       SIDEBAR LADEN
+       SIDEBAR AUTOMATISCH LADEN
     ========================== */
 
     const container = document.getElementById("sidebar-container");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const links = container.querySelectorAll("a");
 
                     /* =========================
-                       ACTIVE LINK SIDEBAR
+                       SIDEBAR ACTIVE LINK
                     ========================== */
 
                     links.forEach(link => {
@@ -48,31 +48,43 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     /* =========================
-                       HAUPTPUNKT → ERSTES SUB
+                       HAUPTLINK → ERSTES SUB
                     ========================== */
 
                     const groups = container.querySelectorAll(".sidebar-group");
 
                     groups.forEach(group => {
+
                         const sub = group.querySelector(".sidebar-sub");
 
                         if (sub) {
-                            const mainLink = group.querySelector(":scope > a");
+
+                            const mainLink = group.querySelector("a");
                             const firstSub = sub.querySelector("a");
 
                             if (mainLink && firstSub) {
+
                                 mainLink.addEventListener("click", function (e) {
-                                    e.preventDefault();
-                                    window.location.href = firstSub.href;
+
+                                    // Nur umleiten wenn nicht direkt ein Sublink geklickt wurde
+                                    if (!e.target.closest(".sidebar-sub")) {
+                                        e.preventDefault();
+                                        window.location.href = firstSub.href;
+                                    }
+
                                 });
+
                             }
                         }
+
                     });
 
+                })
+                .catch(error => {
+                    console.error("Sidebar konnte nicht geladen werden:", error);
                 });
         }
     }
-
 
     /* =========================
        HEADER ACTIVE STATE
@@ -86,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".nav-right a");
 
     navLinks.forEach(link => {
+
         const linkPath = new URL(link.href).pathname;
 
         if (
@@ -94,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ) {
             link.classList.add("active");
         }
+
     });
 
 });
