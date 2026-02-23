@@ -1,6 +1,13 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
-    padding: 60px 70px;
+    padding: 40px;
     font-family: "Courier New", Courier, monospace;
     background-color: #f6f1c4;
     background-image:
@@ -56,12 +63,13 @@ nav {
 /* Layout projects.html */
 .projects-layout {
     display: flex;
-    gap: 20px;   /* vorher 40px */
+    gap: 40px;
+    align-items: flex-start;
 }
 
 /* Projektliste links */
 #projects-list-container {
-    width: 270px;
+    width: 300px;
     margin-top: 1px;
     padding-left: 0px;
     padding-right: 10px;
@@ -98,8 +106,8 @@ nav {
 .media-grid img,
 .media-grid video {
     width: 100%;
-    aspect-ratio: 4 / 3;   /* Einheitliches Format */
-    object-fit: cover;     /* Füllt das Format */
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     display: block;
 }
 
