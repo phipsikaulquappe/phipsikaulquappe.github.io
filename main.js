@@ -85,29 +85,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    /* =========================
-   HEADER ACTIVE STATE
-========================= */
+        /* =========================
+    HEADER ACTIVE STATE
+    ========================= */
 
-const currentPath = window.location.pathname;
-const navLinks = document.querySelectorAll(".nav-right a");
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll(".nav-right a");
 
-navLinks.forEach(link => {
+    navLinks.forEach(link => {
 
-    const href = link.getAttribute("href");
+        const href = link.getAttribute("href");
 
-    if (!href) return;
+        if (!href) return;
 
-    // Section bestimmen
-    if (
-        (currentPath.includes("/projects") && href.includes("projects")) ||
-        (currentPath.includes("/drawings") && href.includes("drawings")) ||
-        (currentPath.includes("/archive") && href.includes("archive")) ||
-        (currentPath.includes("/about") && href.includes("about"))
-    ) {
-        link.classList.add("active");
-    }
+        // Section bestimmen
+        if (
+            (currentPath.includes("/projects") && href.includes("projects")) ||
+            (currentPath.includes("/drawings") && href.includes("drawings")) ||
+            (currentPath.includes("/archive") && href.includes("archive")) ||
+            (currentPath.includes("/about") && href.includes("about"))
+        ) {
+            link.classList.add("active");
+        }
 
-});
+    });
 
 });
