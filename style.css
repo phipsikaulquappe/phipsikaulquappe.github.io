@@ -117,7 +117,7 @@ a:hover {
 
 .nav-left a {
     font-size: 22px;
-    padding-top: 10px;
+    padding-top: 50px;
 }
 
 .nav-right {
@@ -136,7 +136,7 @@ a:hover {
 ========================= */
 
 .sidebar-list {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .sidebar-group {
@@ -166,7 +166,7 @@ a:hover {
 }
 
 .sidebar-sub a {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 6px;
     transition: opacity 0.2s ease;
 }
