@@ -1,7 +1,7 @@
 fetch("/projects-list.html")
     .then(response => response.text())
     .then(data => {
-        const container = document.getElementById("projects-list-container");
+        const container = document.getElementById("sidebar-container");
         if (!container) return;
 
         container.innerHTML = data;
