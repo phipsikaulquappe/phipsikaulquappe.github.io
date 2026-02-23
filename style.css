@@ -92,3 +92,27 @@ nav {
     object-fit: cover;
     display: block;
 }
+.project-group {
+    margin-bottom: 14px;
+}
+
+.project-group > a {
+    display: block;
+    font-size: 18px;
+}
+
+.subprojects {
+    margin-top: 6px;
+    padding-left: 18px;
+}
+
+.subprojects a {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 6px;
+    opacity: 0.8;
+}
+
+.subprojects a:hover {
+    opacity: 1;
+}
