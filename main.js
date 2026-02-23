@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let sidebarFile = null;
 
-        if (currentPath.includes("projects")) {
+        if (currentPath.includes("/projects")) {
             sidebarFile = "projects-list.html";
-        } else if (currentPath.includes("drawings")) {
+        } else if (currentPath.includes("/drawings")) {
             sidebarFile = "drawings-list.html";
-        } else if (currentPath.includes("archive")) {
+        } else if (currentPath.includes("/archive")) {
             sidebarFile = "archive-list.html";
-        } else if (currentPath.includes("about")) {
+        } else if (currentPath.includes("/about")) {
             sidebarFile = "about-list.html";
         }
 
@@ -38,10 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     links.forEach(link => {
 
                         const href = link.getAttribute("href");
-
                         if (!href) return;
 
-                        if (currentPath.endsWith(href)) {
+                        if (currentPath === href) {
                             link.classList.add("active");
 
                             const group = link.closest(".sidebar-group");
@@ -59,16 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     groups.forEach(group => {
 
                         const sub = group.querySelector(".sidebar-sub");
-
                         if (!sub) return;
 
-                        const mainLink = group.querySelector("a");
+                        const mainLink = group.querySelector(":scope > a");
                         const firstSub = sub.querySelector("a");
 
                         if (!mainLink || !firstSub) return;
 
                         mainLink.addEventListener("click", function (e) {
 
+                            // Nur umleiten wenn nicht direkt ein Sub-Link geklickt wurde
                             if (!e.target.closest(".sidebar-sub")) {
                                 e.preventDefault();
                                 window.location.href = firstSub.getAttribute("href");
@@ -85,20 +84,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-        /* =========================
-    HEADER ACTIVE STATE
-    ========================= */
+    /* =========================
+       HEADER ACTIVE STATE
+    ========================== */
 
-    const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll(".nav-right a");
 
     navLinks.forEach(link => {
 
         const href = link.getAttribute("href");
-
         if (!href) return;
 
-        // Section bestimmen
         if (
             (currentPath.includes("/projects") && href.includes("projects")) ||
             (currentPath.includes("/drawings") && href.includes("drawings")) ||
