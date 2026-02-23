@@ -16,7 +16,6 @@ fetch("/projects-list.html")
             if (linkPath === currentPath) {
                 link.classList.add("active");
 
-                // Falls es ein Subprojekt ist, öffne automatisch die Gruppe
                 const group = link.closest(".project-group");
                 if (group) {
                     group.classList.add("open");
@@ -28,12 +27,18 @@ fetch("/projects-list.html")
 
         groups.forEach(group => {
             const sub = group.querySelector(".subprojects");
+
             if (sub) {
                 const mainLink = group.querySelector("a");
+                const firstSub = sub.querySelector("a");
 
                 mainLink.addEventListener("click", function(e) {
                     e.preventDefault();
-                    group.classList.toggle("open");
+
+                    // Wenn Subprojekte existieren → direkt erstes Subprojekt öffnen
+                    if (firstSub) {
+                        window.location.href = firstSub.href;
+                    }
                 });
             }
         });
