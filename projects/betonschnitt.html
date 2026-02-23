@@ -1,9 +1,9 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Hompage</title>
+    <title>Personal Homepage</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -25,20 +25,15 @@
     <div id="projects-list-container"></div>
 
     <div class="projects-content">
-         <div class="media-grid">
-             <img src="../images/bild1.jpg" alt="">
+        <div class="media-grid">
+            <img src="../images/bild1.jpg" alt="">
+        </div>
         <p>Beschreibungstext.</p>
     </div>
 
 </div>
 
-<script>
-fetch("../projects-list.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("projects-list-container").innerHTML = data;
-    });
-</script>
+<script src="/main.js"></script>
 
 </body>
 </html>
