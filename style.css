@@ -66,9 +66,11 @@ nav {
 
 /* Links in der Projektliste */
 .projects-list a {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 12px;
+    transition: opacity 0.2s ease;
+}
+
+.projects-list a:hover {
+    opacity: 0.4;
 }
 
 /* Rechte Content-Seite */
