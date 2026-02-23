@@ -3,42 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Homepage</title>
+    <title>Archive</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <div class="layout">
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="nav-left">
-            <a href="/index.html"><strong>Mein Name</strong></a>
-        </div>
-        <nav class="nav-right">
-            <a href="/projects.html">Projects</a>
-            <a href="/drawings.html">Drawings</a>
-            <a href="/archive.html">Archive</a>
-            <a href="/about.html">About</a>
-        </nav>
-    </header>
+<header class="header">
+    <div class="nav-left">
+        <a href="/index.html"><strong>Mein Name</strong></a>
+    </div>
+    <nav class="nav-right">
+        <a href="/projects.html">Projects</a>
+        <a href="/drawings.html">Drawings</a>
+        <a href="/archive.html">Archive</a>
+        <a href="/about.html">About</a>
+    </nav>
+</header>
 
-    <!-- Leere Sidebar (optional) -->
-    <aside class="sidebar">
-        <!-- Hier kann später Navigation stehen -->
-    </aside>
+<aside class="sidebar">
+    <div id="sidebar-container"></div>
+</aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="main">
-        <h1>Seitentitel</h1>
-        <p style="margin-top:30px;">
-            Inhalt hier.
-        </p>
-    </main>
+<main class="main">
+    <h1>Archive</h1>
+    <p style="margin-top:30px;">
+        Inhalt hier.
+    </p>
+</main>
 
 </div>
 
-<script src="/main.js"></script>
+<script>
+fetch("/drawings-list.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar-container").innerHTML = data;
+    });
+</script>
 
+<script src="/main.js"></script>
 </body>
 </html>
