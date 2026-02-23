@@ -47,6 +47,11 @@ nav {
     font-size: 18px;
 }
 
+.nav-right a.active {
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
 /* projects.html */
 /* Layout projects.html */
 .projects-layout {
@@ -70,6 +75,12 @@ nav {
     font-size: 18px;
     margin-bottom: 12px;
 }
+
+.projects-list a.active {
+    border-left: 2px solid #000;
+    padding-left: 6px;
+}
+
 
 /* Rechte Content-Seite */
 .projects-content {
@@ -136,7 +147,4 @@ nav {
     display: block;
 }
 
-.projects-list a.active {
-    border-left: 2px solid #000;
-    padding-left: 6px;
-}
+
