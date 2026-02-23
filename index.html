@@ -36,7 +36,7 @@
 </div>
 
 <script>
-fetch("/drawings-list.html")
+fetch("/index-list.html")
     .then(response => response.text())
     .then(data => {
         document.getElementById("sidebar-container").innerHTML = data;
