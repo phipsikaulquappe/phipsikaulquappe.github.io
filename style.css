@@ -90,16 +90,15 @@ nav {
 /* Medien Grid */
 
 .media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 40px;
+    column-count: 2;
+    column-gap: 30px;
     margin-top: 40px;
 }
 
 .media-grid img,
 .media-grid video {
     width: 100%;
-    height: auto;
+    margin-bottom: 30px;
     display: block;
 }
 
