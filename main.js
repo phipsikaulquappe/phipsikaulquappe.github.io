@@ -8,6 +8,7 @@ fetch("/projects-list.html")
 
         const currentPath = window.location.pathname;
 
+        // --- Projektliste aktiv markieren ---
         const links = container.querySelectorAll("a");
 
         links.forEach(link => {
@@ -17,12 +18,11 @@ fetch("/projects-list.html")
                 link.classList.add("active");
 
                 const group = link.closest(".project-group");
-                if (group) {
-                    group.classList.add("open");
-                }
+                if (group) group.classList.add("open");
             }
         });
 
+        // --- Hauptprojekt → erstes Subprojekt ---
         const groups = container.querySelectorAll(".project-group");
 
         groups.forEach(group => {
@@ -34,8 +34,6 @@ fetch("/projects-list.html")
 
                 mainLink.addEventListener("click", function(e) {
                     e.preventDefault();
-
-                    // Wenn Subprojekte existieren → direkt erstes Subprojekt öffnen
                     if (firstSub) {
                         window.location.href = firstSub.href;
                     }
@@ -43,3 +41,20 @@ fetch("/projects-list.html")
             }
         });
     });
+
+
+// --- Navigation aktiv markieren ---
+
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll(".nav-right a");
+
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+
+        if (currentPath === linkPath ||
+            (currentPath.startsWith("/projects/") && linkPath === "/projects.html")) {
+            link.classList.add("active");
+        }
+    });
+});
