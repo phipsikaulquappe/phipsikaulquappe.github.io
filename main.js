@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
                        SIDEBAR ACTIVE LINK
                     ========================== */
 
-                    links.forEach(link => {
+                    links.forEach(function(link) {
 
                         const href = link.getAttribute("href");
                         if (!href) return;
 
-                        if (currentPath === href) {
+                        if (href === currentPath) {
                             link.classList.add("active");
 
                             const group = link.closest(".sidebar-group");
@@ -55,22 +55,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const groups = container.querySelectorAll(".sidebar-group");
 
-                    groups.forEach(group => {
+                    groups.forEach(function(group) {
 
                         const sub = group.querySelector(".sidebar-sub");
                         if (!sub) return;
 
-                        const mainLink = group.querySelector(":scope > a");
+                        const mainLink = group.querySelector("a"); // KEIN :scope
                         const firstSub = sub.querySelector("a");
 
                         if (!mainLink || !firstSub) return;
 
-                        mainLink.addEventListener("click", function (e) {
+                        mainLink.addEventListener("click", function(e) {
 
-                            // Nur umleiten wenn nicht direkt ein Sub-Link geklickt wurde
+                            // nur wenn nicht direkt ein sublink geklickt wurde
                             if (!e.target.closest(".sidebar-sub")) {
                                 e.preventDefault();
-                                window.location.href = firstSub.getAttribute("href");
+                                window.location.href = firstSub.href;
                             }
 
                         });
@@ -78,9 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                 })
-                .catch(err => {
+                .catch(function(err) {
                     console.error("Sidebar Fehler:", err);
                 });
+
         }
     }
 
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const navLinks = document.querySelectorAll(".nav-right a");
 
-    navLinks.forEach(link => {
+    navLinks.forEach(function(link) {
 
         const href = link.getAttribute("href");
         if (!href) return;
