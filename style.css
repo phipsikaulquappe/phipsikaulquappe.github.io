@@ -155,4 +155,30 @@ nav {
     display: block;
 }
 
+@media (max-width: 900px) {
 
+    body {
+        padding: 30px 20px;
+    }
+
+    .projects-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    #projects-list-container {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+}
