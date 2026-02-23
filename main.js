@@ -46,11 +46,18 @@ fetch("/projects-list.html")
 // --- Navigation aktiv markieren ---
 
 document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname.replace(/\/$/, "");
+
+    let currentPath = window.location.pathname;
+
+    // Falls Startseite "/" ist → als "/index.html" behandeln
+    if (currentPath === "/") {
+        currentPath = "/index.html";
+    }
+
     const navLinks = document.querySelectorAll(".nav-right a");
 
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname.replace(/\/$/, "");
+        const linkPath = new URL(link.href).pathname;
 
         // Exakte Übereinstimmung
         if (currentPath === linkPath) {
@@ -59,9 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Wenn man sich in einem Unterordner befindet
         else if (
-            currentPath.startsWith(linkPath.replace(".html", ""))
+            currentPath.startsWith(linkPath.replace(".html", "/"))
         ) {
             link.classList.add("active");
         }
     });
+
 });
