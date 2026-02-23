@@ -97,15 +97,15 @@ a:hover {
 }
 
 /* =========================
-   GENERIC SIDEBAR NAVIGATION
+   SIDEBAR NAVIGATION
 ========================= */
 
 .sidebar-list {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .sidebar-group {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .sidebar-group > a {
