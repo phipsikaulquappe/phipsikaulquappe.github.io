@@ -108,7 +108,7 @@ a:hover {
 ========================= */
 
 .main {
-    padding: 20px 40px 40px 40px; 
+    padding: 40px 40px 40px 40px; 
 }
 
 /* =========================
@@ -189,14 +189,14 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr;
     gap: 60px;
-    margin-top: 20px;
+    margin-top: 40px;
     justify-items: center;   /* wichtig */
 }
 
 .media-grid img,
 .media-grid video {
     width: 100%;
-    max-width: 900px;        /* hier steuerst du die Größe */
+    max-width: 500px;        /* hier steuerst du die Größe */
     height: auto;
     display: block;
 }
