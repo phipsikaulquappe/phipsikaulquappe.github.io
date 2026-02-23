@@ -97,48 +97,53 @@ a:hover {
 }
 
 /* =========================
-   SIDEBAR PROJECT LIST
+   GENERIC SIDEBAR NAVIGATION
 ========================= */
 
-.projects-list {
+.sidebar-list {
     font-size: 18px;
 }
 
-.project-group {
+.sidebar-group {
     margin-bottom: 14px;
 }
 
-.project-group > a {
+.sidebar-group > a {
     display: block;
     margin-bottom: 6px;
 }
 
-.projects-list a.active {
+.sidebar-list a {
+    display: block;
+}
+
+.sidebar-list a.active {
     border-left: 2px solid #000;
     padding-left: 6px;
 }
 
-/* SUBPROJECTS */
+/* Subnavigation */
 
-.subprojects {
+.sidebar-sub {
     display: none;
     margin-top: 6px;
     padding-left: 18px;
 }
 
-.subprojects a {
+.sidebar-sub a {
     font-size: 15px;
     margin-bottom: 6px;
-    display: block;
     transition: opacity 0.2s ease;
 }
 
-.subprojects a:hover {
+.sidebar-sub a:hover {
     opacity: 0.4;
 }
 
-.project-group:hover .subprojects,
-.project-group.open .subprojects {
+/* Hover + JS open state */
+
+.sidebar-group:hover .sidebar-sub,
+.sidebar-group.open .sidebar-sub {
     display: block;
 }
 
