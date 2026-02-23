@@ -135,3 +135,8 @@ nav {
 .project-group.open .subprojects {
     display: block;
 }
+
+.projects-list a.active {
+    border-left: 2px solid #000;
+    padding-left: 6px;
+}
