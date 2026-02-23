@@ -52,15 +52,16 @@ nav {
 .projects-layout {
     display: flex;
     gap: 40px;
+    align-items: flex-start;
 }
 
 /* Projektliste links */
-.projects-list {
+#projects-list-container {
     width: 300px;
-    min-height: 400px;
     margin-top: 1px;
     padding-left: 30px;
     padding-right: 10px;
+    flex-shrink: 0;
 }
 
 /* Links in der Projektliste */
