@@ -120,13 +120,6 @@ nav {
     font-size: 18px;
 }
 
-/* Subprojekte standardmäßig versteckt */
-.subprojects {
-    display: none;
-    margin-top: 6px;
-    padding-left: 18px;
-}
-
 /* Unterlinks */
 .subprojects {
     display: none;
@@ -161,6 +154,13 @@ nav {
         padding: 30px 20px;
     }
 
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
     .projects-layout {
         flex-direction: column;
         gap: 40px;
@@ -173,12 +173,6 @@ nav {
 
     .media-grid {
         grid-template-columns: 1fr;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
     }
 
 }
