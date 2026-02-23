@@ -136,7 +136,7 @@ a:hover {
 ========================= */
 
 .sidebar-list {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .sidebar-group {
@@ -166,7 +166,7 @@ a:hover {
 }
 
 .sidebar-sub a {
-    font-size: 19px;
+    font-size: 18px;
     margin-bottom: 6px;
     transition: opacity 0.2s ease;
 }
