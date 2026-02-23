@@ -35,6 +35,13 @@
 
 </div>
 
+<script>
+fetch("/about-list.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar-container").innerHTML = data;
+    });
+</script>
 
 <script src="/main.js"></script>
 </body>
