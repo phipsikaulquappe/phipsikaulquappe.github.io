@@ -55,9 +55,8 @@ nav {
 /* projects.html */
 /* Layout projects.html */
 .projects-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    column-gap: 40px;   /* vorher 120px */
+    display: flex;
+    gap: 20px;   /* vorher 40px */
 }
 
 /* Projektliste links */
