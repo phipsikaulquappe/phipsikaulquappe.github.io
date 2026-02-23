@@ -45,16 +45,19 @@ fetch("/projects-list.html")
 
 // --- Navigation aktiv markieren ---
 
-document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll(".nav-right a");
+const currentPathNav = window.location.pathname === "/" 
+    ? "/index.html" 
+    : window.location.pathname;
 
-    navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
+const navLinks = document.querySelectorAll(".nav-right a");
 
-        if (currentPath === linkPath ||
-            (currentPath.startsWith("/projects/") && linkPath === "/projects.html")) {
-            link.classList.add("active");
-        }
-    });
+navLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+
+    if (
+        currentPathNav === linkPath ||
+        currentPathNav.startsWith(linkPath.replace(".html", "/"))
+    ) {
+        link.classList.add("active");
+    }
 });
