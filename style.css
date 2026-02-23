@@ -90,7 +90,7 @@ a:hover {
 ========================= */
 
 .sidebar {
-    padding: 40px;
+    padding: 30px 30px 30px 30px; 
     position: relative;
 }
 
@@ -105,10 +105,12 @@ a:hover {
     background: #000000;
 }
 
-/* MAIN */
+/* =========================
+  MAIN 
+========================= */
 
 .main {
-    padding: 5px 40px 40px 40px; 
+    padding: 12px 40px 40px 40px; 
 }
 
 /* =========================
