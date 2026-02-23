@@ -1,13 +1,18 @@
-/* Reset */
+/* =========================
+   RESET
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* =========================
+   BODY + BACKGROUND
+========================= */
+
 body {
-    margin: 0;
-    padding: 40px;
     font-family: "Courier New", Courier, monospace;
     background-color: #f6f1c4;
     background-image:
@@ -20,12 +25,16 @@ body {
         10px 10px,
         100px 100px,
         100px 100px;
-    color: black;
+    color: #000;
 }
 
-/* Globale Links */
-a, a:visited {
-    color: black;
+/* =========================
+   GLOBAL LINKS
+========================= */
+
+a,
+a:visited {
+    color: #000;
     text-decoration: none;
 }
 
@@ -33,21 +42,49 @@ a:hover {
     opacity: 0.4;
 }
 
-/* Navigation */
-nav {
+/* =========================
+   LAYOUT GRID
+========================= */
+
+.layout {
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    margin-bottom: 60px;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 80px 1fr;
+    min-height: 100vh;
 }
 
-/* Name links */
+/* HEADER */
+
+.header {
+    grid-column: 1 / span 2;
+    border-bottom: 1px solid #000;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    border-right: 1px solid #000;
+    padding: 40px;
+}
+
+/* MAIN */
+
+.main {
+    padding: 40px;
+}
+
+/* =========================
+   HEADER NAVIGATION
+========================= */
+
 .nav-left a {
     font-size: 18px;
-    font-weight: normal;
 }
 
-/* Rechte Navigation */
 .nav-right {
     display: flex;
     gap: 30px;
@@ -59,28 +96,21 @@ nav {
     padding-bottom: 2px;
 }
 
-/* projects.html */
-/* Layout projects.html */
-.projects-layout {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-}
+/* =========================
+   SIDEBAR PROJECT LIST
+========================= */
 
-/* Projektliste links */
-#projects-list-container {
-    width: 300px;
-    margin-top: 1px;
-    padding-left: 0px;
-    padding-right: 10px;
-    flex-shrink: 0;
-}
-
-/* Links in der Projektliste */
-.projects-list a {
-    display: block;
+.projects-list {
     font-size: 18px;
-    margin-bottom: 12px;
+}
+
+.project-group {
+    margin-bottom: 14px;
+}
+
+.project-group > a {
+    display: block;
+    margin-bottom: 6px;
 }
 
 .projects-list a.active {
@@ -88,13 +118,33 @@ nav {
     padding-left: 6px;
 }
 
+/* SUBPROJECTS */
 
-/* Rechte Content-Seite */
-.projects-content {
-    flex: 1;
+.subprojects {
+    display: none;
+    margin-top: 6px;
+    padding-left: 18px;
 }
 
-/* Medien Grid */
+.subprojects a {
+    font-size: 15px;
+    margin-bottom: 6px;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.subprojects a:hover {
+    opacity: 0.4;
+}
+
+.project-group:hover .subprojects,
+.project-group.open .subprojects {
+    display: block;
+}
+
+/* =========================
+   MEDIA GRID
+========================= */
 
 .media-grid {
     display: grid;
@@ -111,68 +161,37 @@ nav {
     display: block;
 }
 
-.project-group {
-    margin-bottom: 14px;
-}
-
-.project-group > a {
-    display: block;
-    font-size: 18px;
-}
-
-/* Unterlinks */
-.subprojects {
-    display: none;
-    margin-top: 6px;
-    padding-left: 18px;
-}
-
-.subprojects a {
-    display: block;
-    font-size: 15px;
-    margin-bottom: 6px;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-.subprojects a:hover {
-    opacity: 0.4;
-}
-/* Beim Hover sichtbar */
-.project-group:hover .subprojects {
-    display: block;
-}
-
-/* Wenn per Klick aktiviert */
-.project-group.open .subprojects {
-    display: block;
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 900px) {
 
-    body {
-        padding: 30px 20px;
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
     }
 
-    nav {
-        display: flex;
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #000;
+    }
+
+    .header {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
     }
 
-    .projects-layout {
-        flex-direction: column;
-        gap: 40px;
+    .main {
+        padding: 30px 20px;
     }
 
-    #projects-list-container {
-        width: 100%;
-        padding-left: 0;
+    .sidebar {
+        padding: 30px 20px;
     }
 
     .media-grid {
         grid-template-columns: 1fr;
     }
-
 }

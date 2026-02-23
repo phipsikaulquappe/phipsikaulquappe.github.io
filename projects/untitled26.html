@@ -1,38 +1,43 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Hompage</title>
+    <title>Projekt – Mein Name</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<nav>
+<div class="layout">
+
+<header class="header">
     <div class="nav-left">
         <a href="/index.html"><strong>Mein Name</strong></a>
     </div>
-    <div class="nav-right">
+    <nav class="nav-right">
         <a href="/projects.html">Projects</a>
         <a href="/drawings.html">Drawings</a>
         <a href="/archive.html">Archive</a>
         <a href="/about.html">About</a>
-    </div>
-</nav>
+    </nav>
+</header>
 
-<div class="projects-layout">
-
+<aside class="sidebar">
     <div id="projects-list-container"></div>
+</aside>
 
-    <div class="projects-content">
-         <div class="media-grid">
-             <img src="/images/bild1.jpg" alt="">
-        <p>Beschreibungstext.</p>
+<main class="main">
+    <div class="media-grid">
+        <img src="/images/bild1.jpg" alt="">
     </div>
+
+    <p style="margin-top:40px;">
+        Beschreibungstext.
+    </p>
+</main>
 
 </div>
 
 <script src="/main.js"></script>
-
 </body>
 </html>
