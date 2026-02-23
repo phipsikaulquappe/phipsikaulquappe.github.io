@@ -17,16 +17,16 @@ fetch("/projects-list.html")
             if (linkPath === currentPath) {
                 link.classList.add("active");
 
-                const group = link.closest(".project-group");
+                const group = link.closest(".sidebar-group");
                 if (group) group.classList.add("open");
             }
         });
 
         // --- Hauptprojekt → erstes Subprojekt ---
-        const groups = container.querySelectorAll(".project-group");
+        const groups = container.querySelectorAll(".sidebar-group");
 
         groups.forEach(group => {
-            const sub = group.querySelector(".subprojects");
+            const sub = group.querySelector(".sidebar-sub");
 
             if (sub) {
                 const mainLink = group.querySelector("a");
