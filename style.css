@@ -81,7 +81,7 @@ a:hover {
     right: 20px;      /* Abstand rechts */
     bottom: 0;
     height: 2px;      /* Dicke der Linie */
-    background: #ffffff;
+    background: #7d0344;
 }
 
 
@@ -102,7 +102,7 @@ a:hover {
     bottom: 40px;     /* etwas Luft unten */
     right: 0;
     width: 2px;       /* Dicke der Linie */
-    background: #ffffff;
+    background: #7d0344;
 }
 
 /* MAIN */
