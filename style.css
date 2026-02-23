@@ -101,11 +101,14 @@ nav {
     font-size: 18px;
 }
 
+/* Subprojekte standardmäßig versteckt */
 .subprojects {
+    display: none;
     margin-top: 6px;
     padding-left: 18px;
 }
 
+/* Unterlinks */
 .subprojects a {
     display: block;
     font-size: 15px;
@@ -115,4 +118,14 @@ nav {
 
 .subprojects a:hover {
     opacity: 1;
+}
+
+/* Beim Hover sichtbar */
+.project-group:hover .subprojects {
+    display: block;
+}
+
+/* Wenn per Klick aktiviert */
+.project-group.open .subprojects {
+    display: block;
 }
