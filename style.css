@@ -57,7 +57,7 @@ nav {
 .projects-layout {
     display: grid;
     grid-template-columns: 280px 1fr;
-    column-gap: 120px;
+    column-gap: 40px;   /* vorher 120px */
 }
 
 /* Projektliste links */
