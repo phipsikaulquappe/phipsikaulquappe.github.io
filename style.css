@@ -131,8 +131,8 @@ a:hover {
 }
 
 .sidebar-sub a {
-    font-size: 15px;
-    margin-bottom: 6px;
+    font-size: 12px;
+    margin-bottom: 4px;
     transition: opacity 0.2s ease;
 }
 
