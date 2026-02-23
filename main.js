@@ -6,6 +6,24 @@ fetch("/projects-list.html")
 
         container.innerHTML = data;
 
+        const currentPath = window.location.pathname;
+
+        const links = container.querySelectorAll("a");
+
+        links.forEach(link => {
+            const linkPath = new URL(link.href).pathname;
+
+            if (linkPath === currentPath) {
+                link.classList.add("active");
+
+                // Falls es ein Subprojekt ist, öffne automatisch die Gruppe
+                const group = link.closest(".project-group");
+                if (group) {
+                    group.classList.add("open");
+                }
+            }
+        });
+
         const groups = container.querySelectorAll(".project-group");
 
         groups.forEach(group => {
