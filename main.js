@@ -1,4 +1,4 @@
-fetch("/projects-list.html")
+fetch("/sidebar-list.html")
     .then(response => response.text())
     .then(data => {
         const container = document.getElementById("sidebar-container");
