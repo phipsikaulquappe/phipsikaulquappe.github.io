@@ -6,6 +6,14 @@ fetch("/projects-list.html")
 
         container.innerHTML = data;
 
+        const base = window.location.origin + window.location.pathname.split("/projects")[0];
+
+        container.querySelectorAll("a").forEach(link => {
+            if (!link.href.startsWith("http")) {
+                link.href = base + "/" + link.getAttribute("href");
+            }
+        });
+
         const groups = container.querySelectorAll(".project-group");
 
         groups.forEach(group => {
