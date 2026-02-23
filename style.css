@@ -72,10 +72,10 @@ a:hover {
 .header::after {
     content: "";
     position: absolute;
-    left: 40px;       /* Abstand links */
-    right: 40px;      /* Abstand rechts */
+    left: 20px;       /* Abstand links */
+    right: 20px;      /* Abstand rechts */
     bottom: 0;
-    height: 2px;      /* Dicke der Linie */
+    height: 1px;      /* Dicke der Linie */
     background: #000;
 }
 
@@ -96,7 +96,7 @@ a:hover {
     top: 20px;        /* kleine Lücke zur oberen Linie */
     bottom: 40px;     /* etwas Luft unten */
     right: 0;
-    width: 2px;       /* Dicke der Linie */
+    width: 1px;       /* Dicke der Linie */
     background: #000;
 }
 
