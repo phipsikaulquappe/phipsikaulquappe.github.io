@@ -187,16 +187,14 @@ a:hover {
 
 .media-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 60px;
-    margin-top: 40px;
-    justify-items: center;   /* wichtig */
+    grid-template-columns: 1fr 1fr;   /* exakt 2 Spalten */
+    gap: 30px;                        /* Abstand zwischen den Bildern */
+    margin-top: 20px;
 }
 
 .media-grid img,
 .media-grid video {
     width: 100%;
-    max-width: 500px;        /* hier steuerst du die Größe */
     height: auto;
     display: block;
 }
