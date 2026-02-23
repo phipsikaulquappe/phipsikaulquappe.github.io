@@ -55,20 +55,49 @@ a:hover {
 
 /* HEADER */
 
+/* =========================
+   HEADER
+========================= */
+
 .header {
     grid-column: 1 / span 2;
-    border-bottom: 1px solid #000;
     padding: 25px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-/* SIDEBAR */
+/* Horizontale Linie unter Header */
+.header::after {
+    content: "";
+    position: absolute;
+    left: 40px;       /* Abstand links */
+    right: 40px;      /* Abstand rechts */
+    bottom: 0;
+    height: 2px;      /* Dicke der Linie */
+    background: #000;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
 
 .sidebar {
-    border-right: 1px solid #000;
     padding: 40px;
+    position: relative;
+}
+
+/* Vertikale Linie rechts von Sidebar */
+.sidebar::after {
+    content: "";
+    position: absolute;
+    top: 20px;        /* kleine Lücke zur oberen Linie */
+    bottom: 40px;     /* etwas Luft unten */
+    right: 0;
+    width: 2px;       /* Dicke der Linie */
+    background: #000;
 }
 
 /* MAIN */
