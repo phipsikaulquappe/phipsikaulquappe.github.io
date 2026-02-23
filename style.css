@@ -91,16 +91,15 @@ nav {
 
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
     margin-top: 40px;
 }
 
 .media-grid img,
 .media-grid video {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: auto;
     display: block;
 }
 
