@@ -247,7 +247,7 @@ a:hover {
     /* Header Navigation rechts */
     .nav-right {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 6px;              /* kleiner Abstand */
     font-size: 14px;       /* kleinere Schrift */
     margin-top: 8px;       /* Abstand unter „Mein Name“ */
