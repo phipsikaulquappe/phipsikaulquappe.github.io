@@ -58,10 +58,17 @@ a:visited {
     text-decoration: none;
 }
 
-a:hover {
-    opacity: 0.4;
-}
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        opacity: 0.4;
+    }
 
+    .theme-toggle:hover,
+    .sidebar-toggle:hover {
+        background: #000;
+        color: #fff;
+    }
+}
 /* =========================
    LAYOUT GRID
 ========================= */
@@ -313,7 +320,7 @@ a:hover {
         gap: 14px;
         font-size: 17px;
         margin-top: 6px;
-        margin-left: 10px;
+        margin-left: 6px;
     }
 
     /* Theme oben rechts in Header-Ecke */
