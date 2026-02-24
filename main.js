@@ -110,15 +110,44 @@ document.addEventListener("DOMContentLoaded", function () {
         SIDEBAR TOGGLE MOBILE
         ========================= */
 
-    const toggleBtn = document.getElementById("sidebarToggle");
-    const layout = document.querySelector(".layout");
+    /* =========================
+   SIDEBAR LADEN
+========================= */
 
-    if (toggleBtn && layout) {
+    const container = document.getElementById("sidebar-container");
+    const currentPath = window.location.pathname;
 
-        toggleBtn.addEventListener("click", function () {
-            layout.classList.toggle("sidebar-open");
-        });
+    if (container) {
 
+        let sidebarFile = null;
+
+        if (currentPath.includes("/projects")) {
+            sidebarFile = "/projects-list.html";
+        } 
+        else if (currentPath.includes("/drawings")) {
+            sidebarFile = "/drawings-list.html";
+        } 
+        else if (currentPath.includes("/archive")) {
+            sidebarFile = "/archive-list.html";
+        } 
+        else if (currentPath.includes("/about")) {
+            sidebarFile = "/about-list.html";
+        }
+
+        if (sidebarFile) {
+            fetch(sidebarFile)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Sidebar nicht gefunden: " + sidebarFile);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    container.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Sidebar Fehler:", error);
+                });
+        }
     }
-
 });
