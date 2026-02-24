@@ -280,11 +280,3 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
-/* Hover nur für Geräte mit echter Maus */
-
-@media (hover: none) {
-    *:hover {
-        background: inherit;
-        color: inherit;
-    }
-}
