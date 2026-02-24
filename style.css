@@ -232,43 +232,47 @@ a:hover {
    RESPONSIVE
 ========================= */
 
-
 @media (max-width: 900px) {
 
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
     .header {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    /* obere Zeile */
+    .nav-left {
+        width: 100%;
+    }
+
+    /* zweite Zeile unter der Linie */
+    .nav-right {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        font-size: 14px;
+        margin-top: 20px; /* Abstand zur Linie */
+        align-items: center;
+    }
+
+    /* Toggle Button jetzt im Flow */
+    .sidebar-toggle {
+        display: inline-block;
+        position: static;   /* NICHT mehr absolute */
+        margin-left: auto;  /* schiebt ihn ganz nach rechts */
     }
 
     .main {
-    padding-top: 50px;
-    }
-    
-    .layout {
-        grid-template-columns: 1fr;
-        grid-template-rows: 80px 1fr;
+        padding-top: 40px;
     }
 
-    /* Header Navigation rechts */
-    .nav-right {
-    display: flex;
-    flex-direction: row;
-    gap: 6px;              /* kleiner Abstand */
-    font-size: 14px;       /* kleinere Schrift */
-    margin-top: 8px;       /* Abstand unter „Mein Name“ */
-    }
-
-    /* Toggle Button sichtbar */
-    .sidebar-toggle {
-    display: block;        /* WICHTIG */
-    position: absolute;
-    right: 20px;
-    bottom: -50px;         /* etwas unter der Linie */
-    z-index: 10;           /* damit er über der Linie liegt */
-    }
-
-    /* Sidebar off-canvas */
+    /* Sidebar weiterhin off-canvas */
     .sidebar {
         position: fixed;
         top: 80px;
@@ -278,8 +282,9 @@ a:hover {
         background: #f6f1c4;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
-        z-index: 1000;
+        z-index: 2000;
         padding: 30px 20px;
+        overflow-y: auto;
     }
 
     .layout.sidebar-open .sidebar {
@@ -294,4 +299,3 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
-
