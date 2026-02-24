@@ -127,16 +127,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", function (e) {
 
-        const sidebar = document.querySelector(".sidebar");
-
         if (!layout.classList.contains("sidebar-open")) return;
 
-        const clickedInsideSidebar = sidebar.contains(e.target);
-        const clickedToggle = toggleBtn.contains(e.target);
+        const sidebar = document.querySelector(".sidebar");
 
-        if (!clickedInsideSidebar && !clickedToggle) {
-            layout.classList.remove("sidebar-open");
-        }
+        // Klick auf Toggle → normal weiter
+        if (toggleBtn.contains(e.target)) return;
+
+        // Klick in Sidebar → normal weiter
+        if (sidebar.contains(e.target)) return;
+
+        // Alles andere:
+        e.preventDefault();      // verhindert Link-Klick
+        e.stopPropagation();     // stoppt weitere Events
+
+        layout.classList.remove("sidebar-open");
+        document.body.classList.remove("no-scroll");
 
     });
 
