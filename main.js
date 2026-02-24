@@ -116,18 +116,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (toggleBtn && layout) {
 
         toggleBtn.addEventListener("click", function (e) {
-
-            e.stopPropagation(); // verhindert Durchreichen
+            e.stopPropagation();
 
             layout.classList.toggle("sidebar-open");
-
+            toggleBtn.classList.toggle("active");
         });
 
-        // Optional: Klick außerhalb schließt Sidebar
+        // Klick außerhalb schließt Sidebar
         document.addEventListener("click", function (e) {
 
             if (!layout.contains(e.target)) {
-            layout.classList.remove("sidebar-open");
+                layout.classList.remove("sidebar-open");
+                toggleBtn.classList.remove("active");
             }
 
         });
