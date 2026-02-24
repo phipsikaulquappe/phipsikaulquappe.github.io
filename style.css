@@ -225,11 +225,11 @@ a:hover {
     }
 
     .sidebar-list {
-        font-size: 18px;   /* kleiner */
+        font-size: 14px;   /* kleiner */
     }
 
     .sidebar-sub a {
-        font-size: 16px;   /* kleiner */
+        font-size: 12px;   /* kleiner */
     }
 
     .main {
