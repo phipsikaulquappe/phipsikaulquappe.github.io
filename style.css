@@ -239,10 +239,9 @@ a:hover {
 
     /* Toggle Button sichtbar */
     .sidebar-toggle {
-        display: block;
         position: absolute;
         right: 20px;
-        bottom: -28px;
+        bottom: -26px;
     }
 
     /* Sidebar off-canvas */
