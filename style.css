@@ -216,6 +216,16 @@ a:hover {
         gap: 20px;
     }
 
+    .header::after {
+    content: "";
+    position: absolute;
+    left: 20px;       /* Abstand links */
+    right: 20px;      /* Abstand rechts */
+    bottom: 0;
+    height: 1.2px;      /* Dicke der Linie */
+    background: #000000;
+    }
+
     .nav-left a {
     font-size: 16px;
     }
@@ -248,5 +258,4 @@ a:hover {
         gap: 20px;
     }
 
-}
 }
