@@ -313,7 +313,7 @@ a:hover {
         gap: 14px;
         font-size: 17px;
         margin-top: 6px;
-        margin-left: 4px;
+        margin-left: 10px;
     }
 
     /* Theme oben rechts in Header-Ecke */
@@ -366,4 +366,22 @@ a:hover {
     .media-grid {
         grid-template-columns: 1fr;
     }
+}
+/* HOVER FÜR MOBILE AUS */
+@media (hover: hover) and (pointer: fine) {
+
+    .theme-toggle:hover,
+    .sidebar-toggle:hover {
+        background: #000;
+        color: #fff;
+    }
+
+    .sidebar-sub a:hover {
+        opacity: 0.4;
+    }
+
+    a:hover {
+        opacity: 0.4;
+    }
+
 }
