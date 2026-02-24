@@ -122,24 +122,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================
-    SIDEBAR CLOSE ON OUTSIDE CLICK
+    SIDEBAR CLOSE ON OUTSIDE POINTER
     ========================= */
 
-    document.addEventListener("click", function (e) {
+    document.addEventListener("pointerdown", function (e) {
 
         if (!layout.classList.contains("sidebar-open")) return;
 
         const sidebar = document.querySelector(".sidebar");
 
-        // Klick auf Toggle → normal weiter
+        // Klick auf Menu → normal weiter
         if (toggleBtn.contains(e.target)) return;
 
-        // Klick in Sidebar → normal weiter
+        // Klick innerhalb Sidebar → normal weiter
         if (sidebar.contains(e.target)) return;
 
-        // Alles andere:
-        e.preventDefault();      // verhindert Link-Klick
-        e.stopPropagation();     // stoppt weitere Events
+        // Alles andere: erst schließen, nichts ausführen
+        e.preventDefault();
+        e.stopPropagation();
 
         layout.classList.remove("sidebar-open");
         document.body.classList.remove("no-scroll");
