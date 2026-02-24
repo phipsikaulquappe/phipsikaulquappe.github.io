@@ -247,6 +247,16 @@ a:hover {
         position: relative;
     }
 
+    .header::after {
+    content: "";
+    position: absolute;
+    left: 0px;       /* Abstand links */
+    right: 20px;      /* Abstand rechts */
+    bottom: 0;
+    height: 1.2px;      /* Dicke der Linie */
+    background: #000000;
+    }
+
     /* Navigation unter Mein Name */
     .nav-right {
         display: flex;
