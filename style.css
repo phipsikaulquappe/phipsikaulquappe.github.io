@@ -223,7 +223,7 @@ a:hover {
 }
 
 /* Aktiver Zustand (wenn Sidebar offen) */
-.sidebar-toggle.active {
+.layout.sidebar-open .sidebar-toggle {
     background: #000;
     color: #f6f1c4;
 }
@@ -280,3 +280,4 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
