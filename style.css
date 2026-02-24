@@ -366,15 +366,4 @@ a:hover {
     .media-grid {
         grid-template-columns: 1fr;
     }
-    
-/* Hover im Mobile deaktivieren */
-    a:hover,
-    .theme-toggle:hover,
-    .sidebar-toggle:hover,
-    .sidebar-sub a:hover {
-        background: transparent !important;
-        color: inherit !important;
-        opacity: 1 !important;
-    }
-
 }
