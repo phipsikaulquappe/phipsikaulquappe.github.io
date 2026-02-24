@@ -135,7 +135,7 @@ a:hover {
 }
 
 .nav-right {
-    display: none;
+    display: flex;
     gap: 30px;
     font-size: 18px;
     background: #f6f1c4;
