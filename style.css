@@ -252,7 +252,7 @@ a:hover {
     right: 20px;
     bottom: -40px;         /* etwas unter der Linie */
     z-index: 10;           /* damit er über der Linie liegt */
-}
+    }
 
     /* Sidebar off-canvas */
     .sidebar {
