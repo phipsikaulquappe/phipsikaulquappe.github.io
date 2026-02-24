@@ -200,6 +200,23 @@ a:hover {
 }
 
 /* =========================
+   MOBILE SIDEBAR TOGGLE
+========================= */
+
+.sidebar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* =========================
    RESPONSIVE
 ========================= */
 
@@ -207,57 +224,74 @@ a:hover {
 
     .layout {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr;
+        grid-template-rows: 80px 1fr;
     }
 
+    /* Header kompakter */
     .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .header::after {
-    content: "";
-    position: absolute;
-    left: 20px;       /* Abstand links */
-    right: 20px;      /* Abstand rechts */
-    bottom: 0;
-    height: 1.2px;      /* Dicke der Linie */
-    background: #000000;
+        padding: 20px;
+        align-items: center;
     }
 
     .nav-left a {
-    font-size: 16px;
+        font-size: 16px;
     }
 
+    /* Desktop Navigation ausblenden */
     .nav-right {
-    display: flex;
-    gap: 10px;
-    font-size: 16px;
+        display: none;
     }
 
+    /* Toggle Button sichtbar */
+    .sidebar-toggle {
+        display: block;
+        position: absolute;
+        left: 20px;
+        bottom: -28px; /* sitzt direkt unter der Linie */
+    }
+
+    /* Sidebar wird off-canvas */
     .sidebar {
-        padding: 25px 20px;
+        position: fixed;
+        top: 80px; /* Höhe des Headers */
+        left: 0;
+        width: 240px;
+        height: calc(100vh - 80px);
+        background: #f6f1c4;
+        padding: 30px 20px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
     }
 
+    /* Wenn geöffnet */
+    .layout.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
 
+    /* Vertikale Linie im Mobile entfernen */
+    .sidebar::after {
+        display: none;
+    }
+
+    /* Sidebar Typografie kleiner */
     .sidebar-list {
-        font-size: 14px;   /* kleiner */
-        margin-bottom: 6px;
+        font-size: 14px;
     }
 
     .sidebar-sub a {
-        font-size: 12px;   /* kleiner */
-        margin-bottom: 6px;
+        font-size: 12px;
     }
 
+    /* Main kompakter */
     .main {
         padding: 30px 20px;
     }
 
+    /* Bilder untereinander */
     .media-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
 }
+
