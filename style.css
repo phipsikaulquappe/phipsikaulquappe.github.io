@@ -69,7 +69,6 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    z-index: 20;
 }
 
 /* Horizontale Linie unter Header */
@@ -205,7 +204,7 @@ a:hover {
 ========================= */
 
 .sidebar-toggle {
-    display: none;              /* Desktop unsichtbar */
+    display: none;
     background: #f6f1c4;
     color: #000;
     border: 1.5px solid #000;
@@ -213,7 +212,7 @@ a:hover {
     font-family: inherit;
     font-size: 14px;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 6px; /* Abrundung */
     transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -248,24 +247,23 @@ a:hover {
 
     /* Toggle Button sichtbar */
     .sidebar-toggle {
-    display: block;        /* WICHTIG */
     position: absolute;
     right: 20px;
-    bottom: -40px;         /* etwas unter der Linie */
-    z-index: 10;           /* damit er über der Linie liegt */
+    bottom: -36px;  /* vorher war -26px */
     }
 
+    /* Sidebar off-canvas */
     .sidebar {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 240px;
-    height: calc(100vh - 80px);
-    background: #f6f1c4;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 2000; /* höher setzen */
-    overflow-y: auto; /* WICHTIG */
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 240px;
+        height: calc(100vh - 80px);
+        background: #f6f1c4;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        padding: 30px 20px;
     }
 
     .layout.sidebar-open .sidebar {
