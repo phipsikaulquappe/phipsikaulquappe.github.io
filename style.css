@@ -216,6 +216,14 @@ a:hover {
         gap: 20px;
     }
 
+    .nav-left a {
+    font-size: 14px;
+    }
+
+    .nav-right {
+    font-size: 14px;
+    }
+
     .sidebar {
         padding: 25px 20px;
     }
