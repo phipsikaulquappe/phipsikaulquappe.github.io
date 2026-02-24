@@ -215,6 +215,20 @@ a:hover {
     border-radius: 6px;
 }
 
+/* Vorschau-Farben beim Hover */
+
+.theme-toggle.preview-gray {
+    background: #e8e8e8;
+}
+
+.theme-toggle.preview-yellow {
+    background: #f6f1c4;
+}
+
+.theme-toggle.preview-white {
+    background: #ffffff;
+}
+
 /* =========================
    MEDIA GRID
 ========================= */
