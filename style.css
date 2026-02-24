@@ -307,7 +307,7 @@ a:hover {
     /* Navigation unter Mein Name */
     .nav-right {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: wrap;
         background: none;
         border: none;
         gap: 14px;
