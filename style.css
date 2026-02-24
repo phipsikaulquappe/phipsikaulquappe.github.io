@@ -236,7 +236,7 @@ a:hover {
 @media (max-width: 900px) {
 
     .header {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 6px;
     }
@@ -253,7 +253,7 @@ a:hover {
     /* Header Navigation rechts */
     .nav-right {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 6px;              /* kleiner Abstand */
     font-size: 14px;       /* kleinere Schrift */
     margin-top: 8px;       /* Abstand unter „Mein Name“ */
