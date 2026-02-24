@@ -115,10 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (toggleBtn && layout) {
 
-        toggleBtn.addEventListener("click", function () {
-            layout.classList.toggle("sidebar-open");
-        });
-
+    // Zustand beim Laden prüfen
+    if (localStorage.getItem("sidebarState") === "open") {
+        layout.classList.add("sidebar-open");
     }
+
+    toggleBtn.addEventListener("click", function () {
+
+        layout.classList.toggle("sidebar-open");
+
+        if (layout.classList.contains("sidebar-open")) {
+            localStorage.setItem("sidebarState", "open");
+        } else {
+            localStorage.setItem("sidebarState", "closed");
+        }
+
+    });
+}
 
 });
