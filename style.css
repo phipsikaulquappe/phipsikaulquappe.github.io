@@ -217,20 +217,17 @@ a:hover {
     }
 
     .nav-left a {
-    font-size: 14px;
+    font-size: 16px;
     }
 
     .nav-right {
-    font-size: 14px;
+    font-size: 16px;
     }
 
     .sidebar {
         padding: 25px 20px;
     }
 
-    .sidebar::after {
-        display: none;   /* vertikale Linie im Mobile entfernen */
-    }
 
     .sidebar-list {
         font-size: 14px;   /* kleiner */
