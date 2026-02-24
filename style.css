@@ -281,9 +281,10 @@ a:hover {
     }
 }
 /* Hover nur für Geräte mit echter Maus */
-@media (hover: hover) and (pointer: fine) {
-    .sidebar-toggle:hover {
-        background: #000;
-        color: #f6f1c4;
+
+@media (hover: none) {
+    *:hover {
+        background: inherit;
+        color: inherit;
     }
 }
