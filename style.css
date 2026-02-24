@@ -306,7 +306,7 @@ a:hover {
         background: #000000;
     }
 
-      /* Navigation unter Name */
+    /* Navigation unter Name */
     .nav-right {
         margin-left: 0;
         display: flex;
@@ -324,12 +324,12 @@ a:hover {
         font-size: 16px;
     }
 
-    /* Menu Button rechts unter der Linie */
+    /* Menu Button unter der Linie */
     .sidebar-toggle {
         display: block;
         position: absolute;
         right: 20px;
-        top: 20px;
+        bottom: -45px;   /* sitzt unter der Linie */
     }
 
     .main {
