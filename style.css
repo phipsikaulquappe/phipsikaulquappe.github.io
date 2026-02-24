@@ -254,7 +254,7 @@ a:hover {
     display: block;        /* WICHTIG */
     position: absolute;
     right: 20px;
-    bottom: -40px;         /* etwas unter der Linie */
+    bottom: -50px;         /* etwas unter der Linie */
     z-index: 10;           /* damit er über der Linie liegt */
     }
 
