@@ -33,6 +33,21 @@ body {
     color: #000;
 }
 
+/* Default (dein aktuelles Gelb) */
+body.theme-yellow {
+    background-color: #f6f1c4;
+}
+
+/* Weiß */
+body.theme-red {
+    background-color: #ee8e8e;
+}
+
+/* Hellgrau */
+body.theme-gray {
+    background-color: #e8e8e8;
+}
+
 /* =========================
    GLOBAL LINKS
 ========================= */
@@ -186,6 +201,21 @@ a:hover {
 }
 
 /* =========================
+   Background Toggle-Switch
+========================= */
+
+.theme-toggle {
+    background: #f6f1c4;
+    color: #000;
+    border: 1.5px solid #000;
+    padding: 4px 10px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* =========================
    MEDIA GRID
 ========================= */
 
@@ -231,6 +261,7 @@ a:hover {
     background: #000;
     color: #f6f1c4;
 }
+
 
 /* =========================
    RESPONSIVE

@@ -121,4 +121,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+        /* =========================
+        BACKGROUND TOGGLE-SWITCH
+        ========================= */
+        
+    const themeBtn = document.getElementById("themeToggle");
+
+    if (themeBtn) {
+
+        const themes = ["theme-yellow", "theme-white", "theme-gray"];
+
+        // gespeichertes Theme laden
+        const savedTheme = localStorage.getItem("siteTheme");
+        if (savedTheme) {
+            document.body.classList.add(savedTheme);
+        } else {
+            document.body.classList.add("theme-yellow");
+        }
+
+        themeBtn.addEventListener("click", function () {
+
+            let currentIndex = themes.findIndex(t => 
+                document.body.classList.contains(t)
+            );
+
+            // aktuelles Theme entfernen
+            if (currentIndex !== -1) {
+                document.body.classList.remove(themes[currentIndex]);
+            }
+
+            // nächstes Theme wählen
+            let nextIndex = (currentIndex + 1) % themes.length;
+            document.body.classList.add(themes[nextIndex]);
+
+            // speichern
+            localStorage.setItem("siteTheme", themes[nextIndex]);
+        });
+    }
+
 });
