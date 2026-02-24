@@ -244,10 +244,8 @@ a:hover {
         grid-template-rows: 80px 1fr;
     }
 
-    /* Desktop Nav ausblenden */
-    .nav-right {
-        display: none;
-    }
+    /* Desktop Nav 
+    .nav-right 
 
     /* Toggle Button sichtbar */
     .sidebar-toggle {
