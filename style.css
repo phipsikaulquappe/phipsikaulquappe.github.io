@@ -259,6 +259,7 @@ a:hover {
         font-size: 14px;
         margin-top: 20px; /* Abstand zur Linie */
         align-items: center;
+        flex-wrap: wrap;
     }
 
     /* Toggle Button jetzt im Flow */
