@@ -127,18 +127,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", function (e) {
 
-        if (!layout.classList.contains("sidebar-open")) return;
-
         const sidebar = document.querySelector(".sidebar");
 
-        // Klick auf Toggle? → nichts machen
-        if (toggleBtn.contains(e.target)) return;
+        if (!layout.classList.contains("sidebar-open")) return;
 
-        // Klick innerhalb Sidebar? → nichts machen
-        if (sidebar.contains(e.target)) return;
+        const clickedInsideSidebar = sidebar.contains(e.target);
+        const clickedToggle = toggleBtn.contains(e.target);
 
-        // Alles andere → schließen
-        layout.classList.remove("sidebar-open");
+        if (!clickedInsideSidebar && !clickedToggle) {
+            layout.classList.remove("sidebar-open");
+        }
 
     });
 
