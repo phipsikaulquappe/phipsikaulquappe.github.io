@@ -129,33 +129,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (themeBtn) {
 
-        const themes = ["theme-gray", "theme-yellow", "theme-red"];
+        const themes = ["theme-gray", "theme-yellow", "theme-white"];
 
-        // gespeichertes Theme laden
         const savedTheme = localStorage.getItem("siteTheme");
-        if (savedTheme) {
+
+        if (savedTheme && themes.includes(savedTheme)) {
             document.body.classList.add(savedTheme);
         } else {
             document.body.classList.add("theme-gray");
         }
 
-        themeBtn.addEventListener("click", function () {
-
-            let currentIndex = themes.findIndex(t => 
+        function getCurrentIndex() {
+            return themes.findIndex(t =>
                 document.body.classList.contains(t)
             );
+        }
 
-            // aktuelles Theme entfernen
+        function updatePreview() {
+            const currentIndex = getCurrentIndex();
+            const nextIndex = (currentIndex + 1) % themes.length;
+            const nextTheme = themes[nextIndex].replace("theme-", "");
+
+            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-white");
+            themeBtn.classList.add("preview-" + nextTheme);
+        }
+
+        themeBtn.addEventListener("mouseenter", updatePreview);
+
+        themeBtn.addEventListener("mouseleave", function () {
+            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-white");
+        });
+
+        themeBtn.addEventListener("click", function () {
+
+            const currentIndex = getCurrentIndex();
+
             if (currentIndex !== -1) {
                 document.body.classList.remove(themes[currentIndex]);
             }
 
-            // nächstes Theme wählen
-            let nextIndex = (currentIndex + 1) % themes.length;
+            const nextIndex = (currentIndex + 1) % themes.length;
             document.body.classList.add(themes[nextIndex]);
-
-            // speichern
             localStorage.setItem("siteTheme", themes[nextIndex]);
+
+            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-white");
         });
     }
 
