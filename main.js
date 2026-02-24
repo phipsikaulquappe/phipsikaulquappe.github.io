@@ -122,29 +122,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================
-    SIDEBAR CLOSE ON OUTSIDE TAP
+    SIDEBAR CLOSE ON OUTSIDE CLICK
     ========================= */
 
     document.addEventListener("click", function (e) {
 
-        if (!layout.classList.contains("sidebar-open")) return;
-
         const sidebar = document.querySelector(".sidebar");
 
-        // Klick auf Toggle → normal
-        if (toggleBtn.contains(e.target)) return;
+        if (!layout.classList.contains("sidebar-open")) return;
 
-        // Klick innerhalb Sidebar → normal
-        if (sidebar.contains(e.target)) return;
+        const clickedInsideSidebar = sidebar.contains(e.target);
+        const clickedToggle = toggleBtn.contains(e.target);
 
-        // Alles andere:
-        e.preventDefault();   // verhindert Link-Navigation
-        e.stopImmediatePropagation();
+        if (!clickedInsideSidebar && !clickedToggle) {
+            layout.classList.remove("sidebar-open");
+        }
 
-        layout.classList.remove("sidebar-open");
-        document.body.classList.remove("no-scroll");
-
-    }, true);  // << wichtig: Capture-Phase
+    });
 
         /* =========================
         BACKGROUND TOGGLE-SWITCH
