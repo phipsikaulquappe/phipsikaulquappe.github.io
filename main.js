@@ -11,23 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let sidebarFile = null;
 
-        if (currentPath.startsWith("/projects")) {
+        if (currentPath.includes("/projects")) {
             sidebarFile = "projects-list.html";
-        } 
-        else if (currentPath.startsWith("/drawings")) {
+        } else if (currentPath.includes("/drawings")) {
             sidebarFile = "drawings-list.html";
-        } 
-        else if (currentPath.startsWith("/archive")) {
+        } else if (currentPath.includes("/archive")) {
             sidebarFile = "archive-list.html";
-        } 
-        else if (currentPath.startsWith("/about")) {
+        } else if (currentPath.includes("/about")) {
             sidebarFile = "about-list.html";
-        }
-
-        /* Fallback für Startseite */
-        if (!sidebarFile && (currentPath === "/" || currentPath === "/index.html")) {
-            sidebarFile = "projects-list.html"; 
-            // oder null, wenn Index keine Sidebar haben soll
         }
 
         if (sidebarFile) {
@@ -69,13 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         const sub = group.querySelector(".sidebar-sub");
                         if (!sub) return;
 
-                        const mainLink = group.querySelector("a");
+                        const mainLink = group.querySelector("a"); // KEIN :scope
                         const firstSub = sub.querySelector("a");
 
                         if (!mainLink || !firstSub) return;
 
                         mainLink.addEventListener("click", function(e) {
 
+                            // nur wenn nicht direkt ein sublink geklickt wurde
                             if (!e.target.closest(".sidebar-sub")) {
                                 e.preventDefault();
                                 window.location.href = firstSub.href;
@@ -89,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(function(err) {
                     console.error("Sidebar Fehler:", err);
                 });
+
         }
     }
 
@@ -103,23 +96,99 @@ document.addEventListener("DOMContentLoaded", function () {
         const href = link.getAttribute("href");
         if (!href) return;
 
-        if (currentPath.startsWith(href.replace(".html", ""))) {
+        if (
+            (currentPath.includes("/projects") && href.includes("projects")) ||
+            (currentPath.includes("/drawings") && href.includes("drawings")) ||
+            (currentPath.includes("/archive") && href.includes("archive")) ||
+            (currentPath.includes("/about") && href.includes("about"))
+        ) {
             link.classList.add("active");
         }
 
     });
+            /* =========================
+            SIDEBAR TOGGLE MOBILE
+            ========================= */
 
-    /* =========================
-       MOBILE SIDEBAR TOGGLE
-    ========================== */
+        document.addEventListener("DOMContentLoaded", function () {
 
-    const toggleBtn = document.getElementById("sidebarToggle");
-    const layout = document.querySelector(".layout");
+        const container = document.getElementById("sidebar-container");
+        const currentPath = window.location.pathname;
 
-    if (toggleBtn && layout) {
-        toggleBtn.addEventListener("click", function () {
-            layout.classList.toggle("sidebar-open");
+        /* =========================
+        SIDEBAR LADEN
+        ========================== */
+
+        if (container) {
+
+            let sidebarFile = null;
+
+            if (currentPath.startsWith("/projects")) {
+                sidebarFile = "projects-list.html";
+            } 
+            else if (currentPath.startsWith("/drawings")) {
+                sidebarFile = "drawings-list.html";
+            } 
+            else if (currentPath.startsWith("/archive")) {
+                sidebarFile = "archive-list.html";
+            } 
+            else if (currentPath.startsWith("/about")) {
+                sidebarFile = "about-list.html";
+            }
+
+            /* 🔥 WICHTIGER FALLBACK */
+            if (!sidebarFile) {
+                if (currentPath === "/" || currentPath === "/index.html") {
+                    sidebarFile = "projects-list.html"; 
+                    // oder null, wenn index keine Sidebar haben soll
+                }
+            }
+
+            if (sidebarFile) {
+
+                fetch("/" + sidebarFile)
+                    .then(response => response.text())
+                    .then(data => {
+
+                        container.innerHTML = data;
+
+                        const links = container.querySelectorAll("a");
+
+                        links.forEach(link => {
+
+                            const href = link.getAttribute("href");
+                            if (!href) return;
+
+                            if (currentPath.endsWith(href)) {
+                                link.classList.add("active");
+
+                                const group = link.closest(".sidebar-group");
+                                if (group) group.classList.add("open");
+                            }
+                        });
+
+                    })
+                    .catch(err => {
+                        console.error("Sidebar Fehler:", err);
+                    });
+            }
+        }
+
+        /* =========================
+        HEADER ACTIVE STATE
+        ========================== */
+
+        const navLinks = document.querySelectorAll(".nav-right a");
+
+        navLinks.forEach(link => {
+
+            const href = link.getAttribute("href");
+            if (!href) return;
+
+            if (currentPath.startsWith(href.replace(".html", ""))) {
+                link.classList.add("active");
+            }
         });
-    }
 
+    });
 });
