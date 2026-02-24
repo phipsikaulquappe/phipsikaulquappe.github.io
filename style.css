@@ -69,6 +69,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    z-index: 20;
 }
 
 /* Horizontale Linie unter Header */
@@ -280,4 +281,3 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
-
