@@ -240,10 +240,10 @@ a:hover {
     }
 
     .header {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
     }
 
     /* obere Zeile */
@@ -251,22 +251,22 @@ a:hover {
         width: 100%;
     }
 
-    /* zweite Zeile unter der Linie */
+   /* Container unter der Linie */
     .nav-right {
-        display: flex;
-        flex-direction: row;
-        gap: 12px;
-        font-size: 14px;
-        margin-top: 20px; /* Abstand zur Linie */
-        align-items: center;
-        flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    margin-top: 18px;
+    width: 100%;
     }
 
-    /* Toggle Button jetzt im Flow */
+    /* Toggle rechts positionieren */
     .sidebar-toggle {
-        display: inline-block;
-        position: static;   /* NICHT mehr absolute */
-        margin-left: auto;  /* schiebt ihn ganz nach rechts */
+    display: inline-block;
+    position: static;
+    margin-left: auto;
     }
 
     .main {
