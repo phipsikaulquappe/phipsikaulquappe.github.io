@@ -239,6 +239,7 @@ a:hover {
 
 .theme-toggle,
 .sidebar-toggle {
+    display: none;
     background: transparent;
     color: #000;
     border: 1.2px solid #000;
@@ -302,7 +303,7 @@ a:hover {
     /* Navigation unter Mein Name */
     .nav-right {
         display: flex;
-        flex-direction: wrap;
+        flex-wrap: wrap;
         background: none;
         border: none;
         gap: 14px;
