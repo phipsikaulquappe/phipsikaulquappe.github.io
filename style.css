@@ -251,7 +251,7 @@ a:hover {
     content: "";
     position: absolute;
     left: 0px;       /* Abstand links */
-    right: 20px;      /* Abstand rechts */
+    right: 30px;      /* Abstand rechts */
     bottom: 0;
     height: 1.2px;      /* Dicke der Linie */
     background: #000000;
@@ -271,11 +271,11 @@ a:hover {
         display: block;
         position: absolute;
         right: 20px;
-        bottom: -40px;   /* sitzt unter der Linie */
+        bottom: -45px;   /* sitzt unter der Linie */
     }
 
     .main {
-        padding-top: 40px;
+        padding-top: 45px;
     }
 
     /* Sidebar weiterhin off-canvas */
