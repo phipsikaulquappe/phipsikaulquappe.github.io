@@ -248,20 +248,20 @@ a:hover {
     }
 
     .header::after {
-    content: "";
-    position: absolute;
-    left: 0px;       /* Abstand links */
-    right: 30px;      /* Abstand rechts */
-    bottom: 0;
-    height: 1.2px;      /* Dicke der Linie */
-    background: #000000;
+        content: "";
+        position: absolute;
+        left: 0px;       /* Abstand links */
+        right: 30px;      /* Abstand rechts */
+        bottom: 0;
+        height: 1.2px;      /* Dicke der Linie */
+        background: #000000;
     }
 
     /* Navigation unter Mein Name */
     .nav-right {
         display: flex;
         flex-direction: row;
-        gap: 12px;
+        gap: 14px;
         font-size: 16px;
         margin-top: 6px;
     }
