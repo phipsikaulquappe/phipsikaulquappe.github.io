@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (themeBtn) {
 
-        const themes = ["theme-gray", "theme-yellow", "theme-white"];
+        const themes = ["theme-gray", "theme-yellow", "theme-red"];
 
         const savedTheme = localStorage.getItem("siteTheme");
 
@@ -150,14 +150,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const nextIndex = (currentIndex + 1) % themes.length;
             const nextTheme = themes[nextIndex].replace("theme-", "");
 
-            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-white");
+            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-red");
             themeBtn.classList.add("preview-" + nextTheme);
         }
 
         themeBtn.addEventListener("mouseenter", updatePreview);
 
         themeBtn.addEventListener("mouseleave", function () {
-            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-white");
+            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-red");
         });
 
         themeBtn.addEventListener("click", function () {
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.body.classList.add(themes[nextIndex]);
             localStorage.setItem("siteTheme", themes[nextIndex]);
 
-            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-white");
+            themeBtn.classList.remove("preview-gray", "preview-yellow", "preview-red");
         });
     }
 
