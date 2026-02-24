@@ -106,5 +106,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+        /* =========================
+        SIDEBAR TOGGLE MOBILE
+        ========================= */
+
+    const toggleBtn = document.getElementById("sidebarToggle");
+    const layout = document.querySelector(".layout");
+
+    if (toggleBtn && layout) {
+
+        toggleBtn.addEventListener("click", function () {
+            layout.classList.toggle("sidebar-open");
+        });
+
+    }
 
 });
