@@ -235,6 +235,12 @@ a:hover {
 
 @media (max-width: 900px) {
 
+    .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    }
+
     .main {
     padding-top: 50px;
     }
@@ -247,11 +253,11 @@ a:hover {
     /* Header Navigation rechts */
     .nav-right {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 6px;              /* kleiner Abstand */
     font-size: 14px;       /* kleinere Schrift */
     margin-top: 8px;       /* Abstand unter „Mein Name“ */
-}
+    }
 
     /* Toggle Button sichtbar */
     .sidebar-toggle {
