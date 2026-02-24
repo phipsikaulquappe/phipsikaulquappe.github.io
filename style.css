@@ -240,33 +240,29 @@ a:hover {
     }
 
     .header {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
     }
 
-    /* obere Zeile */
-    .nav-left {
+    .header-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
         width: 100%;
+        margin-top: 18px;
     }
 
-   /* Container unter der Linie */
     .nav-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 14px;
-    font-size: 14px;
-    margin-top: 18px;
-    width: 100%;
+        display: flex;
+        gap: 14px;
+        font-size: 14px;
     }
 
-    /* Toggle rechts positionieren */
     .sidebar-toggle {
-    display: inline-block;
-    position: static;
-    margin-left: auto;
+        display: inline-block;   /* nur hier sichtbar */
+        margin-left: auto;
     }
 
     .main {
