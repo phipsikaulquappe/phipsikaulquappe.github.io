@@ -115,10 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (toggleBtn && layout) {
 
-        toggleBtn.addEventListener("click", function () {
-            layout.classList.toggle("sidebar-open");
-        });
+    toggleBtn.addEventListener("click", function (e) {
 
-    }
+        e.stopPropagation(); // verhindert Durchreichen
 
+        layout.classList.toggle("sidebar-open");
+
+    });
+
+    // Optional: Klick außerhalb schließt Sidebar
+    document.addEventListener("click", function (e) {
+
+        if (!layout.contains(e.target)) {
+            layout.classList.remove("sidebar-open");
+        }
+
+    });
+
+}
 });
