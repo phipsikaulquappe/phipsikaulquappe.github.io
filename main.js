@@ -115,22 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (toggleBtn && layout) {
 
-    toggleBtn.addEventListener("click", function (e) {
+        toggleBtn.addEventListener("click", function (e) {
 
-        e.stopPropagation(); // verhindert Durchreichen
+            e.stopPropagation(); // verhindert Durchreichen
 
-        layout.classList.toggle("sidebar-open");
+            layout.classList.toggle("sidebar-open");
 
-    });
+        });
 
-    // Optional: Klick außerhalb schließt Sidebar
-    document.addEventListener("click", function (e) {
+        // Optional: Klick außerhalb schließt Sidebar
+        document.addEventListener("click", function (e) {
 
-        if (!layout.contains(e.target)) {
+            if (!layout.contains(e.target)) {
             layout.classList.remove("sidebar-open");
-        }
+            }
 
-    });
+        });
 
-}
+    }
 });
