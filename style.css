@@ -235,6 +235,10 @@ a:hover {
 
 @media (max-width: 900px) {
 
+    .main {
+    padding-top: 70px;
+    }
+    
     .layout {
         grid-template-columns: 1fr;
         grid-template-rows: 80px 1fr;
@@ -252,7 +256,7 @@ a:hover {
     right: 20px;
     bottom: -40px;         /* etwas unter der Linie */
     z-index: 10;           /* damit er über der Linie liegt */
-}
+    }
 
     /* Sidebar off-canvas */
     .sidebar {
