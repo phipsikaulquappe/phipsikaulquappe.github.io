@@ -366,22 +366,15 @@ a:hover {
     .media-grid {
         grid-template-columns: 1fr;
     }
-}
-/* HOVER FÜR MOBILE AUS */
-@media (hover: hover) and (pointer: fine) {
-
+    
+/* Hover im Mobile deaktivieren */
+    a:hover,
     .theme-toggle:hover,
-    .sidebar-toggle:hover {
-        background: #000;
-        color: #fff;
-    }
-
+    .sidebar-toggle:hover,
     .sidebar-sub a:hover {
-        opacity: 0.4;
-    }
-
-    a:hover {
-        opacity: 0.4;
+        background: transparent !important;
+        color: inherit !important;
+        opacity: 1 !important;
     }
 
 }
