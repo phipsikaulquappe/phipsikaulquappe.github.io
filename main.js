@@ -121,6 +121,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    /* =========================
+    SIDEBAR CLOSE ON OUTSIDE CLICK
+    ========================= */
+
+    document.addEventListener("click", function (e) {
+
+        const sidebar = document.querySelector(".sidebar");
+
+        if (!layout.classList.contains("sidebar-open")) return;
+
+        const clickedInsideSidebar = sidebar.contains(e.target);
+        const clickedToggle = toggleBtn.contains(e.target);
+
+        if (!clickedInsideSidebar && !clickedToggle) {
+            layout.classList.remove("sidebar-open");
+        }
+
+    });
+
         /* =========================
         BACKGROUND TOGGLE-SWITCH
         ========================= */
