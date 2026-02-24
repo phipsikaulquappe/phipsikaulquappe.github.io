@@ -261,7 +261,7 @@ a:hover {
         display: block;
         position: absolute;
         right: 20px;
-        bottom: -45px;   /* sitzt unter der Linie */
+        bottom: -40px;   /* sitzt unter der Linie */
     }
 
     .main {
