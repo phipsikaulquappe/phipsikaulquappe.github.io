@@ -123,6 +123,13 @@ a:hover {
     display: flex;
     gap: 30px;
     font-size: 18px;
+    background: #f6f1c4;
+    border: 1.5px solid #000;
+    padding: 6px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-right a.active {
