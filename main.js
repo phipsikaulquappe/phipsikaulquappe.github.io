@@ -124,19 +124,19 @@ document.addEventListener("DOMContentLoaded", function () {
         /* =========================
         BACKGROUND TOGGLE-SWITCH
         ========================= */
-        
+
     const themeBtn = document.getElementById("themeToggle");
 
     if (themeBtn) {
 
-        const themes = ["theme-yellow", "theme-white", "theme-gray"];
+        const themes = ["theme-gray", "theme-yellow", "theme-red"];
 
         // gespeichertes Theme laden
         const savedTheme = localStorage.getItem("siteTheme");
         if (savedTheme) {
             document.body.classList.add(savedTheme);
         } else {
-            document.body.classList.add("theme-yellow");
+            document.body.classList.add("theme-gray");
         }
 
         themeBtn.addEventListener("click", function () {
