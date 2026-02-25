@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             /* PREVIEW: Subprojekte zuerst */
                             if (previewGrid && sub.thumbnail) {
                                 createPreview(sub);
+                            
                             }
 
                         });
@@ -106,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const img = document.createElement("img");
         img.src = item.thumbnail;
         img.loading = "lazy";
+        img.decoding = "async";
+
 
         const title = document.createElement("div");
         title.classList.add("preview-title");
