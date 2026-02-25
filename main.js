@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const container = document.getElementById("sidebar-container");
     const currentPath = window.location.pathname;
-    const layout = document.querySelector(".layout");
-    const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
        SIDEBAR LADEN
@@ -62,51 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         const sub = group.querySelector(".sidebar-sub");
                         if (!sub) return;
 
-                        const mainLink = group.querySelector("a");
+                        const mainLink = group.querySelector("a"); // KEIN :scope
                         const firstSub = sub.querySelector("a");
 
                         if (!mainLink || !firstSub) return;
 
                         mainLink.addEventListener("click", function(e) {
 
+                            // nur wenn nicht direkt ein sublink geklickt wurde
                             if (!e.target.closest(".sidebar-sub")) {
                                 e.preventDefault();
                                 window.location.href = firstSub.href;
                             }
 
                         });
-
-                    });
-
-                    /* =========================
-                       SIDEBAR THUMBNAILS
-                    ========================== */
-
-                    const projectLinks = container.querySelectorAll(".sidebar-sub a");
-
-                    projectLinks.forEach(link => {
-
-                        const url = link.getAttribute("href");
-                        if (!url) return;
-
-                        fetch(url)
-                            .then(res => res.text())
-                            .then(html => {
-
-                                const parser = new DOMParser();
-                                const doc = parser.parseFromString(html, "text/html");
-
-                                const firstImage = doc.querySelector(".media-grid img");
-                                if (!firstImage) return;
-
-                                const thumb = document.createElement("img");
-                                thumb.src = firstImage.getAttribute("src");
-                                thumb.classList.add("sidebar-thumb");
-
-                                link.prepend(thumb);
-
-                            })
-                            .catch(err => console.log("Thumbnail Fehler:", err));
 
                     });
 
@@ -139,10 +106,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+        /* =========================
+        SIDEBAR TOGGLE MOBILE
+        ========================= */
 
-    /* =========================
-       SIDEBAR TOGGLE MOBILE
-    ========================== */
+    const toggleBtn = document.getElementById("sidebarToggle");
+    const layout = document.querySelector(".layout");
 
     if (toggleBtn && layout) {
 
@@ -153,28 +122,61 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================
-       SIDEBAR CLOSE ON OUTSIDE CLICK
-    ========================== */
+    SIDEBAR CLOSE ON OUTSIDE CLICK
+    ========================= */
 
     document.addEventListener("click", function (e) {
 
-        if (!layout || !layout.classList.contains("sidebar-open")) return;
+        if (!layout.classList.contains("sidebar-open")) return;
 
         const sidebar = document.querySelector(".sidebar");
 
-        if (toggleBtn && toggleBtn.contains(e.target)) return;
-        if (sidebar && sidebar.contains(e.target)) return;
+        // Klick auf Toggle? → nichts machen
+        if (toggleBtn.contains(e.target)) return;
 
-        e.preventDefault();
-        e.stopPropagation();
+        // Klick innerhalb Sidebar? → nichts machen
+        if (sidebar.contains(e.target)) return;
 
+        // Alles andere → schließen
         layout.classList.remove("sidebar-open");
 
     });
 
     /* =========================
-       BACKGROUND TOGGLE
-    ========================== */
+    SIDEBAR THUMBNAILS
+    ========================= */
+
+    const projectLinks = container.querySelectorAll(".sidebar-sub a");
+
+    projectLinks.forEach(link => {
+
+        const url = link.getAttribute("href");
+        if (!url) return;
+
+        fetch(url)
+            .then(res => res.text())
+            .then(html => {
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+
+                const firstImage = doc.querySelector(".media-grid img");
+                if (!firstImage) return;
+
+                const thumb = document.createElement("img");
+                thumb.src = firstImage.getAttribute("src");
+                thumb.classList.add("sidebar-thumb");
+
+                link.prepend(thumb);
+
+            })
+            .catch(err => console.log("Thumbnail Fehler:", err));
+
+    });
+
+        /* =========================
+        BACKGROUND TOGGLE-SWITCH
+        ========================= */
 
     const themeBtn = document.getElementById("themeToggle");
 
@@ -182,8 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const themes = ["theme-red", "theme-gray", "theme-yellow"];
 
+        // gespeichertes Theme laden
         const savedTheme = localStorage.getItem("siteTheme");
-
         if (savedTheme) {
             document.body.classList.add(savedTheme);
         } else {
@@ -192,17 +194,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         themeBtn.addEventListener("click", function () {
 
-            let currentIndex = themes.findIndex(t =>
+            let currentIndex = themes.findIndex(t => 
                 document.body.classList.contains(t)
             );
 
+            // aktuelles Theme entfernen
             if (currentIndex !== -1) {
                 document.body.classList.remove(themes[currentIndex]);
             }
 
+            // nächstes Theme wählen
             let nextIndex = (currentIndex + 1) % themes.length;
             document.body.classList.add(themes[nextIndex]);
 
+            // speichern
             localStorage.setItem("siteTheme", themes[nextIndex]);
         });
     }
