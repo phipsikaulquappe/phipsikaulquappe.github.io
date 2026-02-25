@@ -219,7 +219,7 @@ a:hover {
 
 .media-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;   /* exakt 2 Spalten */
+    grid-template-columns: 1fr;   /* exakt 2 Spalten */
     gap: 30px;                        /* Abstand zwischen den Bildern */
     margin-top: 20px;
 }
