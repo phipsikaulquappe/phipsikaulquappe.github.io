@@ -58,8 +58,10 @@ a:visited {
     text-decoration: none;
 }
 
-a:hover {
-    opacity: 0.4;
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        opacity: 0.4;
+    }
 }
 
 /* =========================
