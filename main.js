@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const container = document.getElementById("sidebar-container");
     const currentPath = window.location.pathname;
+    const layout = document.querySelector(".layout");
+    const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
        SIDEBAR LADEN
@@ -60,22 +62,67 @@ document.addEventListener("DOMContentLoaded", function () {
                         const sub = group.querySelector(".sidebar-sub");
                         if (!sub) return;
 
-                        const mainLink = group.querySelector("a"); // KEIN :scope
+                        const mainLink = group.querySelector("a");
                         const firstSub = sub.querySelector("a");
 
                         if (!mainLink || !firstSub) return;
 
                         mainLink.addEventListener("click", function(e) {
-
-                            // nur wenn nicht direkt ein sublink geklickt wurde
                             if (!e.target.closest(".sidebar-sub")) {
                                 e.preventDefault();
                                 window.location.href = firstSub.href;
                             }
-
                         });
 
                     });
+
+                    /* =========================
+                       MAIN PREVIEW GRID
+                    ========================== */
+
+                    const previewGrid = document.getElementById("preview-grid");
+
+                    if (previewGrid) {
+
+                        const parser = new DOMParser();
+                        const sidebarDoc = parser.parseFromString(data, "text/html");
+                        const subLinks = sidebarDoc.querySelectorAll(".sidebar-sub a");
+
+                        subLinks.forEach(link => {
+
+                            const url = link.getAttribute("href");
+                            if (!url) return;
+
+                            fetch(url)
+                                .then(res => res.text())
+                                .then(html => {
+
+                                    const subDoc = parser.parseFromString(html, "text/html");
+                                    const firstImage = subDoc.querySelector(".media-grid img");
+                                    if (!firstImage) return;
+
+                                    const item = document.createElement("a");
+                                    item.href = url;
+                                    item.classList.add("preview-item");
+
+                                    const img = document.createElement("img");
+                                    img.src = firstImage.getAttribute("src");
+
+                                    const title = document.createElement("div");
+                                    title.classList.add("preview-title");
+                                    title.textContent = link.textContent.trim();
+
+                                    item.appendChild(img);
+                                    item.appendChild(title);
+
+                                    previewGrid.appendChild(item);
+
+                                })
+                                .catch(err => console.log("Preview Fehler:", err));
+
+                        });
+
+                    }
 
                 })
                 .catch(function(err) {
@@ -106,80 +153,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
-        /* =========================
-        SIDEBAR TOGGLE MOBILE
-        ========================= */
 
-    const toggleBtn = document.getElementById("sidebarToggle");
-    const layout = document.querySelector(".layout");
+    /* =========================
+       SIDEBAR TOGGLE MOBILE
+    ========================== */
 
     if (toggleBtn && layout) {
-
         toggleBtn.addEventListener("click", function () {
             layout.classList.toggle("sidebar-open");
         });
-
     }
 
     /* =========================
-    SIDEBAR CLOSE ON OUTSIDE CLICK
-    ========================= */
+       SIDEBAR CLOSE ON OUTSIDE CLICK
+    ========================== */
 
     document.addEventListener("click", function (e) {
 
-        if (!layout.classList.contains("sidebar-open")) return;
+        if (!layout || !layout.classList.contains("sidebar-open")) return;
 
         const sidebar = document.querySelector(".sidebar");
 
-        // Klick auf Toggle? → nichts machen
-        if (toggleBtn.contains(e.target)) return;
+        if (toggleBtn && toggleBtn.contains(e.target)) return;
+        if (sidebar && sidebar.contains(e.target)) return;
 
-        // Klick innerhalb Sidebar? → nichts machen
-        if (sidebar.contains(e.target)) return;
+        e.preventDefault();
+        e.stopPropagation();
 
-        // Alles andere → schließen
         layout.classList.remove("sidebar-open");
 
     });
 
     /* =========================
-    SIDEBAR THUMBNAILS
-    ========================= */
-
-    const groups = container.querySelectorAll(".sidebar-group");
-
-    groups.forEach(group => {
-
-        const subLink = group.querySelector(".sidebar-sub a");
-        if (!subLink) return;
-
-        const url = subLink.getAttribute("href");
-        if (!url) return;
-
-        fetch(url)
-            .then(res => res.text())
-            .then(html => {
-
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, "text/html");
-
-                const firstImage = doc.querySelector(".media-grid img");
-                if (!firstImage) return;
-
-                const thumb = document.createElement("img");
-                thumb.src = firstImage.getAttribute("src");
-                thumb.classList.add("sidebar-thumb");
-
-                group.appendChild(thumb);
-
-            })
-            .catch(err => console.log("Thumbnail Fehler:", err));
-
-    });
-
-        /* =========================
-        BACKGROUND TOGGLE-SWITCH
-        ========================= */
+       BACKGROUND TOGGLE
+    ========================== */
 
     const themeBtn = document.getElementById("themeToggle");
 
@@ -187,8 +194,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const themes = ["theme-red", "theme-gray", "theme-yellow"];
 
-        // gespeichertes Theme laden
         const savedTheme = localStorage.getItem("siteTheme");
+
         if (savedTheme) {
             document.body.classList.add(savedTheme);
         } else {
@@ -197,21 +204,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         themeBtn.addEventListener("click", function () {
 
-            let currentIndex = themes.findIndex(t => 
+            let currentIndex = themes.findIndex(t =>
                 document.body.classList.contains(t)
             );
 
-            // aktuelles Theme entfernen
             if (currentIndex !== -1) {
                 document.body.classList.remove(themes[currentIndex]);
             }
 
-            // nächstes Theme wählen
             let nextIndex = (currentIndex + 1) % themes.length;
             document.body.classList.add(themes[nextIndex]);
 
-            // speichern
             localStorage.setItem("siteTheme", themes[nextIndex]);
+
         });
     }
 

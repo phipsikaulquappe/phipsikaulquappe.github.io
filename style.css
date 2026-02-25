@@ -193,16 +193,6 @@ a:hover {
     opacity: 0.4;
 }
 
-/* =========================
-   Thumbnails
-========================= */
-
-.sidebar-thumb {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 6px;
-}
 
 /* =========================
    Hover
@@ -244,6 +234,28 @@ a:hover {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* =========================
+   Thumbnail-Preview GRID
+========================= */
+
+#preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.preview-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.preview-title {
+    margin-top: 6px;
+    font-size: 14px;
 }
 
 /* =========================
