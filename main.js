@@ -86,8 +86,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const parser = new DOMParser();
                         const sidebarDoc = parser.parseFromString(data, "text/html");
-                        const subLinks = sidebarDoc.querySelectorAll(".sidebar-sub a");
 
+                        let selector = null;
+
+                        if (currentPath.includes("/projects")) {
+                            selector = 'a[href*="/projects/"]';
+                        } else if (currentPath.includes("/drawings")) {
+                            selector = 'a[href*="/drawings/"]';
+                        } else if (currentPath.includes("/archive")) {
+                            selector = 'a[href*="/archive/"]';
+                        } else if (currentPath.includes("/about")) {
+                            selector = 'a[href*="/about/"]';
+                        }
+
+                        if (!selector) return;
+
+                        const subLinks = sidebarDoc.querySelectorAll(selector);
                         subLinks.forEach(link => {
 
                             const url = link.getAttribute("href");
