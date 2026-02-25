@@ -146,11 +146,14 @@ document.addEventListener("DOMContentLoaded", function () {
     SIDEBAR THUMBNAILS
     ========================= */
 
-    const projectLinks = container.querySelectorAll(".sidebar-sub a");
+    const groups = container.querySelectorAll(".sidebar-group");
 
-    projectLinks.forEach(link => {
+    groups.forEach(group => {
 
-        const url = link.getAttribute("href");
+        const subLink = group.querySelector(".sidebar-sub a");
+        if (!subLink) return;
+
+        const url = subLink.getAttribute("href");
         if (!url) return;
 
         fetch(url)
@@ -167,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 thumb.src = firstImage.getAttribute("src");
                 thumb.classList.add("sidebar-thumb");
 
-                link.prepend(thumb);
+                group.appendChild(thumb);
 
             })
             .catch(err => console.log("Thumbnail Fehler:", err));
