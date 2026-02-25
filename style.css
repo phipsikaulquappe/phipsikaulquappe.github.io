@@ -184,10 +184,11 @@ a:hover {
     transition: opacity 0.2s ease;
 }
 
-.sidebar-sub a {
-    font-size: 16px;
-    margin-bottom: 6px;
-    transition: opacity 0.2s ease;
+/* Subnavigation Container */
+.sidebar-sub {
+    display: none;
+    margin-top: 6px;
+    padding-left: 18px;
 }
 
 .sidebar-sub a:hover {
