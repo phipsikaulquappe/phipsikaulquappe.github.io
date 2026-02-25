@@ -177,7 +177,6 @@ a:hover {
 }
 
 /* Subnavigation */
-
 .sidebar-sub {
     display: none;
     margin-top: 6px;
@@ -194,8 +193,22 @@ a:hover {
     opacity: 0.4;
 }
 
-/* Hover + JS open state */
+/* =========================
+   Thumbnails
+========================= */
 
+.sidebar-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* =========================
+   Hover
+========================= */
+
+/* Hover + JS open state */
 .sidebar-group:hover .sidebar-sub,
 .sidebar-group.open .sidebar-sub {
     display: block;
@@ -203,7 +216,6 @@ a:hover {
 
 
 /* Vorschau-Farben beim Hover */
-
 .theme-toggle.preview-gray {
     background: #e8e8e8;
 }
