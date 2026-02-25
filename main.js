@@ -87,21 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         const parser = new DOMParser();
                         const sidebarDoc = parser.parseFromString(data, "text/html");
 
-                        let selector = null;
-
-                        if (currentPath.includes("/projects")) {
-                            selector = 'a[href*="/projects/"]';
-                        } else if (currentPath.includes("/drawings")) {
-                            selector = 'a[href*="/drawings/"]';
-                        } else if (currentPath.includes("/archive")) {
-                            selector = 'a[href*="/archive/"]';
-                        } else if (currentPath.includes("/about")) {
-                            selector = 'a[href*="/about/"]';
-                        }
-
-                        if (!selector) return;
-
-                        const subLinks = sidebarDoc.querySelectorAll(selector);
+                        const subLinks = Array.from(
+                            sidebarDoc.querySelectorAll("a[href$='.html']")
+                        );
+                        
                         subLinks.forEach(link => {
 
                             const url = link.getAttribute("href");
