@@ -80,82 +80,61 @@ document.addEventListener("DOMContentLoaded", function () {
                        Thumbnail PREVIEW GRID
                     ========================== */
 
+                    /* =========================
+                    MAIN PREVIEW GRID
+                    ========================= */
+
                     const previewGrid = document.getElementById("preview-grid");
 
                     if (previewGrid) {
 
-                        const parser = new DOMParser();
-                        const sidebarDoc = parser.parseFromString(data, "text/html");
+                        const sidebarDoc = new DOMParser()
+                            .parseFromString(data, "text/html");
 
-                        let selector = null;
+                        const groups = sidebarDoc.querySelectorAll(".sidebar-group");
 
-                        if (currentPath.includes("/projects")) {
-                            selector = 'a[href*="/projects/"]';
-                        } else if (currentPath.includes("/drawings")) {
-                            selector = 'a[href*="/drawings/"]';
-                        } else if (currentPath.includes("/archive")) {
-                            selector = 'a[href*="/archive/"]';
-                        } else if (currentPath.includes("/about")) {
-                            selector = 'a[href*="/about/"]';
-                        }
+                        groups.forEach(group => {
 
-                        if (!selector) return;
+                            const subLinks = group.querySelectorAll(".sidebar-sub a[data-thumb]");
 
-                        const subLinks = sidebarDoc.querySelectorAll(selector);
-                        
-                        const linkArray = Array.from(subLinks);
+                            // Falls Subprojekte existieren → nur diese anzeigen
+                            if (subLinks.length > 0) {
 
-                        Promise.all(
+                                subLinks.forEach(link => createPreview(link));
 
-                            linkArray.map(link => {
+                            } else {
 
-                                const url = link.getAttribute("href");
-                                if (!url) return null;
+                                // sonst Hauptlink anzeigen (wenn data-thumb vorhanden)
+                                const mainLink = group.querySelector("a[data-thumb]");
+                                if (mainLink) createPreview(mainLink);
 
-                                return fetch(url)
-                                    .then(res => res.text())
-                                    .then(html => {
-
-                                        const subDoc = parser.parseFromString(html, "text/html");
-                                        const firstImage = subDoc.querySelector(".media-grid img");
-                                        if (!firstImage) return null;
-
-                                        return {
-                                            url: url,
-                                            title: link.textContent.trim(),
-                                            imgSrc: firstImage.getAttribute("src")
-                                        };
-
-                                    })
-                                    .catch(() => null);
-
-                            })
-
-                        ).then(results => {
-
-                            results.forEach(result => {
-
-                                if (!result) return;
-
-                                const item = document.createElement("a");
-                                item.href = result.url;
-                                item.classList.add("preview-item");
-
-                                const img = document.createElement("img");
-                                img.src = result.imgSrc;
-
-                                const title = document.createElement("div");
-                                title.classList.add("preview-title");
-                                title.textContent = result.title;
-
-                                item.appendChild(img);
-                                item.appendChild(title);
-
-                                previewGrid.appendChild(item);
-
-                            });
+                            }
 
                         });
+
+                        function createPreview(link) {
+
+                            const url = link.getAttribute("href");
+                            const thumb = link.dataset.thumb;
+                            if (!url || !thumb) return;
+
+                            const item = document.createElement("a");
+                            item.href = url;
+                            item.classList.add("preview-item");
+
+                            const img = document.createElement("img");
+                            img.src = thumb;
+                            img.loading = "lazy";
+
+                            const title = document.createElement("div");
+                            title.classList.add("preview-title");
+                            title.textContent = link.textContent.trim();
+
+                            item.appendChild(img);
+                            item.appendChild(title);
+
+                            previewGrid.appendChild(item);
+                        }
 
                     }
 
