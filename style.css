@@ -391,4 +391,8 @@ a:hover {
     .media-grid {
         grid-template-columns: 1fr;
     }
+
+    #preview-grid {
+        grid-template-columns: 1fr;
+    }
 }
