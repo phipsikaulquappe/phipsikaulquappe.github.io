@@ -177,10 +177,11 @@ a:hover {
 }
 
 /* Subnavigation */
-.sidebar-sub {
-    display: none;
-    margin-top: 6px;
-    padding-left: 18px;
+.sidebar-sub a {
+    display: block;        /* WICHTIG */
+    font-size: 16px;
+    margin-bottom: 6px;
+    transition: opacity 0.2s ease;
 }
 
 .sidebar-sub a {
