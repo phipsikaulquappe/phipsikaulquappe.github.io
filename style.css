@@ -138,6 +138,7 @@ a:hover {
     display: flex;
     gap: 30px;
     font-size: 18px;
+    font-family: inherit;
     background: #f6f1c4;
     border: 1.5px solid #000;
     padding: 6px 16px;
