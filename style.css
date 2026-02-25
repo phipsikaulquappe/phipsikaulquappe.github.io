@@ -195,9 +195,10 @@ a:hover {
 
 /* Hover + JS open state */
 
-/* Desktop Hover */
-.sidebar-group:hover .sidebar-sub {
-    display: block;
+@media (min-width: 901px) {
+    .sidebar-group:hover .sidebar-sub {
+        display: block;
+    }
 }
 
 /* Vorschau-Farben beim Hover */
