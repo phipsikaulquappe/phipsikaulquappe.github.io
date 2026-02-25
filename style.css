@@ -139,7 +139,7 @@ a:hover {
     gap: 30px;
     font-size: 18px;
     font-family: inherit;
-    background: #f6f1c4;
+    background: transparent;
     border: 1.5px solid #000;
     padding: 6px 16px;
     border-radius: 6px; 
