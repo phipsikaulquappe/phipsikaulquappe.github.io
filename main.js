@@ -103,37 +103,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const subLinks = sidebarDoc.querySelectorAll(selector);
                         
-                        subLinks.forEach(link => {
+                        const linkArray = Array.from(subLinks);
 
-                            const url = link.getAttribute("href");
-                            if (!url) return;
+                        Promise.all(
 
-                            fetch(url)
-                                .then(res => res.text())
-                                .then(html => {
+                            linkArray.map(link => {
 
-                                    const subDoc = parser.parseFromString(html, "text/html");
-                                    const firstImage = subDoc.querySelector(".media-grid img");
-                                    if (!firstImage) return; // KEIN Bild → nichts erzeugen
+                                const url = link.getAttribute("href");
+                                if (!url) return null;
 
-                                    const item = document.createElement("a");
-                                    item.href = url;
-                                    item.classList.add("preview-item");
+                                return fetch(url)
+                                    .then(res => res.text())
+                                    .then(html => {
 
-                                    const img = document.createElement("img");
-                                    img.src = firstImage.getAttribute("src");
+                                        const subDoc = parser.parseFromString(html, "text/html");
+                                        const firstImage = subDoc.querySelector(".media-grid img");
+                                        if (!firstImage) return null;
 
-                                    const title = document.createElement("div");
-                                    title.classList.add("preview-title");
-                                    title.textContent = link.textContent.trim();
+                                        return {
+                                            url: url,
+                                            title: link.textContent.trim(),
+                                            imgSrc: firstImage.getAttribute("src")
+                                        };
 
-                                    item.appendChild(img);
-                                    item.appendChild(title);
+                                    })
+                                    .catch(() => null);
 
-                                    previewGrid.appendChild(item);
+                            })
 
-                                })
-                                .catch(err => console.log("Preview Fehler:", err));
+                        ).then(results => {
+
+                            results.forEach(result => {
+
+                                if (!result) return;
+
+                                const item = document.createElement("a");
+                                item.href = result.url;
+                                item.classList.add("preview-item");
+
+                                const img = document.createElement("img");
+                                img.src = result.imgSrc;
+
+                                const title = document.createElement("div");
+                                title.classList.add("preview-title");
+                                title.textContent = result.title;
+
+                                item.appendChild(img);
+                                item.appendChild(title);
+
+                                previewGrid.appendChild(item);
+
+                            });
 
                         });
 
