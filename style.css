@@ -166,7 +166,7 @@ a:hover {
 .sidebar a.active {
     border-left: 2px solid #000;
     padding-left: 6px;
-    font-size: 18px;
+    
 }
 
 /* Subnavigation */
@@ -219,7 +219,7 @@ a:hover {
 
 .media-grid {
     display: grid;
-    grid-template-columns: 1fr;   /* exakt 2 Spalten */
+    grid-template-columns: 1fr 1fr;   /* exakt 2 Spalten */
     gap: 30px;                        /* Abstand zwischen den Bildern */
     margin-top: 20px;
 }
@@ -237,7 +237,7 @@ a:hover {
 
 #preview-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 30px;
     margin-top: 20px;
 }
