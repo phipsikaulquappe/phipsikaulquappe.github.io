@@ -142,6 +142,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+    /* =========================
+    SIDEBAR THUMBNAILS
+    ========================= */
+
+    const projectLinks = container.querySelectorAll(".sidebar-sub a");
+
+    projectLinks.forEach(link => {
+
+        const url = link.getAttribute("href");
+        if (!url) return;
+
+        fetch(url)
+            .then(res => res.text())
+            .then(html => {
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+
+                const firstImage = doc.querySelector(".media-grid img");
+                if (!firstImage) return;
+
+                const thumb = document.createElement("img");
+                thumb.src = firstImage.getAttribute("src");
+                thumb.classList.add("sidebar-thumb");
+
+                link.prepend(thumb);
+
+            })
+            .catch(err => console.log("Thumbnail Fehler:", err));
+
+    });
+
         /* =========================
         BACKGROUND TOGGLE-SWITCH
         ========================= */
