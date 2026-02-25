@@ -194,11 +194,11 @@ a:hover {
 ========================= */
 
 /* Hover + JS open state */
-.sidebar-group:hover .sidebar-sub,
-.sidebar-group.open .sidebar-sub {
+
+/* Desktop Hover */
+.sidebar-group:hover .sidebar-sub {
     display: block;
 }
-
 
 /* Vorschau-Farben beim Hover */
 .theme-toggle.preview-gray {
@@ -380,6 +380,10 @@ a:hover {
     }
 
     .sidebar::after {
+        display: none;
+    }
+
+    .sidebar-group:hover .sidebar-sub {
         display: none;
     }
 
