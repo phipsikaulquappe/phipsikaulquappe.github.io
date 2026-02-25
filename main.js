@@ -1,149 +1,120 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const container = document.getElementById("sidebar-container");
+    const previewGrid = document.getElementById("preview-grid");
     const currentPath = window.location.pathname;
     const layout = document.querySelector(".layout");
     const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
-       SIDEBAR LADEN
+       JSON LADEN
     ========================== */
 
-    if (container) {
+    let dataFile = null;
 
-        let sidebarFile = null;
+    if (currentPath.includes("/projects")) {
+        dataFile = "/data/projects.json";
+    } else if (currentPath.includes("/drawings")) {
+        dataFile = "/data/drawings.json";
+    } else if (currentPath.includes("/archive")) {
+        dataFile = "/data/archive.json";
+    } else if (currentPath.includes("/about")) {
+        dataFile = "/data/about.json";
+    }
 
-        if (currentPath.includes("/projects")) {
-            sidebarFile = "projects-list.html";
-        } else if (currentPath.includes("/drawings")) {
-            sidebarFile = "drawings-list.html";
-        } else if (currentPath.includes("/archive")) {
-            sidebarFile = "archive-list.html";
-        } else if (currentPath.includes("/about")) {
-            sidebarFile = "about-list.html";
-        }
+    if (dataFile && container) {
 
-        if (sidebarFile) {
+        fetch(dataFile)
+            .then(res => res.json())
+            .then(data => {
 
-            fetch("/" + sidebarFile)
-                .then(response => response.text())
-                .then(data => {
+                data.forEach(group => {
 
-                    container.innerHTML = data;
+                    const groupDiv = document.createElement("div");
+                    groupDiv.classList.add("sidebar-group");
 
-                    const links = container.querySelectorAll("a");
+                    const mainLink = document.createElement("a");
+                    mainLink.href = group.url;
+                    mainLink.textContent = group.title;
 
-                    /* =========================
-                       SIDEBAR ACTIVE LINK
-                    ========================== */
+                    if (group.url === currentPath) {
+                        mainLink.classList.add("active");
+                        groupDiv.classList.add("open");
+                    }
 
-                    links.forEach(function(link) {
+                    groupDiv.appendChild(mainLink);
 
-                        const href = link.getAttribute("href");
-                        if (!href) return;
+                    /* Subprojects */
 
-                        if (href === currentPath) {
-                            link.classList.add("active");
+                    if (group.subprojects && group.subprojects.length > 0) {
 
-                            const group = link.closest(".sidebar-group");
-                            if (group) group.classList.add("open");
-                        }
+                        const subDiv = document.createElement("div");
+                        subDiv.classList.add("sidebar-sub");
 
-                    });
+                        group.subprojects.forEach(sub => {
 
-                    /* =========================
-                       HAUPTLINK → ERSTES SUB
-                    ========================== */
+                            const subLink = document.createElement("a");
+                            subLink.href = sub.url;
+                            subLink.textContent = sub.title;
 
-                    const groups = container.querySelectorAll(".sidebar-group");
+                            if (sub.url === currentPath) {
+                                subLink.classList.add("active");
+                                groupDiv.classList.add("open");
+                            }
 
-                    groups.forEach(function(group) {
+                            subDiv.appendChild(subLink);
 
-                        const sub = group.querySelector(".sidebar-sub");
-                        if (!sub) return;
+                            /* PREVIEW: Subprojekte zuerst */
+                            if (previewGrid && sub.thumbnail) {
+                                createPreview(sub);
+                            }
 
-                        const mainLink = group.querySelector("a");
-                        const firstSub = sub.querySelector("a");
+                        });
 
-                        if (!mainLink || !firstSub) return;
+                        groupDiv.appendChild(subDiv);
 
-                        mainLink.addEventListener("click", function(e) {
+                        /* Hauptlink → erstes Sub */
+                        mainLink.addEventListener("click", function (e) {
                             if (!e.target.closest(".sidebar-sub")) {
                                 e.preventDefault();
-                                window.location.href = firstSub.href;
+                                window.location.href = group.subprojects[0].url;
                             }
                         });
 
-                    });
+                    } else {
 
-                    /* =========================
-                       Thumbnail PREVIEW GRID
-                    ========================== */
-
-                    /* =========================
-                    MAIN PREVIEW GRID
-                    ========================= */
-
-                    const previewGrid = document.getElementById("preview-grid");
-
-                    if (previewGrid) {
-
-                        const sidebarDoc = new DOMParser()
-                            .parseFromString(data, "text/html");
-
-                        const groups = sidebarDoc.querySelectorAll(".sidebar-group");
-
-                        groups.forEach(group => {
-
-                            const subLinks = group.querySelectorAll(".sidebar-sub a[data-thumb]");
-
-                            // Falls Subprojekte existieren → nur diese anzeigen
-                            if (subLinks.length > 0) {
-
-                                subLinks.forEach(link => createPreview(link));
-
-                            } else {
-
-                                // sonst Hauptlink anzeigen (wenn data-thumb vorhanden)
-                                const mainLink = group.querySelector("a[data-thumb]");
-                                if (mainLink) createPreview(mainLink);
-
-                            }
-
-                        });
-
-                        function createPreview(link) {
-
-                            const url = link.getAttribute("href");
-                            const thumb = link.dataset.thumb;
-                            if (!url || !thumb) return;
-
-                            const item = document.createElement("a");
-                            item.href = url;
-                            item.classList.add("preview-item");
-
-                            const img = document.createElement("img");
-                            img.src = thumb;
-                            img.loading = "lazy";
-
-                            const title = document.createElement("div");
-                            title.classList.add("preview-title");
-                            title.textContent = link.textContent.trim();
-
-                            item.appendChild(img);
-                            item.appendChild(title);
-
-                            previewGrid.appendChild(item);
+                        /* PREVIEW: nur Hauptprojekt */
+                        if (previewGrid && group.thumbnail) {
+                            createPreview(group);
                         }
 
                     }
 
-                })
-                .catch(function(err) {
-                    console.error("Sidebar Fehler:", err);
+                    container.appendChild(groupDiv);
+
                 });
 
-        }
+            });
+    }
+
+    function createPreview(item) {
+
+        const preview = document.createElement("a");
+        preview.href = item.url;
+        preview.classList.add("preview-item");
+
+        const img = document.createElement("img");
+        img.src = item.thumbnail;
+        img.loading = "lazy";
+
+        const title = document.createElement("div");
+        title.classList.add("preview-title");
+        title.textContent = item.title;
+
+        preview.appendChild(img);
+        preview.appendChild(title);
+
+        previewGrid.appendChild(preview);
     }
 
     /* =========================
@@ -154,14 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     navLinks.forEach(function(link) {
 
-        const href = link.getAttribute("href");
-        if (!href) return;
-
         if (
-            (currentPath.includes("/projects") && href.includes("projects")) ||
-            (currentPath.includes("/drawings") && href.includes("drawings")) ||
-            (currentPath.includes("/archive") && href.includes("archive")) ||
-            (currentPath.includes("/about") && href.includes("about"))
+            (currentPath.includes("/projects") && link.href.includes("projects")) ||
+            (currentPath.includes("/drawings") && link.href.includes("drawings")) ||
+            (currentPath.includes("/archive") && link.href.includes("archive")) ||
+            (currentPath.includes("/about") && link.href.includes("about"))
         ) {
             link.classList.add("active");
         }
@@ -199,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /* =========================
-       BACKGROUND TOGGLE
+       THEME TOGGLE
     ========================== */
 
     const themeBtn = document.getElementById("themeToggle");
@@ -207,14 +175,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (themeBtn) {
 
         const themes = ["theme-red", "theme-gray", "theme-yellow"];
-
         const savedTheme = localStorage.getItem("siteTheme");
 
-        if (savedTheme) {
-            document.body.classList.add(savedTheme);
-        } else {
-            document.body.classList.add("theme-red");
-        }
+        document.body.classList.add(savedTheme || "theme-red");
 
         themeBtn.addEventListener("click", function () {
 
@@ -228,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let nextIndex = (currentIndex + 1) % themes.length;
             document.body.classList.add(themes[nextIndex]);
-
             localStorage.setItem("siteTheme", themes[nextIndex]);
 
         });
