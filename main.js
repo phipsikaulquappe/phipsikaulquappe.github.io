@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     /* =========================
-                       MAIN PREVIEW GRID
+                       Thumbnail PREVIEW GRID
                     ========================== */
 
                     const previewGrid = document.getElementById("preview-grid");
@@ -93,6 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             const url = link.getAttribute("href");
                             if (!url) return;
 
+                            // Platzhalter sofort erzeugen (Reihenfolge bleibt korrekt)
+                            const item = document.createElement("a");
+                            item.href = url;
+                            item.classList.add("preview-item");
+
+                            previewGrid.appendChild(item);
+
                             fetch(url)
                                 .then(res => res.text())
                                 .then(html => {
@@ -100,10 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                     const subDoc = parser.parseFromString(html, "text/html");
                                     const firstImage = subDoc.querySelector(".media-grid img");
                                     if (!firstImage) return;
-
-                                    const item = document.createElement("a");
-                                    item.href = url;
-                                    item.classList.add("preview-item");
 
                                     const img = document.createElement("img");
                                     img.src = firstImage.getAttribute("src");
@@ -114,8 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                     item.appendChild(img);
                                     item.appendChild(title);
-
-                                    previewGrid.appendChild(item);
 
                                 })
                                 .catch(err => console.log("Preview Fehler:", err));
