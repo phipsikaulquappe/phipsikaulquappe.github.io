@@ -119,14 +119,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderGallery(images) {
 
-        images.forEach(path => {
+        images.forEach((path, index) => {
 
             const img = document.createElement("img");
             img.src = path;
-            img.loading = "lazy";
+
+            if (index === 0) {
+                img.loading = "eager";
+                img.decoding = "async";
+            } else {
+                img.loading = "lazy";
+            }
 
             gallery.appendChild(img);
-
         });
     }
 
