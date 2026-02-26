@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (themeBtn) {
 
-        const themes = ["theme-gray", "theme-red", "theme-yellow"];
+        const themes = ["theme-red", "theme-gray", "theme-yellow"];
         const savedTheme = localStorage.getItem("siteTheme");
 
-        document.body.classList.add(savedTheme || "theme-gray");
+        document.body.classList.add(savedTheme || "theme-red");
 
         themeBtn.addEventListener("click", function () {
 

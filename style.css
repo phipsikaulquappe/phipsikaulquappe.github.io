@@ -33,12 +33,12 @@ body {
     color: #000;
 }
 
-/* Default (dein aktuelles Gelb) */
+/* Gelb) */
 body.theme-yellow {
     background-color: #f6f1c4;
 }
 
-/* Weiß */
+/* Rot */
 body.theme-red {
     background-color: #ee8e8e;
 }
@@ -202,19 +202,6 @@ a:visited {
     .sidebar-group:hover .sidebar-sub {
         display: block;
     }
-}
-
-/* Vorschau-Farben beim Hover */
-.theme-toggle.preview-gray {
-    background: #e8e8e8;
-}
-
-.theme-toggle.preview-yellow {
-    background: #f6f1c4;
-}
-
-.theme-toggle.preview-red {
-    background: #ee8e8e;
 }
 
 /* =========================
