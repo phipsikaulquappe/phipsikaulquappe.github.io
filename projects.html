@@ -14,8 +14,7 @@ title: Projects
 
     {% assign children = site.projects
         | where: "parent", parent.slug
-        | sort: "date"
-        | reverse %}
+        | sort: "date" %}
 
     {% if children.size > 0 %}
 
