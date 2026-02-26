@@ -7,95 +7,96 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
-       JSON LADEN
+       INLINE JSON LADEN
     ========================== */
 
-    let dataFile = null;
+    let dataElement = null;
 
     if (currentPath.includes("/projects")) {
-        dataFile = "/data/projects.json";
+        dataElement = document.getElementById("projects-data");
     } else if (currentPath.includes("/drawings")) {
-        dataFile = "/data/drawings.json";
+        dataElement = document.getElementById("drawings-data");
     } else if (currentPath.includes("/archive")) {
-        dataFile = "/data/archive.json";
+        dataElement = document.getElementById("archive-data");
     } else if (currentPath.includes("/about")) {
-        dataFile = "/data/about.json";
+        dataElement = document.getElementById("about-data");
     }
 
-    if (dataFile && container) {
+    if (dataElement && container) {
 
-        fetch(dataFile)
-            .then(res => res.json())
-            .then(data => {
+        const data = JSON.parse(dataElement.textContent);
 
-                data.forEach(group => {
+        data.forEach(group => {
 
-                    const groupDiv = document.createElement("div");
-                    groupDiv.classList.add("sidebar-group");
+            const groupDiv = document.createElement("div");
+            groupDiv.classList.add("sidebar-group");
 
-                    const mainLink = document.createElement("a");
-                    mainLink.href = group.url;
-                    mainLink.textContent = group.title;
+            const mainLink = document.createElement("a");
+            mainLink.href = group.url;
+            mainLink.textContent = group.title;
 
-                    if (group.url === currentPath) {
-                        mainLink.classList.add("active");
+            if (group.url === currentPath) {
+                mainLink.classList.add("active");
+                groupDiv.classList.add("open");
+            }
+
+            groupDiv.appendChild(mainLink);
+
+            /* =========================
+               SUBPROJECTS
+            ========================== */
+
+            if (group.subprojects && group.subprojects.length > 0) {
+
+                const subDiv = document.createElement("div");
+                subDiv.classList.add("sidebar-sub");
+
+                group.subprojects.forEach(sub => {
+
+                    const subLink = document.createElement("a");
+                    subLink.href = sub.url;
+                    subLink.textContent = sub.title;
+
+                    if (sub.url === currentPath) {
+                        subLink.classList.add("active");
                         groupDiv.classList.add("open");
                     }
 
-                    groupDiv.appendChild(mainLink);
+                    subDiv.appendChild(subLink);
 
-                    /* Subprojects */
-
-                    if (group.subprojects && group.subprojects.length > 0) {
-
-                        const subDiv = document.createElement("div");
-                        subDiv.classList.add("sidebar-sub");
-
-                        group.subprojects.forEach(sub => {
-
-                            const subLink = document.createElement("a");
-                            subLink.href = sub.url;
-                            subLink.textContent = sub.title;
-
-                            if (sub.url === currentPath) {
-                                subLink.classList.add("active");
-                                groupDiv.classList.add("open");
-                            }
-
-                            subDiv.appendChild(subLink);
-
-                            /* PREVIEW: Subprojekte zuerst */
-                            if (previewGrid && sub.thumbnail) {
-                                createPreview(sub);
-                            }
-
-                        });
-
-                        groupDiv.appendChild(subDiv);
-
-                        /* Hauptlink → erstes Sub */
-                        mainLink.addEventListener("click", function (e) {
-                            if (!e.target.closest(".sidebar-sub")) {
-                                e.preventDefault();
-                                window.location.href = group.subprojects[0].url;
-                            }
-                        });
-
-                    } else {
-
-                        /* PREVIEW: nur Hauptprojekt */
-                        if (previewGrid && group.thumbnail) {
-                            createPreview(group);
-                        }
-
+                    /* Preview: Subprojects */
+                    if (previewGrid && sub.thumbnail) {
+                        createPreview(sub);
                     }
-
-                    container.appendChild(groupDiv);
 
                 });
 
-            });
+                groupDiv.appendChild(subDiv);
+
+                /* Hauptlink → erstes Sub */
+                mainLink.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    window.location.href = group.subprojects[0].url;
+                });
+
+            } else {
+
+                /* Preview: Hauptprojekt */
+                if (previewGrid && group.thumbnail) {
+                    createPreview(group);
+                }
+
+            }
+
+            container.appendChild(groupDiv);
+
+        });
+
     }
+
+    /* =========================
+       PREVIEW ERZEUGEN
+    ========================== */
 
     function createPreview(item) {
 
