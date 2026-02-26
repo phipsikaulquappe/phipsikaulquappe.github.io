@@ -271,18 +271,17 @@ a:visited {
 #preview-grid .preview-item::before {
     content: "";
     position: absolute;
-
     top: 15px;
     left: 15px;
 
-    width: 40px;
-    height: 40px;
+    width: 0;
+    height: 0;
 
     border-top: 2px solid white;
     border-left: 2px solid white;
 
     pointer-events: none;
-    z-index: 2; /* wichtig falls Overlay existiert */
+    transition: width 0.25s ease, height 0.25s ease;
 }
 
 #preview-grid .preview-item:hover::before {
