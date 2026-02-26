@@ -175,7 +175,7 @@ a:visited {
 /* Subnavigation */
 .sidebar-sub a {
     display: block;        /* WICHTIG */
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 4.5px;
     transition: opacity 0.2s ease;
 }
