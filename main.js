@@ -8,89 +8,91 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
-       DATA SOURCE
+       LOAD JSON DATA
     ========================== */
 
-    const jsonScript = document.getElementById("page-data");
-    if (!jsonScript) return;
+    fetch("/data/projects.json")
+        .then(res => res.json())
+        .then(data => init(data))
+        .catch(err => console.error("JSON Fehler:", err));
 
-    const data = JSON.parse(jsonScript.textContent);
+    function init(data) {
 
-    /* =========================
-       SIDEBAR + PREVIEW + GALLERY
-    ========================== */
+        data.forEach(group => {
 
-    data.forEach(group => {
+            const groupDiv = document.createElement("div");
+            groupDiv.classList.add("sidebar-group");
 
-        const groupDiv = document.createElement("div");
-        groupDiv.classList.add("sidebar-group");
+            const mainLink = document.createElement("a");
+            mainLink.href = group.url;
+            mainLink.textContent = group.title;
 
-        const mainLink = document.createElement("a");
-        mainLink.href = group.url;
-        mainLink.textContent = group.title;
-
-        if (group.url === currentPath) {
-            mainLink.classList.add("active");
-            groupDiv.classList.add("open");
-        }
-
-        groupDiv.appendChild(mainLink);
-
-        /* SUBPROJECTS */
-
-        if (group.subprojects && group.subprojects.length > 0) {
-
-            const subDiv = document.createElement("div");
-            subDiv.classList.add("sidebar-sub");
-
-            group.subprojects.forEach(sub => {
-
-                const subLink = document.createElement("a");
-                subLink.href = sub.url;
-                subLink.textContent = sub.title;
-
-                if (sub.url === currentPath) {
-                    subLink.classList.add("active");
-                    groupDiv.classList.add("open");
-                }
-
-                subDiv.appendChild(subLink);
-
-                /* PREVIEW */
-                if (previewGrid && sub.images?.length > 0) {
-                    createPreview(sub);
-                }
-
-                /* PROJECT PAGE */
-                if (gallery && sub.url === currentPath) {
-                    renderGallery(sub.images);
-                }
-
-            });
-
-            groupDiv.appendChild(subDiv);
-
-            mainLink.addEventListener("click", function (e) {
-                e.preventDefault();
-                window.location.href = group.subprojects[0].url;
-            });
-
-        } else {
-
-            if (previewGrid && group.images?.length > 0) {
-                createPreview(group);
+            if (group.url === currentPath) {
+                mainLink.classList.add("active");
+                groupDiv.classList.add("open");
             }
 
-            if (gallery && group.url === currentPath) {
-                renderGallery(group.images);
-            }
-        }
+            groupDiv.appendChild(mainLink);
 
-        if (container) container.appendChild(groupDiv);
-    });
+            /* =========================
+               SUBPROJECTS
+            ========================== */
+
+            if (group.subprojects && group.subprojects.length > 0) {
+
+                const subDiv = document.createElement("div");
+                subDiv.classList.add("sidebar-sub");
+
+                group.subprojects.forEach(sub => {
+
+                    const subLink = document.createElement("a");
+                    subLink.href = sub.url;
+                    subLink.textContent = sub.title;
+
+                    if (sub.url === currentPath) {
+                        subLink.classList.add("active");
+                        groupDiv.classList.add("open");
+                    }
+
+                    subDiv.appendChild(subLink);
+
+                    /* PREVIEW */
+                    if (previewGrid && sub.images?.length > 0) {
+                        createPreview(sub);
+                    }
+
+                    /* PROJECT PAGE */
+                    if (gallery && sub.url === currentPath) {
+                        renderGallery(sub.images);
+                    }
+
+                });
+
+                groupDiv.appendChild(subDiv);
+
+                /* Hauptlink → erstes Sub */
+                mainLink.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    window.location.href = group.subprojects[0].url;
+                });
+
+            } else {
+
+                if (previewGrid && group.images?.length > 0) {
+                    createPreview(group);
+                }
+
+                if (gallery && group.url === currentPath) {
+                    renderGallery(group.images);
+                }
+            }
+
+            if (container) container.appendChild(groupDiv);
+        });
+    }
 
     /* =========================
-       PREVIEW FUNCTION
+       PREVIEW
     ========================== */
 
     function createPreview(item) {
@@ -100,8 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         preview.classList.add("preview-item");
 
         const img = document.createElement("img");
-
-        img.src = item.images[0];   // nur erstes Bild
+        img.src = item.images[0];
         img.loading = "lazy";
         img.decoding = "async";
 
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================
-       GALLERY WITH SMART LAZY LOAD
+       GALLERY (SMART LOADING)
     ========================== */
 
     function renderGallery(images) {
@@ -126,12 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const img = document.createElement("img");
 
             if (index === 0) {
-                // erstes Bild sofort laden
                 img.src = path;
                 img.loading = "eager";
                 img.decoding = "async";
             } else {
-                // Rest erst beim Scrollen
                 img.dataset.src = path;
                 img.classList.add("lazy-image");
             }
@@ -147,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const lazyImages = document.querySelectorAll(".lazy-image");
 
         if (!("IntersectionObserver" in window)) {
-            // Fallback
             lazyImages.forEach(img => {
                 img.src = img.dataset.src;
             });
