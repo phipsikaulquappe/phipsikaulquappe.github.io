@@ -10,54 +10,93 @@ document.addEventListener("DOMContentLoaded", function () {
        JSON LADEN
     ========================== */
 
-    const jsonScript = document.getElementById("projects-data");
+    let dataFile = null;
 
-if (jsonScript && container) {
+    if (currentPath.includes("/projects")) {
+        dataFile = "/data/projects.json";
+    } else if (currentPath.includes("/drawings")) {
+        dataFile = "/data/drawings.json";
+    } else if (currentPath.includes("/archive")) {
+        dataFile = "/data/archive.json";
+    } else if (currentPath.includes("/about")) {
+        dataFile = "/data/about.json";
+    }
 
-    const data = JSON.parse(jsonScript.textContent);
+    if (dataFile && container) {
 
-    data.forEach(group => {
+        fetch(dataFile)
+            .then(res => res.json())
+            .then(data => {
 
-        const groupDiv = document.createElement("div");
-        groupDiv.classList.add("sidebar-group");
+                data.forEach(group => {
 
-        const mainLink = document.createElement("a");
-        mainLink.href = group.url;
-        mainLink.textContent = group.title;
+                    const groupDiv = document.createElement("div");
+                    groupDiv.classList.add("sidebar-group");
 
-        groupDiv.appendChild(mainLink);
+                    const mainLink = document.createElement("a");
+                    mainLink.href = group.url;
+                    mainLink.textContent = group.title;
 
-        if (group.subprojects && group.subprojects.length > 0) {
+                    if (group.url === currentPath) {
+                        mainLink.classList.add("active");
+                        groupDiv.classList.add("open");
+                    }
 
-            const subDiv = document.createElement("div");
-            subDiv.classList.add("sidebar-sub");
+                    groupDiv.appendChild(mainLink);
 
-            group.subprojects.forEach(sub => {
+                    /* Subprojects */
 
-                const subLink = document.createElement("a");
-                subLink.href = sub.url;
-                subLink.textContent = sub.title;
+                    if (group.subprojects && group.subprojects.length > 0) {
 
-                subDiv.appendChild(subLink);
+                        const subDiv = document.createElement("div");
+                        subDiv.classList.add("sidebar-sub");
 
-                if (previewGrid && sub.thumbnail) {
-                    createPreview(sub);
-                }
+                        group.subprojects.forEach(sub => {
+
+                            const subLink = document.createElement("a");
+                            subLink.href = sub.url;
+                            subLink.textContent = sub.title;
+
+                            if (sub.url === currentPath) {
+                                subLink.classList.add("active");
+                                groupDiv.classList.add("open");
+                            }
+
+                            subDiv.appendChild(subLink);
+
+                            /* PREVIEW: Subprojekte zuerst */
+                            if (previewGrid && sub.thumbnail) {
+                                createPreview(sub);
+                            
+                            }
+
+                        });
+
+                        groupDiv.appendChild(subDiv);
+
+                        /* Hauptlink → erstes Sub */
+                        mainLink.addEventListener("click", function (e) {
+                            if (!e.target.closest(".sidebar-sub")) {
+                                e.preventDefault();
+                                window.location.href = group.subprojects[0].url;
+                            }
+                        });
+
+                    } else {
+
+                        /* PREVIEW: nur Hauptprojekt */
+                        if (previewGrid && group.thumbnail) {
+                            createPreview(group);
+                        }
+
+                    }
+
+                    container.appendChild(groupDiv);
+
+                });
 
             });
-
-            groupDiv.appendChild(subDiv);
-
-        } else {
-
-            if (previewGrid && group.thumbnail) {
-                createPreview(group);
-            }
-        }
-
-        container.appendChild(groupDiv);
-    });
-}
+    }
 
     function createPreview(item) {
 
