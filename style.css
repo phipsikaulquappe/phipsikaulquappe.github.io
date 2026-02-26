@@ -176,7 +176,7 @@ a:visited {
 .sidebar-sub a {
     display: block;        /* WICHTIG */
     font-size: 16px;
-    margin-bottom: 6px;
+    margin-bottom: 4.5px;
     transition: opacity 0.2s ease;
 }
 
