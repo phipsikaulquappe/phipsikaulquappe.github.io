@@ -285,8 +285,8 @@ a:visited {
     width: 0;
     height: 0;
 
-    border-top: 2px solid #ee8e8e;
-    border-left: 2px solid #ee8e8e;
+    border-top: 2.5px solid #ee8e8e;
+    border-left: 2.5px solid #ee8e8e;
     pointer-events: none;
 
     transition:
