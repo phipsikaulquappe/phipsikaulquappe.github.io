@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const data = JSON.parse(jsonScript.textContent);
 
     /* =========================
-       SIDEBAR + PREVIEW
+       SIDEBAR + PREVIEW + GALLERY
     ========================== */
 
     data.forEach(group => {
@@ -56,12 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 subDiv.appendChild(subLink);
 
-                /* PREVIEW (erstes Bild) */
-                if (previewGrid && sub.images && sub.images.length > 0) {
+                /* PREVIEW */
+                if (previewGrid && sub.images?.length > 0) {
                     createPreview(sub);
                 }
 
-                /* PROJECT PAGE GALLERY */
+                /* PROJECT PAGE */
                 if (gallery && sub.url === currentPath) {
                     renderGallery(sub.images);
                 }
@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             groupDiv.appendChild(subDiv);
 
-            /* Hauptlink → erstes Sub */
             mainLink.addEventListener("click", function (e) {
                 e.preventDefault();
                 window.location.href = group.subprojects[0].url;
@@ -78,12 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
 
-            /* PREVIEW */
-            if (previewGrid && group.images && group.images.length > 0) {
+            if (previewGrid && group.images?.length > 0) {
                 createPreview(group);
             }
 
-            /* PROJECT PAGE */
             if (gallery && group.url === currentPath) {
                 renderGallery(group.images);
             }
@@ -93,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /* =========================
-       FUNCTIONS
+       PREVIEW FUNCTION
     ========================== */
 
     function createPreview(item) {
@@ -103,8 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
         preview.classList.add("preview-item");
 
         const img = document.createElement("img");
-        img.src = item.images[0];
-        img.loading = "eager";
+
+        img.src = item.images[0];   // nur erstes Bild
+        img.loading = "lazy";
         img.decoding = "async";
 
         const title = document.createElement("div");
@@ -117,22 +115,63 @@ document.addEventListener("DOMContentLoaded", function () {
         previewGrid.appendChild(preview);
     }
 
+    /* =========================
+       GALLERY WITH SMART LAZY LOAD
+    ========================== */
+
     function renderGallery(images) {
 
         images.forEach((path, index) => {
 
             const img = document.createElement("img");
-            img.src = path;
 
             if (index === 0) {
+                // erstes Bild sofort laden
+                img.src = path;
                 img.loading = "eager";
                 img.decoding = "async";
             } else {
-                img.loading = "lazy";
+                // Rest erst beim Scrollen
+                img.dataset.src = path;
+                img.classList.add("lazy-image");
             }
 
             gallery.appendChild(img);
         });
+
+        initLazyLoading();
+    }
+
+    function initLazyLoading() {
+
+        const lazyImages = document.querySelectorAll(".lazy-image");
+
+        if (!("IntersectionObserver" in window)) {
+            // Fallback
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+            });
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove("lazy-image");
+                    obs.unobserve(img);
+                }
+            });
+
+        }, {
+            rootMargin: "200px"
+        });
+
+        lazyImages.forEach(img => observer.observe(img));
     }
 
     /* =========================
