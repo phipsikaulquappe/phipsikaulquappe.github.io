@@ -292,7 +292,7 @@ a:visited {
     width: 0;
     height: 0;
 
-    border-top: 10px solid #ee8e8e;
+    border-top: 10px double #ee8e8e;
     border-left: 2px solid #ee8e8e;
     pointer-events: none;
 
