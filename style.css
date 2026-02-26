@@ -254,10 +254,6 @@ a:visited {
     display: block;
 }
 
-.preview-image {
-    position: relative;
-}
-
 .preview-item img {
     width: 100%;
     height: auto;
@@ -269,27 +265,33 @@ a:visited {
     font-size: 14px;
 }
 
-/* Ecke */
-.preview-image::before {
+/* ---------- Ecke ---------- */
+
+.preview-item {
+    position: relative;
+}
+
+/* Pseudo-Element */
+.preview-item::before {
     content: "";
     position: absolute;
     top: 12px;
     left: 12px;
 
-    width: 0;
-    height: 0;
+    width: 40px;
+    height: 40px;
 
     border-top: 1.2px solid #000;
     border-left: 1.2px solid #000;
 
-    transition: width 0.25s ease, height 0.25s ease;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.2s ease;
 }
 
-/* Nur beim Hover */
-.preview-item:hover .preview-image::before {
-    width: 40px;
-    height: 40px;
+/* Nur beim Hover sichtbar */
+.preview-item:hover::before {
+    opacity: 1;
 }
 
 /* =========================
