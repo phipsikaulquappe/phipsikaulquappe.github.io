@@ -241,28 +241,32 @@ a:visited {
 
 /* =========================
    Thumbnail-Preview GRID
-   (Masonry ohne Lücken)
+   (Einheitliches Format)
 ========================= */
 
 #preview-grid {
-    column-count: 2;
-    column-gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     margin-top: 20px;
 }
 
 .preview-item {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 30px;
+    display: block;
     position: relative;
-
-    break-inside: avoid;
 }
 
 .preview-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;   /* wichtig */
     display: block;
+}
+
+/* Bild-Container mit festem Verhältnis */
+.preview-item {
+    aspect-ratio: 4 / 3;   /* ← HIER Format ändern */
+    overflow: hidden;
 }
 
 .preview-title {
