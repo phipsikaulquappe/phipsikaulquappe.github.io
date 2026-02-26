@@ -290,13 +290,13 @@ a:visited {
     pointer-events: none;
 
     transition:
-        width 5s ease,
-        height 5s ease;
+        width 3s ease,
+        height 3s ease;
 }
 
 /* Hover → wächst hinein */
 .preview-item:hover::before {
-    width: 10px;
+    width: 100px;
     height: 100px;
 }
 
