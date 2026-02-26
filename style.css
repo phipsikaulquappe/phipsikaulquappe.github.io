@@ -285,13 +285,13 @@ a:visited {
     width: 0;
     height: 0;
 
-    border-top: 3px solid #ee8e8e;
-    border-left: 3px solid #ee8e8e;
+    border-top: 2px solid #ee8e8e;
+    border-left: 2px solid #ee8e8e;
     pointer-events: none;
 
     transition:
-        width 3s ease,
-        height 3s ease;
+        width 2.5s ease,
+        height 2.5s ease;
 }
 
 /* Hover → wächst hinein */
