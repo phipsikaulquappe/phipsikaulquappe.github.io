@@ -12,53 +12,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const jsonScript = document.getElementById("projects-data");
 
-    if (jsonScript && container) {
+if (jsonScript && container) {
 
-        const data = JSON.parse(jsonScript.textContent);
+    const data = JSON.parse(jsonScript.textContent);
 
-        data.forEach(group => {
+    data.forEach(group => {
 
-            const groupDiv = document.createElement("div");
-            groupDiv.classList.add("sidebar-group");
+        const groupDiv = document.createElement("div");
+        groupDiv.classList.add("sidebar-group");
 
-            const mainLink = document.createElement("a");
-            mainLink.href = group.url;
-            mainLink.textContent = group.title;
+        const mainLink = document.createElement("a");
+        mainLink.href = group.url;
+        mainLink.textContent = group.title;
 
-            groupDiv.appendChild(mainLink);
+        groupDiv.appendChild(mainLink);
 
-            if (group.subprojects && group.subprojects.length > 0) {
+        if (group.subprojects && group.subprojects.length > 0) {
 
-                const subDiv = document.createElement("div");
-                subDiv.classList.add("sidebar-sub");
+            const subDiv = document.createElement("div");
+            subDiv.classList.add("sidebar-sub");
 
-                group.subprojects.forEach(sub => {
+            group.subprojects.forEach(sub => {
 
-                    const subLink = document.createElement("a");
-                    subLink.href = sub.url;
-                    subLink.textContent = sub.title;
+                const subLink = document.createElement("a");
+                subLink.href = sub.url;
+                subLink.textContent = sub.title;
 
-                    subDiv.appendChild(subLink);
+                subDiv.appendChild(subLink);
 
-                    if (previewGrid && sub.thumbnail) {
-                        createPreview(sub);
-                    }
-
-                });
-
-                groupDiv.appendChild(subDiv);
-
-            } else {
-
-                if (previewGrid && group.thumbnail) {
-                    createPreview(group);
+                if (previewGrid && sub.thumbnail) {
+                    createPreview(sub);
                 }
+
+            });
+
+            groupDiv.appendChild(subDiv);
+
+        } else {
+
+            if (previewGrid && group.thumbnail) {
+                createPreview(group);
             }
+        }
 
-            container.appendChild(groupDiv);
-        });
+        container.appendChild(groupDiv);
+    });
+}
+
+    function createPreview(item) {
+
+        const preview = document.createElement("a");
+        preview.href = item.url;
+        preview.classList.add("preview-item");
+
+        const img = document.createElement("img");
+        img.src = item.thumbnail;
+        img.loading = "lazy";
+        img.decoding = "async";
+
+
+        const title = document.createElement("div");
+        title.classList.add("preview-title");
+        title.textContent = item.title;
+
+        preview.appendChild(img);
+        preview.appendChild(title);
+
+        previewGrid.appendChild(preview);
     }
-
 
     /* =========================
        HEADER ACTIVE STATE
