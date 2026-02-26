@@ -1,0 +1,32 @@
+<header class="header">
+
+    <div class="nav-left">
+        <a href="/index.html"><strong>Mein Name</strong></a>
+    </div>
+
+    <nav class="nav-right">
+        <a href="/projects.html"
+           class="{% if page.url contains '/projects' %}active{% endif %}">
+            Projects
+        </a>
+
+        <a href="/drawings.html"
+           class="{% if page.url contains '/drawings' %}active{% endif %}">
+            Drawings
+        </a>
+
+        <a href="/archive.html"
+           class="{% if page.url contains '/archive' %}active{% endif %}">
+            Archive
+        </a>
+
+        <a href="/about.html"
+           class="{% if page.url contains '/about' %}active{% endif %}">
+            About
+        </a>
+    </nav>
+
+    <button id="themeToggle" class="theme-toggle">change</button>
+    <button class="sidebar-toggle" id="sidebarToggle">Menu</button>
+
+</header>
