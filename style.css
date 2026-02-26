@@ -256,32 +256,33 @@ a:visited {
     display: block;
 }
 
-.preview-item {
-    display: block;
-    position: relative;
-}
-
 .preview-title {
     margin-top: 6px;
     font-size: 14px;
 }
 
+#preview-grid .preview-item {
+    position: relative;
+}
+
 #preview-grid .preview-item::before {
     content: "";
-    position: relative;
-    top: 15px;
-    left: 15px;
+    position: absolute;
+
+    top: 0;
+    left: 0;
 
     width: 0;
     height: 0;
 
-    border-top: 2px solid white;
-    border-left: 2px solid white;
+    border-top: 1.2px solid #000;
+    border-left: 1.2px solid #000;
 
     pointer-events: none;
     transition: width 0.25s ease, height 0.25s ease;
 }
 
+/* Nur beim Hover */
 #preview-grid .preview-item:hover::before {
     width: 40px;
     height: 40px;
