@@ -259,6 +259,8 @@ a:visited {
 
 .preview-item {
     display: block;
+    position: absolute;
+
 }
 
 .preview-title {
