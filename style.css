@@ -258,7 +258,7 @@ a:visited {
 
 .preview-item {
     display: block;
-
+    position: relative;
 }
 
 .preview-title {
@@ -268,7 +268,7 @@ a:visited {
 
 #preview-grid .preview-item::before {
     content: "";
-    position: absolute;
+    position: relative;
     top: 15px;
     left: 15px;
 
