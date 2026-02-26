@@ -241,32 +241,28 @@ a:visited {
 
 /* =========================
    Thumbnail-Preview GRID
-   (Einheitliches Format)
+   (Masonry ohne Lücken)
 ========================= */
 
 #preview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    column-count: 2;
+    column-gap: 30px;
     margin-top: 20px;
-    border-radius: 4px;
 }
 
 .preview-item {
-    display: block;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
     position: relative;
+
+    break-inside: avoid;
 }
 
 .preview-item img {
+    width: 100%;
+    height: auto;
     display: block;
-    border: 2px solid #000;
-    border-radius: 4px;
-}
-
-/* Bild-Container mit festem Verhältnis */
-.preview-item {
-    aspect-ratio: 4 / 3;   /* ← HIER Format ändern */
-    overflow: hidden;
 }
 
 .preview-title {
@@ -287,12 +283,13 @@ a:visited {
     position: absolute;
 
     top: 12px;
-    left: 0px;
+    left: px;
 
     width: 0;
     height: 0;
 
-    border-top: 10px ridge #ffffff;
+    border-top: 10px solid #ee8e8e;
+    border-left: 2px solid #ee8e8e;
     pointer-events: none;
 
     transition:
