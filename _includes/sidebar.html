@@ -2,42 +2,47 @@
     <div class="sidebar-list">
 
         {% for index in site.index %}
-            <div class="sidebar-group">
-                <a href="{{ index.url }}">
-                    {{ index.title }}
-                </a>
+            <div class="sidebar-group {% if page.parent == index.slug %}open{% endif %}">
+                <a href="{{ index.url }}"
+                    class="{% if page.url contains index.url %}active{% endif %}">
+                <a href="{{ child.url }}"
+                    class="{% if page.url contains child.url %}active{% endif %}">
             </div>
         {% endfor %}
 
         {% for project in site.projects %}
-            <div class="sidebar-group">
-                <a href="{{ project.url }}">
-                    {{ project.title }}
-                </a>
+            <div class="sidebar-group {% if page.parent == project.slug %}open{% endif %}">
+                <a href="{{ project.url }}"
+                    class="{% if page.url contains project.url %}active{% endif %}">
+                <a href="{{ child.url }}"
+                    class="{% if page.url contains child.url %}active{% endif %}">
             </div>
         {% endfor %}
 
         {% for drawings in site.drawings %}
-            <div class="sidebar-group">
-                <a href="{{ drawings.url }}">
-                    {{ drawings.title }}
-                </a>
+            <div class="sidebar-group {% if page.parent == drawings.slug %}open{% endif %}">
+                <a href="{{ drawings.url }}"
+                    class="{% if page.url contains drawings.url %}active{% endif %}">
+                <a href="{{ child.url }}"
+                    class="{% if page.url contains child.url %}active{% endif %}">
             </div>
         {% endfor %}
 
         {% for archive in site.archive %}
-            <div class="sidebar-group">
-                <a href="{{ archive.url }}">
-                    {{ archive.title }}
-                </a>
+            <div class="sidebar-group {% if page.parent == archive.slug %}open{% endif %}">
+                <a href="{{ archive.url }}"
+                    class="{% if page.url contains archive.url %}active{% endif %}">
+                <a href="{{ child.url }}"
+                    class="{% if page.url contains child.url %}active{% endif %}">
             </div>
         {% endfor %}
 
         {% for about in site.about %}
-            <div class="sidebar-group">
-                <a href="{{ about.url }}">
-                    {{ about.title }}
-                </a>
+            <div class="sidebar-group {% if page.parent == about.slug %}open{% endif %}">
+                <a href="{{ about.url }}"
+                   class="{% if page.url contains about.url %}active{% endif %}">
+                <a href="{{ child.url }}"
+                    class="{% if page.url contains child.url %}active{% endif %}">
             </div>
         {% endfor %}
 
