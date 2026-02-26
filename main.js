@@ -1,35 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const currentPath = window.location.pathname;
     const layout = document.querySelector(".layout");
     const toggleBtn = document.getElementById("sidebarToggle");
-
-    /* =========================
-       SIDEBAR ACTIVE STATE
-    ========================== */
-
-    const sidebarLinks = document.querySelectorAll(".sidebar a");
-
-    sidebarLinks.forEach(link => {
-        if (link.getAttribute("href") === currentPath) {
-            link.classList.add("active");
-
-            const group = link.closest(".sidebar-group");
-            if (group) group.classList.add("open");
-        }
-    });
-
-    /* =========================
-       HEADER ACTIVE STATE
-    ========================== */
-
-    const navLinks = document.querySelectorAll(".nav-right a");
-
-    navLinks.forEach(link => {
-        if (currentPath.includes(link.getAttribute("href"))) {
-            link.classList.add("active");
-        }
-    });
+    const sidebar = document.querySelector(".sidebar");
 
     /* =========================
        SIDEBAR TOGGLE MOBILE
@@ -47,12 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", function (e) {
 
-        if (!layout.classList.contains("sidebar-open")) return;
+        if (!layout || !layout.classList.contains("sidebar-open")) return;
 
-        const sidebar = document.querySelector(".sidebar");
-
-        if (toggleBtn.contains(e.target)) return;
-        if (sidebar.contains(e.target)) return;
+        if (toggleBtn && toggleBtn.contains(e.target)) return;
+        if (sidebar && sidebar.contains(e.target)) return;
 
         layout.classList.remove("sidebar-open");
 
