@@ -59,7 +59,7 @@ a:visited {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    a:hover {
+    a:hover:not(.preview-item) {
         opacity: 0.4;
     }
 }
@@ -196,7 +196,6 @@ a:visited {
     }
 }
 
-
 /* =========================
    Hover
 ========================= */
@@ -289,9 +288,6 @@ a:visited {
     height: 40px;
 }
 
-.preview-item:hover img {
-    opacity: none;
-}
 
 /* =========================
    TOGGLES – MINIMAL STYLE
