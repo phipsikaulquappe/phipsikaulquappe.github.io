@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Radioproject, 2026
+title: Radiopro, 2026
 date: 2026-05-10
 thumbnail: /images/radioproject.jpg
 ---
