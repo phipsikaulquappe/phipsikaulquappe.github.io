@@ -296,7 +296,6 @@ a:visited {
     height: 0;
 
     border-top: 10px double #ffffff;
-    border-left: 2px solid #ee8e8e;
     pointer-events: none;
 
     transition:
