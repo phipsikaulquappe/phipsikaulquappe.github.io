@@ -290,8 +290,8 @@ a:visited {
     pointer-events: none;
 
     transition:
-        width 2.5s ease,
-        height 2.5s ease;
+        width 0.3s cubic-bezier(.4,0,.2,1),
+        height 0.3s cubic-bezier(.4,0,.2,1);
 }
 
 /* Hover → wächst hinein */
