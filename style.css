@@ -186,8 +186,14 @@ a:visited {
     padding-left: 18px;
 }
 
-.sidebar-sub a:hover {
-    opacity: 0.4;
+.sidebar-group.open .sidebar-sub {
+    display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .sidebar-sub a:hover {
+        opacity: 0.4;
+    }
 }
 
 
@@ -197,7 +203,7 @@ a:visited {
 
 /* Hover + JS open state */
 
-@media (min-width: 901px) {
+@media (hover: hover) and (pointer: fine) {
     .sidebar-group:hover .sidebar-sub {
         display: block;
     }
@@ -248,6 +254,10 @@ a:visited {
 .preview-item img {
     width: 100%;
     height: auto;
+    display: block;
+}
+
+.preview-item {
     display: block;
 }
 
