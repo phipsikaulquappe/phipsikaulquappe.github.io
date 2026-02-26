@@ -258,9 +258,6 @@ a:visited {
 }
 
 .preview-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* wichtig */
     display: block;
     border: 2px solid #000;
     border-radius: 4px;
