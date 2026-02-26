@@ -15,7 +15,10 @@
 
         {% if items %}
 
-            {% assign parents = items | where_exp: "item", "item.parent == nil" | sort: "date" reverse %}
+            {% assign parents = items 
+                | where_exp: "item", "item.parent == nil" 
+                | sort: "date" 
+                | reverse %}
 
             {% for item in parents %}
 
@@ -26,7 +29,10 @@
                         {{ item.title }}
                     </a>
 
-                    {% assign children = items | where: "parent", item.slug | sort: "date" reverse %}
+                    {% assign children = items 
+                        | where: "parent", item.slug 
+                        | sort: "date" 
+                        | reverse %}
 
                     {% if children.size > 0 %}
                         <div class="sidebar-sub">
