@@ -1,130 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const container = document.getElementById("sidebar-container");
-    const previewGrid = document.getElementById("preview-grid");
     const currentPath = window.location.pathname;
     const layout = document.querySelector(".layout");
     const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
-       JSON LADEN
+       SIDEBAR ACTIVE STATE
     ========================== */
 
-    let dataFile = null;
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
 
-    if (currentPath.includes("/projects")) {
-        dataFile = "/data/projects.json";
-    } else if (currentPath.includes("/drawings")) {
-        dataFile = "/data/drawings.json";
-    } else if (currentPath.includes("/archive")) {
-        dataFile = "/data/archive.json";
-    } else if (currentPath.includes("/about")) {
-        dataFile = "/data/about.json";
-    }
+    sidebarLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
 
-    if (dataFile && container) {
-
-        fetch(dataFile)
-            .then(res => res.json())
-            .then(data => {
-
-                data.forEach(group => {
-
-                    const groupDiv = document.createElement("div");
-                    groupDiv.classList.add("sidebar-group");
-
-                    const mainLink = document.createElement("a");
-                    mainLink.href = group.url;
-                    mainLink.textContent = group.title;
-
-                    if (group.url === currentPath) {
-                        mainLink.classList.add("active");
-                        groupDiv.classList.add("open");
-                    }
-
-                    groupDiv.appendChild(mainLink);
-
-                    /* =========================
-                       SUBPROJECTS
-                    ========================== */
-
-                    if (group.subprojects && group.subprojects.length > 0) {
-
-                        const subDiv = document.createElement("div");
-                        subDiv.classList.add("sidebar-sub");
-
-                        group.subprojects.forEach(sub => {
-
-                            const subLink = document.createElement("a");
-                            subLink.href = sub.url;
-                            subLink.textContent = sub.title;
-
-                            if (sub.url === currentPath) {
-                                subLink.classList.add("active");
-                                groupDiv.classList.add("open");
-                            }
-
-                            subDiv.appendChild(subLink);
-
-                        });
-
-                        groupDiv.appendChild(subDiv);
-
-                        /* Hauptlink → erstes Sub */
-                        mainLink.addEventListener("click", function (e) {
-                            e.preventDefault();
-                            window.location.href = group.subprojects[0].url;
-                        });
-
-                        /* Preview: nur Subprojekte */
-                        if (previewGrid) {
-                            group.subprojects.forEach(sub => {
-                                if (sub.thumbnail) {
-                                    createPreview(sub);
-                                }
-                            });
-                        }
-
-                    } else {
-
-                        /* Preview: nur Hauptprojekt */
-                        if (previewGrid && group.thumbnail) {
-                            createPreview(group);
-                        }
-
-                    }
-
-                    container.appendChild(groupDiv);
-
-                });
-
-            })
-            .catch(err => console.error("JSON Fehler:", err));
-    }
-
-    /* =========================
-       PREVIEW ERZEUGEN
-    ========================== */
-
-    function createPreview(item) {
-
-        const preview = document.createElement("a");
-        preview.href = item.url;
-        preview.classList.add("preview-item");
-
-        const img = document.createElement("img");
-        img.src = item.thumbnail;
-        img.loading = "lazy";
-
-        const title = document.createElement("div");
-        title.classList.add("preview-title");
-        title.textContent = item.title;
-
-        preview.appendChild(img);
-        preview.appendChild(title);
-
-        previewGrid.appendChild(preview);
-    }
+            const group = link.closest(".sidebar-group");
+            if (group) group.classList.add("open");
+        }
+    });
 
     /* =========================
        HEADER ACTIVE STATE
@@ -132,17 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const navLinks = document.querySelectorAll(".nav-right a");
 
-    navLinks.forEach(function(link) {
-
-        if (
-            (currentPath.includes("/projects") && link.href.includes("projects")) ||
-            (currentPath.includes("/drawings") && link.href.includes("drawings")) ||
-            (currentPath.includes("/archive") && link.href.includes("archive")) ||
-            (currentPath.includes("/about") && link.href.includes("about"))
-        ) {
+    navLinks.forEach(link => {
+        if (currentPath.includes(link.getAttribute("href"))) {
             link.classList.add("active");
         }
-
     });
 
     /* =========================
@@ -161,12 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", function (e) {
 
-        if (!layout || !layout.classList.contains("sidebar-open")) return;
+        if (!layout.classList.contains("sidebar-open")) return;
 
         const sidebar = document.querySelector(".sidebar");
 
-        if (toggleBtn && toggleBtn.contains(e.target)) return;
-        if (sidebar && sidebar.contains(e.target)) return;
+        if (toggleBtn.contains(e.target)) return;
+        if (sidebar.contains(e.target)) return;
 
         layout.classList.remove("sidebar-open");
 
