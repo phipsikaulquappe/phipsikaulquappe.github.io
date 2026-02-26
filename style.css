@@ -266,6 +266,26 @@ a:visited {
     font-size: 14px;
 }
 
+.preview-item::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    width: 0;
+    height: 0;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.preview-item:hover::before {
+    width: 40px;
+    height: 40px;
+}
+
 /* =========================
    TOGGLES – MINIMAL STYLE
 ========================= */
