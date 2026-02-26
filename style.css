@@ -241,15 +241,22 @@ a:visited {
 
 /* =========================
    Thumbnail-Preview GRID
+   (Masonry ohne Lücken)
 ========================= */
 
 #preview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    column-count: 2;
+    column-gap: 30px;
     margin-top: 20px;
+}
 
-    align-items: start;  
+.preview-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+
+    break-inside: avoid;
 }
 
 .preview-item {
