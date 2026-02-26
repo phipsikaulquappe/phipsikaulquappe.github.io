@@ -248,6 +248,12 @@ a:visited {
     align-items: start;   /* wichtig */
 }
 
+.preview-item {
+    display: block;
+    position: relative;
+    transition: transform 0.25s ease;
+}
+
 .preview-item img {
     width: 100%;
     height: auto;
@@ -257,6 +263,11 @@ a:visited {
 .preview-title {
     margin-top: 6px;
     font-size: 16px;
+    transition: transform 0.25s ease;
+}
+
+.preview-item:hover {
+    transform: translateY(-8px);
 }
 
 /* =========================
