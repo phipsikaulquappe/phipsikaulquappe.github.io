@@ -7,91 +7,99 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("sidebarToggle");
 
     /* =========================
-       INLINE JSON LADEN
+       JSON LADEN
     ========================== */
 
-    let dataElement = null;
+    let dataFile = null;
 
     if (currentPath.includes("/projects")) {
-        dataElement = document.getElementById("projects-data");
+        dataFile = "/data/projects.json";
     } else if (currentPath.includes("/drawings")) {
-        dataElement = document.getElementById("drawings-data");
+        dataFile = "/data/drawings.json";
     } else if (currentPath.includes("/archive")) {
-        dataElement = document.getElementById("archive-data");
+        dataFile = "/data/archive.json";
     } else if (currentPath.includes("/about")) {
-        dataElement = document.getElementById("about-data");
+        dataFile = "/data/about.json";
     }
 
-    if (dataElement && container) {
+    if (dataFile && container) {
 
-        const data = JSON.parse(dataElement.textContent);
+        fetch(dataFile)
+            .then(res => res.json())
+            .then(data => {
 
-        data.forEach(group => {
+                data.forEach(group => {
 
-            const groupDiv = document.createElement("div");
-            groupDiv.classList.add("sidebar-group");
+                    const groupDiv = document.createElement("div");
+                    groupDiv.classList.add("sidebar-group");
 
-            const mainLink = document.createElement("a");
-            mainLink.href = group.url;
-            mainLink.textContent = group.title;
+                    const mainLink = document.createElement("a");
+                    mainLink.href = group.url;
+                    mainLink.textContent = group.title;
 
-            if (group.url === currentPath) {
-                mainLink.classList.add("active");
-                groupDiv.classList.add("open");
-            }
-
-            groupDiv.appendChild(mainLink);
-
-            /* =========================
-               SUBPROJECTS
-            ========================== */
-
-            if (group.subprojects && group.subprojects.length > 0) {
-
-                const subDiv = document.createElement("div");
-                subDiv.classList.add("sidebar-sub");
-
-                group.subprojects.forEach(sub => {
-
-                    const subLink = document.createElement("a");
-                    subLink.href = sub.url;
-                    subLink.textContent = sub.title;
-
-                    if (sub.url === currentPath) {
-                        subLink.classList.add("active");
+                    if (group.url === currentPath) {
+                        mainLink.classList.add("active");
                         groupDiv.classList.add("open");
                     }
 
-                    subDiv.appendChild(subLink);
+                    groupDiv.appendChild(mainLink);
 
-                    /* Preview: Subprojects */
-                    if (previewGrid && sub.thumbnail) {
-                        createPreview(sub);
+                    /* =========================
+                       SUBPROJECTS
+                    ========================== */
+
+                    if (group.subprojects && group.subprojects.length > 0) {
+
+                        const subDiv = document.createElement("div");
+                        subDiv.classList.add("sidebar-sub");
+
+                        group.subprojects.forEach(sub => {
+
+                            const subLink = document.createElement("a");
+                            subLink.href = sub.url;
+                            subLink.textContent = sub.title;
+
+                            if (sub.url === currentPath) {
+                                subLink.classList.add("active");
+                                groupDiv.classList.add("open");
+                            }
+
+                            subDiv.appendChild(subLink);
+
+                        });
+
+                        groupDiv.appendChild(subDiv);
+
+                        /* Hauptlink → erstes Sub */
+                        mainLink.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            window.location.href = group.subprojects[0].url;
+                        });
+
+                        /* Preview: nur Subprojekte */
+                        if (previewGrid) {
+                            group.subprojects.forEach(sub => {
+                                if (sub.thumbnail) {
+                                    createPreview(sub);
+                                }
+                            });
+                        }
+
+                    } else {
+
+                        /* Preview: nur Hauptprojekt */
+                        if (previewGrid && group.thumbnail) {
+                            createPreview(group);
+                        }
+
                     }
 
+                    container.appendChild(groupDiv);
+
                 });
 
-                groupDiv.appendChild(subDiv);
-
-                /* Hauptlink → erstes Sub */
-                mainLink.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    window.location.href = group.subprojects[0].url;
-                });
-
-            } else {
-
-                /* Preview: Hauptprojekt */
-                if (previewGrid && group.thumbnail) {
-                    createPreview(group);
-                }
-
-            }
-
-            container.appendChild(groupDiv);
-
-        });
-
+            })
+            .catch(err => console.error("JSON Fehler:", err));
     }
 
     /* =========================
@@ -159,9 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (toggleBtn && toggleBtn.contains(e.target)) return;
         if (sidebar && sidebar.contains(e.target)) return;
-
-        e.preventDefault();
-        e.stopPropagation();
 
         layout.classList.remove("sidebar-open");
 
