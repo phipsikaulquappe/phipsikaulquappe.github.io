@@ -2,16 +2,16 @@ title: Mein Name
 collections:
   index:
     output: true
-    permalink: /_index/:path/
+    permalink: /index/:path/
   projects:
     output: true
-    permalink: /_projects/:path/
+    permalink: /projects/:path/
   drawings:
     output: true
-    permalink: /_drawings/:path/
+    permalink: /drawings/:path/
   archive:
     output: true
-    permalink: /_archive/:path/
+    permalink: /archive/:path/
   about:
     output: true
-    permalink: /_about/:path/
+    permalink: /about/:path/
