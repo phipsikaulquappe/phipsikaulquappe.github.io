@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Untitled, 2026
+date: 2026-02-08
 thumbnail: /images/untitled26.jpg
 ---
 

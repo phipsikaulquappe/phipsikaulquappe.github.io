@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Beton-Schnitt I
+date: 2024-09-08
 parent: betonschnitt
 thumbnail: /images/betonschnitt1a.jpg
 ---
