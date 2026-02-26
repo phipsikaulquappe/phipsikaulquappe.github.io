@@ -386,9 +386,6 @@ a:visited {
         display: none;
     }
 
-    .sidebar-group:hover .sidebar-sub {
-        display: none;
-    }
 
     .media-grid {
         grid-template-columns: 1fr;
