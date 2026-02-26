@@ -15,30 +15,53 @@
 
         {% if items %}
 
-            {% assign parents = items 
-                | where_exp: "item", "item.parent == nil" 
-                | sort: "date" 
+            {% assign parents = items
+                | where_exp: "item", "item.parent == nil"
+                | sort: "date"
                 | reverse %}
 
             {% for item in parents %}
 
-                <div class="sidebar-group {% if page.parent == item.slug %}open{% endif %}">
+                {% assign children = items
+                    | where: "parent", item.slug
+                    | sort: "date" %}
 
-                    <a href="{{ item.url }}"
-                       class="{% if page.url contains item.url %}active{% endif %}">
-                        {{ item.title }}
-                    </a>
+                {% assign is_open = false %}
 
-                    {% assign children = items 
-                        | where: "parent", item.slug 
-                        | sort: "date" 
-                        | reverse %}
+                {% if page.parent == item.slug %}
+                    {% assign is_open = true %}
+                {% endif %}
+
+                {% for child in children %}
+                    {% if page.url == child.url %}
+                        {% assign is_open = true %}
+                    {% endif %}
+                {% endfor %}
+
+                <div class="sidebar-group {% if is_open %}open{% endif %}">
+
+                    {%- comment -%}
+                    Wenn Subprojekte existieren → Parent-Link zeigt auf erstes Subprojekt
+                    {%- endcomment -%}
+
+                    {% if children.size > 0 %}
+                        {% assign first_child = children.first %}
+                        <a href="{{ first_child.url }}"
+                           class="{% if page.url contains item.url %}active{% endif %}">
+                            {{ item.title }}
+                        </a>
+                    {% else %}
+                        <a href="{{ item.url }}"
+                           class="{% if page.url == item.url %}active{% endif %}">
+                            {{ item.title }}
+                        </a>
+                    {% endif %}
 
                     {% if children.size > 0 %}
                         <div class="sidebar-sub">
                             {% for child in children %}
                                 <a href="{{ child.url }}"
-                                   class="{% if page.url contains child.url %}active{% endif %}">
+                                   class="{% if page.url == child.url %}active{% endif %}">
                                     {{ child.title }}
                                 </a>
                             {% endfor %}

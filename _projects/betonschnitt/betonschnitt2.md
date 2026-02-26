@@ -2,7 +2,7 @@
 layout: default
 title: Beton-Schnitt II
 parent: betonschnitt
-date: 2024-09-08
+date: 2024-09-09
 thumbnail: /images/betonschnitt2.jpg
 ---
 
