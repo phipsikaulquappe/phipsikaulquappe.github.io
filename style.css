@@ -236,6 +236,7 @@ a:visited {
 
 /* =========================
    Thumbnail-Preview GRID
+   (4 Spalten, variable Höhe)
 ========================= */
 
 #preview-grid {
@@ -243,6 +244,8 @@ a:visited {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-top: 20px;
+
+    align-items: start;   /* wichtig */
 }
 
 .preview-item img {
@@ -253,7 +256,7 @@ a:visited {
 
 .preview-title {
     margin-top: 6px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* =========================
