@@ -5,11 +5,17 @@ title: Projects
 
 <div id="preview-grid">
 
-{% assign parents = site.projects | where_exp: "item", "item.parent == nil" %}
+{% assign parents = site.projects
+   | where_exp: "item", "item.parent == nil"
+   | sort: "date"
+   | reverse %}
 
-{% for project in parents %}
+{% for parent in parents %}
 
-    {% assign children = site.projects | where: "parent", project.slug %}
+    {% assign children = site.projects
+        | where: "parent", parent.slug
+        | sort: "date"
+        | reverse %}
 
     {% if children.size > 0 %}
 
@@ -24,11 +30,11 @@ title: Projects
 
     {% else %}
 
-        {% if project.thumbnail %}
-            <a href="{{ project.url }}" class="preview-item">
-                <img src="{{ project.thumbnail }}" loading="eager">
+        {% if parent.thumbnail %}
+            <a href="{{ parent.url }}" class="preview-item">
+                <img src="{{ parent.thumbnail }}" loading="eager">
                 <div class="preview-title">
-                    {{ project.title }}
+                    {{ parent.title }}
                 </div>
             </a>
         {% endif %}
