@@ -250,6 +250,14 @@ a:visited {
     margin-top: 20px;
 }
 
+.preview-item {
+    display: block;
+}
+
+.preview-image {
+    position: relative;
+}
+
 .preview-item img {
     width: 100%;
     height: auto;
@@ -261,16 +269,12 @@ a:visited {
     font-size: 14px;
 }
 
-#preview-grid .preview-item {
-    position: relative;
-}
-
-#preview-grid .preview-item::before {
+/* Ecke */
+.preview-image::before {
     content: "";
     position: absolute;
-
-    top: 0;
-    left: 0;
+    top: 12px;
+    left: 12px;
 
     width: 0;
     height: 0;
@@ -278,16 +282,15 @@ a:visited {
     border-top: 1.2px solid #000;
     border-left: 1.2px solid #000;
 
-    pointer-events: none;
     transition: width 0.25s ease, height 0.25s ease;
+    pointer-events: none;
 }
 
 /* Nur beim Hover */
-#preview-grid .preview-item:hover::before {
+.preview-item:hover .preview-image::before {
     width: 40px;
     height: 40px;
 }
-
 
 /* =========================
    TOGGLES – MINIMAL STYLE
