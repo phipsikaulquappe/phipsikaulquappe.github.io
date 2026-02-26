@@ -59,7 +59,7 @@ a:visited {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    a:hover:not(.preview-item) {
+    a:hover {
         opacity: 0.4;
     }
 }
@@ -186,15 +186,10 @@ a:visited {
     padding-left: 18px;
 }
 
-.sidebar-group.open .sidebar-sub {
-    display: block;
+.sidebar-sub a:hover {
+    opacity: 0.4;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .sidebar-sub a:hover {
-        opacity: 0.4;
-    }
-}
 
 /* =========================
    Hover
@@ -202,7 +197,7 @@ a:visited {
 
 /* Hover + JS open state */
 
-@media (hover: hover) and (pointer: fine) {
+@media (min-width: 901px) {
     .sidebar-group:hover .sidebar-sub {
         display: block;
     }
@@ -241,68 +236,24 @@ a:visited {
 
 /* =========================
    Thumbnail-Preview GRID
-   (Masonry ohne Lücken)
 ========================= */
 
 #preview-grid {
-    column-count: 2;
-    column-gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     margin-top: 20px;
-}
-
-.preview-item {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 30px;
-    position: relative;
-
-    break-inside: avoid;
 }
 
 .preview-item img {
     width: 100%;
     height: auto;
     display: block;
-    border: 2px solid #000;
-    border-radius: 4px;
 }
 
 .preview-title {
     margin-top: 6px;
     font-size: 14px;
-}
-
-/* ---------- Ecke ---------- */
-
-.preview-item {
-    display: block;
-    position: relative;
-}
-
-/* Startzustand */
-.preview-item::before {
-    content: "";
-    position: absolute;
-
-    top: 12px;
-    left: px;
-
-    width: 0;
-    height: 0;
-
-    border-top: 10px solid #ee8e8e;
-    border-left: 2px solid #ee8e8e;
-    pointer-events: none;
-
-    transition:
-        width 0.3s cubic-bezier(.4,0,.2,1),
-        height 0.3s cubic-bezier(.4,0,.2,1);
-}
-
-/* Hover → wächst hinein */
-.preview-item:hover::before {
-    width: 100px;
-    /* height: 100px; */
 }
 
 /* =========================
@@ -432,6 +383,10 @@ a:visited {
     }
 
     .sidebar::after {
+        display: none;
+    }
+
+    .sidebar-group:hover .sidebar-sub {
         display: none;
     }
 
