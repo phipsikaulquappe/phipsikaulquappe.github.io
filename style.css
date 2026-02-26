@@ -268,7 +268,7 @@ a:visited {
 
 #preview-grid .preview-item::before {
     content: "";
-    position: absolute;
+    position: relative;
     top: 12px;
     left: 12px;
 
