@@ -270,30 +270,35 @@ a:visited {
 /* ---------- Ecke ---------- */
 
 .preview-item {
+    display: block;
     position: relative;
 }
 
-/* Pseudo-Element */
+/* Startzustand */
 .preview-item::before {
     content: "";
     position: absolute;
+
     top: 12px;
     left: 12px;
 
-    width: 40px;
-    height: 40px;
+    width: 0;
+    height: 0;
 
     border-top: 1.2px solid #000;
     border-left: 1.2px solid #000;
 
-    opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+
+    transition:
+        width 0.25s ease,
+        height 0.25s ease;
 }
 
-/* Nur beim Hover sichtbar */
+/* Hover → wächst hinein */
 .preview-item:hover::before {
-    opacity: 1;
+    width: 40px;
+    height: 40px;
 }
 
 /* =========================
