@@ -104,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const img = document.createElement("img");
         img.src = item.images[0];
-        img.loading = "lazy";
+        img.loading = "eager";
+        img.decoding = "async";
 
         const title = document.createElement("div");
         title.classList.add("preview-title");
