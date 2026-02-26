@@ -2,16 +2,12 @@
   {
     "title": "Radioproject, 2026",
     "url": "/projects/radioproject.html",
-    "images": [
-      "/images/radioproject.jpg"
-    ]
+    "thumbnail": "/images/radioproject.jpg"
   },
   {
     "title": "Untitled, 2026",
     "url": "/projects/untitled26.html",
-    "images": [
-      "/images/untitled26.jpg"
-    ]
+    "thumbnail": "/images/untitled26.jpg"
   },
   {
     "title": "Beton-Schnitt",
@@ -20,25 +16,17 @@
       {
         "title": "Beton-Schnitt I",
         "url": "/projects/betonschnitt/betonschnitt1.html",
-        "images": [
-          "/images/betonschnitt1a.jpg",
-          "/images/betonschnitt1b.jpg"
-        ]
+        "thumbnail": "/images/betonschnitt1a.jpg"
       },
       {
         "title": "Beton-Schnitt II",
         "url": "/projects/betonschnitt/betonschnitt2.html",
-        "images": [
-          "/images/betonschnitt2.jpg"
-        ]
+        "thumbnail": "/images/betonschnitt2.jpg"
       }
     ]
   },
   {
     "title": "Projekt 3",
-    "url": "/projects/projekt3.html",
-    "images": [
-      "/images/projekt3.jpg"
-    ]
+    "url": "/projects/projekt3.html"
   }
 ]
