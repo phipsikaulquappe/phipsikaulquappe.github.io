@@ -1,0 +1,17 @@
+title: Mein Name
+collections:
+  index:
+    output: true
+    permalink: /index/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+  drawings:
+    output: true
+    permalink: /drawings/:path/
+  archive:
+    output: true
+    permalink: /archive/:path/
+  about:
+    output: true
+    permalink: /about/:path/

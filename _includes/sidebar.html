@@ -1,0 +1,47 @@
+<aside class="sidebar">
+    <div class="sidebar-list">
+
+        {% for index in site.index %}
+            <div class="sidebar-group">
+                <a href="{{ index.url }}">
+                    {{ index.title }}
+                </a>
+            </div>
+        {% endfor %}
+
+        {% for project in site.projects %}
+            <div class="sidebar-group">
+                <a href="{{ project.url }}">
+                    {{ project.title }}
+                </a>
+            </div>
+        {% endfor %}
+
+        {% for drawings in site.drawings %}
+            <div class="sidebar-group">
+                <a href="{{ drawings.url }}">
+                    {{ drawings.title }}
+                </a>
+            </div>
+        {% endfor %}
+
+        {% for archive in site.archive %}
+            <div class="sidebar-group">
+                <a href="{{ archive.url }}">
+                    {{ archive.title }}
+                </a>
+            </div>
+        {% endfor %}
+
+        {% for about in site.about %}
+            <div class="sidebar-group">
+                <a href="{{ about.url }}">
+                    {{ about.title }}
+                </a>
+            </div>
+        {% endfor %}
+
+        
+
+    </div>
+</aside>

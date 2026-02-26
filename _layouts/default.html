@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} – {{ site.title }}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    {% include header.html %}
+    {% include sidebar.html %}
+
+    <main class="main">
+        {{ content }}
+    </main>
+
+</div>
+
+<script src="/main.js"></script>
+</body>
+</html>
