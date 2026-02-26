@@ -59,7 +59,7 @@ a:visited {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    a:hover {
+    a:hover:not(.preview-item) {
         opacity: 0.4;
     }
 }
