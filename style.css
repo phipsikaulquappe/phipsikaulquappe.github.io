@@ -180,10 +180,11 @@ a:visited {
     transition: opacity 0.2s ease;
 }
 
+/* Subnavigation Container */
 .sidebar-sub {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease;
+    display: none;
+    margin-top: 4.5px;
+    padding-left: 18px;
 }
 
 .sidebar-sub a:hover {
@@ -197,16 +198,15 @@ a:visited {
 
 /* Hover + JS open state */
 
-/* Aktiv geöffnet (Seite aktiv) */
-.sidebar-group.open .sidebar-sub {
-    max-height: 500px;
-}
-
-/* Hover Desktop */
 @media (min-width: 901px) {
     .sidebar-group:hover .sidebar-sub {
-        max-height: 500px;
+        display: block;
     }
+}
+
+/* Subnavigation dauerhaft öffnen wenn aktiv */
+.sidebar-group.open .sidebar-sub {
+    display: block;
 }
 
 /* =========================
