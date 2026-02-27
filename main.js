@@ -68,18 +68,21 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebarLinks.forEach(link => {
 
         link.addEventListener('mouseenter', () => {
-            console.log("Sidebar Hover:", link.dataset.project);
+            const target = link.dataset.project;
 
-            const preview = document.querySelector(
-                '.preview-item[data-project="' + link.dataset.project + '"]'
-            );
+            document.querySelectorAll('.preview-item').forEach(item => {
+                item.classList.remove('sidebar-hover');
 
-            console.log("Found preview:", preview);
-
-            if (preview) {
-                preview.classList.add('sidebar-hover');
-            }
+                if (item.dataset.project === target) {
+                    item.classList.add('sidebar-hover');
+                }
+            });
         });
 
+    });
+
+    document.querySelector('.sidebar').addEventListener('mouseleave', () => {
+        document.querySelectorAll('.preview-item')
+            .forEach(item => item.classList.remove('sidebar-hover'));
     });
 });
