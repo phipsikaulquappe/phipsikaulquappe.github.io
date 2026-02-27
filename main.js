@@ -63,38 +63,34 @@ document.addEventListener("DOMContentLoaded", function () {
        SIDEBAR → PREVIEW HOVER LINK
     ========================== */
 
-    /* =========================
+/* =========================
    SIDEBAR → PREVIEW HOVER LINK
 ========================== */
 
     const sidebarLinks = document.querySelectorAll('.sidebar a[data-project]');
     const previewItems = document.querySelectorAll('.preview-item[data-project]');
 
-    if (sidebarLinks.length && previewItems.length) {
+    sidebarLinks.forEach(link => {
 
-        sidebarLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
 
-            link.addEventListener('mouseenter', () => {
+            const target = link.dataset.project;
 
-                const target = link.dataset.project;
-
-                previewItems.forEach(item => {
-                    if (item.dataset.project === target) {
-                        item.classList.add('sidebar-hover');
-                    }
-                });
-
-            });
-
-            link.addEventListener('mouseleave', () => {
-
-                previewItems.forEach(item => {
-                    item.classList.remove('sidebar-hover');
-                });
-
+            previewItems.forEach(item => {
+                if (item.dataset.project === target) {
+                    item.classList.add('sidebar-hover');
+                }
             });
 
         });
 
-    }
+        link.addEventListener('mouseout', () => {
+
+            previewItems.forEach(item => {
+                item.classList.remove('sidebar-hover');
+            });
+
+        });
+
+    });
 });
