@@ -204,6 +204,11 @@ a:visited {
     }
 }
 
+/* Subnavigation dauerhaft öffnen wenn aktiv */
+.sidebar-group.open .sidebar-sub {
+    display: block;
+}
+
 /* =========================
    MEDIA GRID
 ========================= */
