@@ -393,6 +393,11 @@ a:visited {
         display: none;
     }
 
+    .preview-item:hover,
+    .preview-item.sidebar-hover {
+        display: none;
+    }
+
     .media-grid {
         grid-template-columns: 1fr;
     }
