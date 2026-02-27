@@ -63,22 +63,25 @@ document.addEventListener("DOMContentLoaded", function () {
        SIDEBAR → PREVIEW HOVER LINK
     ========================== */
 
+    const previewMap = {};
+
+    document.querySelectorAll('.preview-item[data-project]')
+        .forEach(item => {
+            previewMap[item.dataset.project] = item;
+        });
+
     const sidebarLinks = document.querySelectorAll('.sidebar a[data-project]');
 
     sidebarLinks.forEach(link => {
 
         link.addEventListener('mouseenter', () => {
-            console.log("Sidebar Hover:", link.dataset.project);
+            const preview = previewMap[link.dataset.project];
+            if (preview) preview.classList.add('sidebar-hover');
+        });
 
-            const preview = document.querySelector(
-                '.preview-item[data-project="' + link.dataset.project + '"]'
-            );
-
-            console.log("Found preview:", preview);
-
-            if (preview) {
-                preview.classList.add('sidebar-hover');
-            }
+        link.addEventListener('mouseleave', () => {
+            const preview = previewMap[link.dataset.project];
+            if (preview) preview.classList.remove('sidebar-hover');
         });
 
     });
