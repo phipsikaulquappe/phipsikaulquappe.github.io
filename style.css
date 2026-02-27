@@ -337,14 +337,17 @@ a:visited {
     background: none;
     border: none;
     color: rgb(79, 73, 73);
-    font-size: 40px;
     cursor: pointer;
     padding: 20px;
+    font-family: inherit;
 }
 
+/* Close */
 .lightbox-close {
-    top: 10px;
-    right: 20px;
+    top: 20px;
+    right: 30px;
+    font-size: 70px;
+    line-height: 1;
 }
 
 .lightbox-prev {
