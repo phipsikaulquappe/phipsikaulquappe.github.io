@@ -159,6 +159,7 @@ a:visited {
 .sidebar-group {
     margin-bottom: 6px;
     font-size: 18px;
+    position: relative;
 }
 
 .sidebar-group > a {
@@ -174,12 +175,9 @@ a:visited {
 
 /* Subnavigation */
 .sidebar-sub {
-    opacity: 0;
-    visibility: hidden;
-    height: auto;
-    transition: opacity 0.2s ease;
+    display: none;
+    margin-top: 4px;
 }
-
 
 /* =========================
    Hover
@@ -187,17 +185,13 @@ a:visited {
 
 /* Hover + JS open state */
 
-/* Aktiv (Seite gehört dazu) */
 .sidebar-group.open .sidebar-sub {
-    opacity: 1;
-    visibility: visible;
+    display: block;
 }
 
-/* Desktop Hover */
 @media (min-width: 901px) {
     .sidebar-group:hover .sidebar-sub {
-        opacity: 1;
-        visibility: visible;
+        display: block;
     }
 }
 
