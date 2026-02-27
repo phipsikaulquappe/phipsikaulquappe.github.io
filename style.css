@@ -160,6 +160,7 @@ a:visited {
     margin-bottom: 6px;
     font-size: 18px;
     position: relative;
+    padding-bottom: 4px;
 }
 
 .sidebar-group > a {
