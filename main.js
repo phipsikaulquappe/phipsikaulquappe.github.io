@@ -149,7 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 showPrev();
             }
 
+            if (lightbox.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+
         });
 
     }
+    
 });
