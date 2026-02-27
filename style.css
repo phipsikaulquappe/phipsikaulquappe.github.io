@@ -58,6 +58,12 @@ a:visited {
     text-decoration: none;
 }
 
+@media (hover: hover) and (pointer: fine) {
+    a:hover:not(.preview-item) {
+        opacity: 0.4;
+    }
+}
+
 /* =========================
    LAYOUT GRID
 ========================= */
@@ -253,11 +259,9 @@ a:visited {
     transition: transform 0.25s ease;
 }
 
-@media (min-width: 901px) {
-    .preview-item:hover,
-    .preview-item.sidebar-hover {
-        transform: translateY(-8px);
-    }
+.preview-item:hover,
+.preview-item.sidebar-hover {
+    transform: translateY(-8px);
 }
 
 /* =========================
@@ -435,6 +439,19 @@ a:visited {
 
     .layout.sidebar-open .sidebar {
         transform: translateX(0);
+    }
+
+    .sidebar::after {
+        display: none;
+    }
+
+    .sidebar-group:hover .sidebar-sub {
+        display: none;
+    }
+
+    .preview-item:hover,
+    .preview-item.sidebar-hover {
+        display: none;
     }
 
     .media-grid {
