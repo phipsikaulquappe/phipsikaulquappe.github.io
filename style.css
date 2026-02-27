@@ -302,6 +302,57 @@ a:visited {
 
 
 /* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+
+.lightbox img {
+    max-width: 85vw;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.lightbox button {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.lightbox-close {
+    top: 10px;
+    right: 20px;
+}
+
+.lightbox-prev {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
