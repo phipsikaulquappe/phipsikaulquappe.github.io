@@ -220,6 +220,7 @@ a:visited {
     width: 100%;
     height: auto;
     display: block;
+    cursor: zoom-in;
 }
 
 /* =========================
@@ -308,7 +309,7 @@ a:visited {
 .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(247, 178, 178, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,7 +330,7 @@ a:visited {
     position: absolute;
     background: none;
     border: none;
-    color: white;
+    color: rgb(79, 73, 73);
     font-size: 40px;
     cursor: pointer;
     padding: 20px;
