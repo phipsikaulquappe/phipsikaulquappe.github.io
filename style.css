@@ -246,7 +246,6 @@ a:visited {
     width: 100%;
     height: auto;
     display: block;
-    pointer-events: none;
 }
 
 .preview-title {
