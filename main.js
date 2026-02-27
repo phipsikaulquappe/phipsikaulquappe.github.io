@@ -88,17 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     /* =========================
-   LIGHTBOX
-========================== */
+    LIGHTBOX (EDITORIAL MODE)
+    ========================== */
 
-const images = document.querySelectorAll('.media-grid img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.querySelector('.lightbox-image');
-const btnPrev = document.querySelector('.lightbox-prev');
-const btnNext = document.querySelector('.lightbox-next');
-const btnClose = document.querySelector('.lightbox-close');
+    const images = document.querySelectorAll('.media-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const btnPrev = document.querySelector('.lightbox-prev');
+    const btnNext = document.querySelector('.lightbox-next');
+    const btnClose = document.querySelector('.lightbox-close');
 
-let currentIndex = 0;
+    let currentIndex = 0;
 
     if (images.length) {
 
@@ -132,20 +132,23 @@ let currentIndex = 0;
             updateImage();
         }
 
-        btnNext.addEventListener('click', showNext);
-        btnPrev.addEventListener('click', showPrev);
+        // Nur X schließt
         btnClose.addEventListener('click', closeLightbox);
 
+        // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
 
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('hidden')) return;
+            if (e.target === btnClose) return;
 
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
-            if (e.key === 'Escape') closeLightbox();
+            const clickX = e.clientX;
+            const screenWidth = window.innerWidth;
+
+            if (clickX > screenWidth / 2) {
+                showNext();
+            } else {
+                showPrev();
+            }
+
         });
 
     }
