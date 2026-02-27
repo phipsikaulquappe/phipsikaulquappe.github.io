@@ -180,11 +180,10 @@ a:visited {
     transition: opacity 0.2s ease;
 }
 
-/* Subnavigation Container */
 .sidebar-sub {
-    display: none;
-    margin-top: 4.5px;
-    padding-left: 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
 }
 
 .sidebar-sub a:hover {
@@ -198,15 +197,16 @@ a:visited {
 
 /* Hover + JS open state */
 
-@media (min-width: 901px) {
-    .sidebar-group:hover .sidebar-sub {
-        display: block;
-    }
+/* Aktiv geöffnet (Seite aktiv) */
+.sidebar-group.open .sidebar-sub {
+    max-height: 500px;
 }
 
-/* Subnavigation dauerhaft öffnen wenn aktiv */
-.sidebar-group.open .sidebar-sub {
-    display: block;
+/* Hover Desktop */
+@media (min-width: 901px) {
+    .sidebar-group:hover .sidebar-sub {
+        max-height: 500px;
+    }
 }
 
 /* =========================
