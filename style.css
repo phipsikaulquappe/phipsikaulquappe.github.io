@@ -344,10 +344,10 @@ a:visited {
 
 /* Close */
 .lightbox-close {
-    top: 40px;
+    top: 5px;
     right: 25px;
     font-size: 70px;
-    line-height: 2;
+    line-height: 1;
 }
 
 .lightbox-prev {
