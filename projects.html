@@ -19,7 +19,9 @@ title: Projects
     {% if children.size > 0 %}
 
         {% for child in children %}
-            <a href="{{ child.url }}" class="preview-item">
+            <a href="{{ child.url }}" 
+                class="preview-item"
+                data-project="{{ child.slug }}">
                 <div class="preview-image">
                     <img src="{{ child.thumbnail }}" loading="eager">
                 </div>
@@ -32,7 +34,9 @@ title: Projects
     {% else %}
 
         {% if parent.thumbnail %}
-            <a href="{{ parent.url }}" class="preview-item">
+            <a href="{{ parent.url }}" 
+                class="preview-item"
+                data-project="{{ parent.slug }}">
                 <img src="{{ parent.thumbnail }}" loading="eager">
                 <div class="preview-title">
                     {{ parent.title }}

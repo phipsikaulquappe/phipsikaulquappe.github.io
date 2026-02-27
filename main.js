@@ -58,5 +58,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     }
+    
+     /* =========================
+       SIDEBAR → PREVIEW HOVER LINK
+    ========================== */
+
+    const sidebarLinks = document.querySelectorAll('.sidebar a[data-project]');
+
+    sidebarLinks.forEach(link => {
+
+        link.addEventListener('mouseenter', () => {
+            const slug = link.dataset.project;
+            const preview = document.querySelector('.preview-item[data-project="' + slug + '"]');
+            if (preview) {
+                preview.classList.add('sidebar-hover');
+            }
+        });
+
+        link.addEventListener('mouseleave', () => {
+            const slug = link.dataset.project;
+            const preview = document.querySelector('.preview-item[data-project="' + slug + '"]');
+            if (preview) {
+                preview.classList.remove('sidebar-hover');
+            }
+        });
+
+    });
 
 });

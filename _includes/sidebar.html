@@ -47,11 +47,13 @@
                     {% if children.size > 0 %}
                         {% assign first_child = children.first %}
                         <a href="{{ first_child.url }}"
+                            data-project="{{ item.slug }}"
                            class="{% if page.url contains item.url %}active{% endif %}">
                             {{ item.title }}
                         </a>
                     {% else %}
                         <a href="{{ item.url }}"
+                            data-project="{{ item.slug }}"
                            class="{% if page.url == item.url %}active{% endif %}">
                             {{ item.title }}
                         </a>
@@ -61,6 +63,7 @@
                         <div class="sidebar-sub">
                             {% for child in children %}
                                 <a href="{{ child.url }}"
+                                    data-project="{{ child.slug }}"
                                    class="{% if page.url == child.url %}active{% endif %}">
                                     {{ child.title }}
                                 </a>
