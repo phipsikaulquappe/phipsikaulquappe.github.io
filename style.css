@@ -339,7 +339,7 @@ a:visited {
     color: rgb(79, 73, 73);
     cursor: pointer;
     padding: 20px;
-    font-family: inherit;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Close */
