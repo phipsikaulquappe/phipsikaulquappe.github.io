@@ -85,7 +85,31 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.preview-item')
             .forEach(item => item.classList.remove('sidebar-hover'));
     });
-    
+
+    /* =========================
+    SIDEBAR HOVER STABILITY
+    ========================== */
+
+    const groups = document.querySelectorAll('.sidebar-group');
+
+    groups.forEach(group => {
+
+        let timeout;
+
+        group.addEventListener('mouseenter', () => {
+            clearTimeout(timeout);
+            group.classList.add('open');
+        });
+
+        group.addEventListener('mouseleave', () => {
+            timeout = setTimeout(() => {
+                if (!group.classList.contains('active')) {
+                    group.classList.remove('open');
+                }
+            }, 150); // 150ms Toleranz
+        });
+
+    });
 
     /* =========================
    LIGHTBOX
