@@ -159,8 +159,6 @@ a:visited {
 .sidebar-group {
     margin-bottom: 6px;
     font-size: 18px;
-    position: relative;
-    padding-bottom: 4px;
 }
 
 .sidebar-group > a {
@@ -175,10 +173,24 @@ a:visited {
 }
 
 /* Subnavigation */
+.sidebar-sub a {
+    display: block;        /* WICHTIG */
+    font-size: 18px;
+    margin-bottom: 4.5px;
+    transition: opacity 0.2s ease;
+}
+
+/* Subnavigation Container */
 .sidebar-sub {
     display: none;
-    margin-top: 4px;
+    margin-top: 4.5px;
+    padding-left: 18px;
 }
+
+.sidebar-sub a:hover {
+    opacity: 0.4;
+}
+
 
 /* =========================
    Hover
@@ -186,14 +198,15 @@ a:visited {
 
 /* Hover + JS open state */
 
-.sidebar-group.open .sidebar-sub {
-    display: block;
-}
-
 @media (min-width: 901px) {
     .sidebar-group:hover .sidebar-sub {
         display: block;
     }
+}
+
+/* Subnavigation dauerhaft öffnen wenn aktiv */
+.sidebar-group.open .sidebar-sub {
+    display: block;
 }
 
 /* =========================
