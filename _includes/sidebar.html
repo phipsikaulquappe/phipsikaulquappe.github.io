@@ -47,7 +47,7 @@
                     {% if children.size > 0 %}
                         {% assign first_child = children.first %}
                         <a href="{{ first_child.url }}"
-                            data-project="{{ item.slug }}"
+                            data-project="{{ first_child.slug }}"
                            class="{% if page.url contains item.url %}active{% endif %}">
                             {{ item.title }}
                         </a>
