@@ -63,26 +63,38 @@ document.addEventListener("DOMContentLoaded", function () {
        SIDEBAR → PREVIEW HOVER LINK
     ========================== */
 
-    const previewMap = {};
-
-    document.querySelectorAll('.preview-item[data-project]')
-        .forEach(item => {
-            previewMap[item.dataset.project] = item;
-        });
+    /* =========================
+   SIDEBAR → PREVIEW HOVER LINK
+========================== */
 
     const sidebarLinks = document.querySelectorAll('.sidebar a[data-project]');
+    const previewItems = document.querySelectorAll('.preview-item[data-project]');
 
-    sidebarLinks.forEach(link => {
+    if (sidebarLinks.length && previewItems.length) {
 
-        link.addEventListener('mouseenter', () => {
-            const preview = previewMap[link.dataset.project];
-            if (preview) preview.classList.add('sidebar-hover');
+        sidebarLinks.forEach(link => {
+
+            link.addEventListener('mouseenter', () => {
+
+                const target = link.dataset.project;
+
+                previewItems.forEach(item => {
+                    if (item.dataset.project === target) {
+                        item.classList.add('sidebar-hover');
+                    }
+                });
+
+            });
+
+            link.addEventListener('mouseleave', () => {
+
+                previewItems.forEach(item => {
+                    item.classList.remove('sidebar-hover');
+                });
+
+            });
+
         });
 
-        link.addEventListener('mouseleave', () => {
-            const preview = previewMap[link.dataset.project];
-            if (preview) preview.classList.remove('sidebar-hover');
-        });
-
-    });
+    }
 });
