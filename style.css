@@ -196,7 +196,13 @@ a:visited {
    Hover
 ========================= */
 
+/* Hover + JS open state */
 
+@media (min-width: 901px) {
+    .sidebar-group:hover .sidebar-sub {
+        display: block;
+    }
+}
 
 /* Subnavigation dauerhaft öffnen wenn aktiv */
 .sidebar-group.open .sidebar-sub {
