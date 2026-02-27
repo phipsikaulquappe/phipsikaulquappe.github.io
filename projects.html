@@ -21,7 +21,7 @@ title: Projects
         {% for child in children %}
             <a href="{{ child.url }}" 
                 class="preview-item"
-                data-project="{{ child.slug }}">
+                data-project="{{ child.url }}">
                 <div class="preview-image">
                     <img src="{{ child.thumbnail }}" loading="eager">
                 </div>
@@ -36,7 +36,7 @@ title: Projects
         {% if parent.thumbnail %}
             <a href="{{ parent.url }}" 
                 class="preview-item"
-                data-project="{{ parent.slug }}">
+                data-project="{{ parent.url }}">
                 <div class="preview-image">
                 <img src="{{ parent.thumbnail }}" loading="eager">
                 </div>
