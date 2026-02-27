@@ -360,6 +360,23 @@ a:visited {
 }
 
 /* =========================
+   LIGHTBOX NAV CURSOR
+========================= */
+
+.lightbox {
+    cursor: default;
+}
+
+/* Rechte Seite */
+.lightbox.nav-right {
+    cursor: url('/assets/cursor-next.svg') 16 16, e-resize;
+}
+
+/* Linke Seite */
+.lightbox.nav-left {
+    cursor: url('/assets/cursor-prev.svg') 16 16, w-resize;
+}
+/* =========================
    RESPONSIVE
 ========================= */
 
