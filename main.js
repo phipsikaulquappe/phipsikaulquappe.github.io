@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     }
-    
+
      /* =========================
        SIDEBAR → PREVIEW HOVER LINK
     ========================== */
@@ -68,21 +68,18 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebarLinks.forEach(link => {
 
         link.addEventListener('mouseenter', () => {
-            const slug = link.dataset.project;
-            const preview = document.querySelector('.preview-item[data-project="' + slug + '"]');
+            console.log("Sidebar Hover:", link.dataset.project);
+
+            const preview = document.querySelector(
+                '.preview-item[data-project="' + link.dataset.project + '"]'
+            );
+
+            console.log("Found preview:", preview);
+
             if (preview) {
                 preview.classList.add('sidebar-hover');
             }
         });
 
-        link.addEventListener('mouseleave', () => {
-            const slug = link.dataset.project;
-            const preview = document.querySelector('.preview-item[data-project="' + slug + '"]');
-            if (preview) {
-                preview.classList.remove('sidebar-hover');
-            }
-        });
-
     });
-
 });

@@ -13,7 +13,7 @@
 ========================= */
 
 body {
-    font-family: 'Blanchard Web'; /*"Courier New", Courier, monospace; */
+    font-family: "Courier New", Courier, monospace;
     background-color: #ee8e8e; /* #f6f1c4; */
     background-image:
         linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
