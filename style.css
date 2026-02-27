@@ -173,22 +173,11 @@ a:visited {
 }
 
 /* Subnavigation */
-.sidebar-sub a {
-    display: block;        /* WICHTIG */
-    font-size: 18px;
-    margin-bottom: 4.5px;
-    transition: opacity 0.2s ease;
-}
-
-/* Subnavigation Container */
 .sidebar-sub {
-    display: none;
-    margin-top: 4.5px;
-    padding-left: 18px;
-}
-
-.sidebar-sub a:hover {
-    opacity: 0.4;
+    opacity: 0;
+    visibility: hidden;
+    height: auto;
+    transition: opacity 0.2s ease;
 }
 
 
@@ -198,15 +187,18 @@ a:visited {
 
 /* Hover + JS open state */
 
-@media (min-width: 901px) {
-    .sidebar-group:hover .sidebar-sub {
-        display: block;
-    }
+/* Aktiv (Seite gehört dazu) */
+.sidebar-group.open .sidebar-sub {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Subnavigation dauerhaft öffnen wenn aktiv */
-.sidebar-group.open .sidebar-sub {
-    max-height: 500px;
+/* Desktop Hover */
+@media (min-width: 901px) {
+    .sidebar-group:hover .sidebar-sub {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 /* =========================
