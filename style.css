@@ -369,7 +369,7 @@ a:visited {
 
 /* Rechte Seite */
 .lightbox.nav-right {
-    cursor: url('/assets/cursor-next.svg') 16 16, e-resize;
+    cursor: url('/assets/cursor.png') 16 16, e-resize;
 }
 
 /* Linke Seite */
