@@ -9,6 +9,14 @@
 }
 
 /* =========================
+   CUSTOM CURSOR
+========================= */
+
+html {
+    cursor: url('/assets/cursor-default.svg') 8 8, auto;
+}
+
+/* =========================
    BODY + BACKGROUND
 ========================= */
 
@@ -56,6 +64,13 @@ a,
 a:visited {
     color: #000;
     text-decoration: none;
+}
+
+a,
+button,
+.media-grid img,
+.preview-item {
+    cursor: url('/assets/cursor-pointer.png') 8 8, pointer;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -361,8 +376,8 @@ a:visited {
 }
 
 .slideshow-close img {
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
 }
 
 /* Navigation */
