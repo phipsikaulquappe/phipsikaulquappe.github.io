@@ -360,6 +360,11 @@ a:visited {
     right: 40px;
 }
 
+.slideshow-close img {
+    width: 70px;
+    height: 70px;
+}
+
 /* Navigation */
 .slideshow-nav-left {
     left: 40px;
@@ -371,6 +376,11 @@ a:visited {
     right: 40px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.slideshow-nav img {
+    width: 70px;
+    height: 70px;
 }
 
 /* =========================
