@@ -144,7 +144,10 @@ a:visited {
 ========================= */
 
 .main {
-    padding: 20px 40px 40px 40px; 
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px); /* 80px = header height */
 }
 
 /* =========================
@@ -417,10 +420,11 @@ a:visited {
 .project-navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1.2px solid #000;
+    margin-top: auto;
+    padding-top: 40px;
+    border-top: none;
     font-size: 16px;
+    align-items: center;
 }
 
 .project-navigation a {
@@ -429,6 +433,17 @@ a:visited {
 
 .project-navigation a:hover {
     opacity: 0.6;
+}
+
+.project-navigation img {
+    width: 60px;
+    height: auto;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-navigation a:hover img {
+    opacity: 0.6;
+    transform: scale(1.05);
 }
 
 
