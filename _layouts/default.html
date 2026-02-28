@@ -37,9 +37,54 @@
     {% include header.html %}
     {% include sidebar.html %}
 
-    <main class="main">
-        {{ content }}
-    </main>
+<main class="main">
+    {{ content }}
+
+    {% if page.collection %}
+
+        {% assign collection_name = page.collection %}
+        {% assign collection = site[collection_name] %}
+
+        {% if page.parent %}
+            {% assign siblings = collection 
+                | where: "parent", page.parent 
+                | sort: "date" %}
+        {% else %}
+            {% assign siblings = collection
+                | where_exp: "item", "item.parent == nil"
+                | sort: "date"
+                | reverse %}
+        {% endif %}
+
+        {% for item in siblings %}
+            {% if item.url == page.url %}
+                {% assign current_index = forloop.index0 %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="project-navigation">
+
+            {% if current_index > 0 %}
+                {% assign prev_index = current_index | minus: 1 %}
+                {% assign prev_item = siblings[prev_index] %}
+                <a href="{{ prev_item.url }}" class="nav-prev">
+                    ← {{ prev_item.title }}
+                </a>
+            {% endif %}
+
+            {% if current_index < siblings.size | minus: 1 %}
+                {% assign next_index = current_index | plus: 1 %}
+                {% assign next_item = siblings[next_index] %}
+                <a href="{{ next_item.url }}" class="nav-next">
+                    {{ next_item.title }} →
+                </a>
+            {% endif %}
+
+        </div>
+
+    {% endif %}
+
+</main>
 
 </div>
 

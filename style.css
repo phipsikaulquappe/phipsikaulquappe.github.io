@@ -409,6 +409,29 @@ a:visited {
     display: none;
 }
 
+
+/* =======================================
+   PROJEKT NAVIGATION MAIN VOR UND ZURÜCK
+========================================== */
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1.2px solid #000;
+    font-size: 16px;
+}
+
+.project-navigation a {
+    text-decoration: none;
+}
+
+.project-navigation a:hover {
+    opacity: 0.6;
+}
+
+
 /* =========================
    RESPONSIVE
 ========================= */
