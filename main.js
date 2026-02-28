@@ -113,11 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function openLightbox() {
             lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
             updateImage();
         }
 
         function closeLightbox() {
             lightbox.classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
         function updateImage() {
@@ -137,6 +139,25 @@ document.addEventListener("DOMContentLoaded", function () {
         btnNext.addEventListener('click', showNext);
         btnPrev.addEventListener('click', showPrev);
         btnClose.addEventListener('click', closeLightbox);
+
+        document.addEventListener('keydown', (e) => {
+
+            // Nur reagieren wenn Lightbox offen ist
+            if (lightbox.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+
+            if (e.key === 'ArrowRight') {
+                showNext();
+            }
+
+            if (e.key === 'ArrowLeft') {
+                showPrev();
+            }
+
+        });
 
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
