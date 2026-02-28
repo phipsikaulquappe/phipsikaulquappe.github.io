@@ -1,15 +1,11 @@
 {% if page.collection %}
 
-    {% assign collection = site[page.collection] %}
-
-    {% comment %}
-    Wenn Seite ein Subprojekt ist → alle mit gleichem parent
-    Wenn Seite Parent ist → alle ohne parent
-    {% endcomment %}
+    {% assign collection_name = page.collection %}
+    {% assign collection = site[collection_name] %}
 
     {% if page.parent %}
-        {% assign siblings = collection
-            | where: "parent", page.parent
+        {% assign siblings = collection 
+            | where: "parent", page.parent 
             | sort: "date" %}
     {% else %}
         {% assign siblings = collection
@@ -18,15 +14,11 @@
             | reverse %}
     {% endif %}
 
-    {% assign current_index = nil %}
-
     {% for item in siblings %}
         {% if item.url == page.url %}
             {% assign current_index = forloop.index0 %}
         {% endif %}
     {% endfor %}
-
-    {% if current_index != nil %}
 
     <div class="project-navigation">
 
@@ -47,7 +39,5 @@
         {% endif %}
 
     </div>
-
-    {% endif %}
 
 {% endif %}
