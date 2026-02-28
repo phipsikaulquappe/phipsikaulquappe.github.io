@@ -152,11 +152,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 showPrev();
             }
 
-            if (lightbox.classList.contains('hidden')) return;
+           document.addEventListener('keydown', (e) => {
 
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
+                if (lightbox.classList.contains('hidden')) return;
+
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+
+                if (e.key === 'ArrowRight') {
+                    showNext();
+                }
+
+                if (e.key === 'ArrowLeft') {
+                    showPrev();
+                }
+
+            });
 
         });
 
