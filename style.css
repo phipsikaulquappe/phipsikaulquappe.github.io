@@ -274,7 +274,7 @@ a:visited {
 
 .preview-title {
     margin-top: 6px;
-    font-size: 16px;
+    font-size: 12px, bold;
     transition: transform 0.25s ease;
 }
 
