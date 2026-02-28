@@ -166,5 +166,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     }
+
+    const cursor = document.querySelector('.custom-cursor');
+
+    if (cursor && window.matchMedia("(pointer: fine)").matches) {
+
+        document.body.classList.add('custom-cursor-enabled');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+    }
     
 });
