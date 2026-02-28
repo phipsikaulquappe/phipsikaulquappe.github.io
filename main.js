@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const themes = ["theme-red", "theme-gray", "theme-yellow"];
         const savedTheme = localStorage.getItem("siteTheme");
-        const defaultTheme = "theme-gray";
 
-        themes.forEach(t => document.body.classList.remove(t));
-        document.body.classList.add(savedTheme || defaultTheme);
+        if (savedTheme) {
+            document.body.classList.add(savedTheme);
+        }
 
         themeBtn.addEventListener("click", function () {
 
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showPrev();
             }
 
-           document.addEventListener('keydown', (e) => {
+            document.addEventListener('keydown', (e) => {
 
                 if (lightbox.classList.contains('hidden')) return;
 
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     showPrev();
                 }
 
-            });
+            });                    
 
         });
 
