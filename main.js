@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const themes = ["theme-red", "theme-gray", "theme-yellow"];
         const savedTheme = localStorage.getItem("siteTheme");
 
-        document.body.classList.add(savedTheme || "theme-red");
+        document.body.classList.add(savedTheme || "theme-gray");
 
         themeBtn.addEventListener("click", function () {
 
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btnNext.addEventListener('click', showNext);
         btnPrev.addEventListener('click', showPrev);
         btnClose.addEventListener('click', closeLightbox);
-        
+
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
 
