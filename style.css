@@ -465,9 +465,10 @@ a:visited {
     .sidebar-toggle {
         display: block;
         position: fixed;
+        top: 20px;   
         right: 20px;
         bottom: auto;   /* sitzt unter der Linie */
-        z-index: 4000; 
+        z-index: 6000; 
     }
 
     .main {
@@ -502,9 +503,9 @@ a:visited {
     }
 
     .slideshow-nav img {
-    width: 30px;
-    height: 30px;
-}
+        width: 30px;
+        height: 30px;
+    }
 
     .media-grid {
         grid-template-columns: 1fr;
