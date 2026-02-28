@@ -12,8 +12,19 @@
    CUSTOM CURSOR
 ========================= */
 
-html {
+/* Default */
+html,
+body {
     cursor: url('/assets/cursor-default.svg') 8 8, auto;
+}
+
+/* Clickable */
+a,
+button,
+.preview-item,
+.media-grid img,
+.media-grid video {
+    cursor: url('/assets/cursor-pointer.png') 8 8, pointer;
 }
 
 /* =========================
@@ -64,13 +75,6 @@ a,
 a:visited {
     color: #000;
     text-decoration: none;
-}
-
-a,
-button,
-.media-grid img,
-.preview-item {
-    cursor: url('/assets/cursor-pointer.png') 8 8, pointer;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -239,7 +243,7 @@ button,
     width: 100%;
     height: auto;
     display: block;
-    cursor: pointer;
+    cursor: url('/assets/cursor-pointer.png') 8 8, pointer;
 }
 
 /* =========================
