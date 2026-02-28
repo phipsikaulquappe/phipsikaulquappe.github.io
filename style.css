@@ -495,10 +495,6 @@ a:visited {
         display: none;
     }
 
-    .lightbox button:hover img {
-       display: none;
-    }
-
     .slideshow-nav img {
     width: 30px;
     height: 30px;

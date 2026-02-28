@@ -162,20 +162,21 @@ document.addEventListener("DOMContentLoaded", function () {
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
 
-            // Wenn Klick auf Button → nichts tun
+            const isMobile = window.matchMedia("(pointer: coarse)").matches;
+
+            // Wenn Button oder Button-Inhalt geklickt wurde → nichts hier machen
             if (e.target.closest('button')) return;
 
-            const isMobile = window.matchMedia("(hover: none)").matches;
+            // Wenn direkt auf das Bild geklickt wurde → nichts machen
+            if (e.target === lightboxImage) return;
 
-            // MOBILE → Klick außerhalb Bild schließt
             if (isMobile) {
-                if (!e.target.closest('.lightbox-image')) {
-                    closeLightbox();
-                }
+                // MOBILE → nur außerhalb des Bildes schließen
+                closeLightbox();
                 return;
             }
 
-            // DESKTOP → links/rechts Navigation
+            // DESKTOP → Links / Rechts Navigation
             const clickX = e.clientX;
             const screenWidth = window.innerWidth;
 
