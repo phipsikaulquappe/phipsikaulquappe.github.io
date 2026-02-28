@@ -141,9 +141,20 @@ document.addEventListener("DOMContentLoaded", function () {
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
 
-            // Wenn Klick auf einen Button → nichts tun
+            // Wenn Klick auf Button → nichts tun
             if (e.target.closest('button')) return;
 
+            const isMobile = window.matchMedia("(hover: none)").matches;
+
+            // MOBILE → Klick außerhalb Bild schließt
+            if (isMobile) {
+                if (!e.target.closest('.lightbox-image')) {
+                    closeLightbox();
+                }
+                return;
+            }
+
+            // DESKTOP → links/rechts Navigation
             const clickX = e.clientX;
             const screenWidth = window.innerWidth;
 
@@ -153,8 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showPrev();
             }
 
-        });                  
-
+        });
     }
     
 });
