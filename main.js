@@ -141,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
 
-            if (e.target === btnClose) return;
+            // Wenn Klick auf einen Button → nichts tun
+            if (e.target.closest('button')) return;
 
             const clickX = e.clientX;
             const screenWidth = window.innerWidth;
@@ -152,25 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showPrev();
             }
 
-            document.addEventListener('keydown', (e) => {
-
-                if (lightbox.classList.contains('hidden')) return;
-
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                }
-
-                if (e.key === 'ArrowRight') {
-                    showNext();
-                }
-
-                if (e.key === 'ArrowLeft') {
-                    showPrev();
-                }
-
-            });                    
-
-        });
+        });                  
 
     }
     
