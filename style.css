@@ -499,22 +499,10 @@ a:visited {
        display: none;
     }
 
-    /* Navigation */
-    .slideshow-nav-left {
-        left: 40px;
-        bottom: 50%;
-        transform: translateY(-50%);
-    }
-
-    .slideshow-nav-right {
-        right: 40px;
-        bottom: 50%;
-        transform: translateY(-50%);
-    }
     .slideshow-nav img {
-        width: 30px;
-        height: 30px;
-    }
+    width: 30px;
+    height: 30px;
+}
 
     .media-grid {
         grid-template-columns: 1fr;
