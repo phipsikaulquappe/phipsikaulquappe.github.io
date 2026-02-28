@@ -465,7 +465,7 @@ a:visited {
     .sidebar-toggle {
         display: block;
         position: fixed;
-        top: 90px;   
+        top: 120px;   
         right: 20px;
         bottom: auto;   /* sitzt unter der Linie */
         z-index: 6000; 
