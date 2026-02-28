@@ -402,6 +402,12 @@ a:visited {
     height: 50px;
 }
 
+
+/* Kein Projekt Titel im Desktop anzeigen */
+.project-title {
+    display: none;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -508,5 +514,12 @@ a:visited {
         grid-template-columns: 1fr;
     }
 
-    
+    /* Projekttitel in Mobile anzeigen */
+    .project-title {
+        display: block;
+        font-size: 22px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-weight: normal;
+    }
 }

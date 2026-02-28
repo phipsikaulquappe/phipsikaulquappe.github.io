@@ -5,7 +5,7 @@ date: 2024-09-08
 parent: betonschnitt
 thumbnail: /images/betonschnitt1a.jpg
 ---
-
+<h1 class="project-title">{{ page.title }}</h1>
 <div class="media-grid">
     <img src="/images/betonschnitt1a.jpg" loading="eager">
     <img src="/images/betonschnitt1b.jpg" loading="eager">
