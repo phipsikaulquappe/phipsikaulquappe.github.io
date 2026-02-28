@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-   /* =========================
-    THEME TOGGLE + RANDOM DEFAULT
+    /* =========================
+       THEME TOGGLE
     ========================== */
 
     const themeBtn = document.getElementById("themeToggle");
@@ -40,27 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const themes = ["theme-red", "theme-gray", "theme-yellow"];
         const savedTheme = localStorage.getItem("siteTheme");
 
-        let activeTheme;
+        document.body.classList.add(savedTheme || "theme-gray");
 
-        // 1️⃣ Wenn User schon gewählt hat → diese nehmen
-        if (savedTheme) {
-            activeTheme = savedTheme;
-        } 
-        // 2️⃣ Sonst: zufällig für diese Session
-        else {
-            const sessionTheme = sessionStorage.getItem("sessionTheme");
-
-            if (sessionTheme) {
-                activeTheme = sessionTheme;
-            } else {
-                activeTheme = themes[Math.floor(Math.random() * themes.length)];
-                sessionStorage.setItem("sessionTheme", activeTheme);
-            }
-        }
-
-        document.body.classList.add(activeTheme);
-
-        // 3️⃣ Button klickt durch Farben
         themeBtn.addEventListener("click", function () {
 
             let currentIndex = themes.findIndex(t =>
@@ -72,15 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             let nextIndex = (currentIndex + 1) % themes.length;
-            const nextTheme = themes[nextIndex];
-
-            document.body.classList.add(nextTheme);
-
-            // dauerhaft speichern
-            localStorage.setItem("siteTheme", nextTheme);
-
-            // session überschreiben
-            sessionStorage.setItem("sessionTheme", nextTheme);
+            document.body.classList.add(themes[nextIndex]);
+            localStorage.setItem("siteTheme", themes[nextIndex]);
 
         });
     }
