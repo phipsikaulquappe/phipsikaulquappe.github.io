@@ -464,7 +464,7 @@ a:visited {
     /* Menu Button unter der Linie */
     .sidebar-toggle {
         display: block;
-        position: absolute;
+        position: fixed;
         right: 20px;
         bottom: -45px;   /* sitzt unter der Linie */
         z-index: 4000; 
