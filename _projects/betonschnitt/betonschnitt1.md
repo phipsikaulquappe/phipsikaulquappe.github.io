@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Beton-Schnitt I
-date: 2024-09-08
 parent: betonschnitt
+date: 2024-09-08
 thumbnail: /images/betonschnitt1a.jpg
 ---
 <h1 class="project-title">{{ page.title }}</h1>
