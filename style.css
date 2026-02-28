@@ -338,14 +338,14 @@ a:visited {
     border: none;
     color: rgb(79, 73, 73);
     cursor: pointer;
-    padding: 40px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px;
+    font-family: inherit;
 }
 
 /* Close */
 .lightbox-close {
-    top: 5px;
-    right: 25px;
+    top: 20px;
+    right: 30px;
     font-size: 70px;
     line-height: 1;
 }
@@ -372,7 +372,7 @@ a:visited {
 
 /* Rechte Seite */
 .lightbox.nav-right {
-    cursor: url('/_assets/cursor.svg');
+    cursor: url('/assets/cursor.png');
 }
 
 /* Linke Seite */
