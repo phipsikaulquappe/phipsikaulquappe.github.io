@@ -8,6 +8,24 @@
     padding: 0;
 }
 
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+/* Default */
+html,
+body {
+    cursor: url('/assets/cursor-default.svg') 8 8, auto;
+}
+
+/* Clickable */
+a,
+button,
+.preview-item,
+.media-grid img,
+.media-grid video {
+    cursor: url('/assets/cursor-pointer.png') 32 32, pointer;
+}
 
 /* =========================
    BODY + BACKGROUND
@@ -382,36 +400,6 @@ a:visited {
 .slideshow-nav img {
     width: 70px;
     height: 70px;
-}
-
-/* =========================
-   CUSTOM POINTER
-========================= */
-
-@media (pointer: fine) {
-
-  body.custom-cursor-enabled {
-    cursor: none;
-  }
-
-  body.custom-cursor-enabled * {
-    cursor: none !important;
-  }
-
-  .custom-cursor {
-    width: 64px;
-    height: 64px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    background-image: url('/assets/cursor-pointer.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: translate(-50%, -50%);
-  }
-
 }
 
 /* =========================
