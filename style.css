@@ -332,52 +332,42 @@ a:visited {
     object-fit: contain;
 }
 
+/* =========================
+   LIGHTBOX NAVIGATION
+========================= */
+
 .lightbox button {
     position: absolute;
     background: none;
     border: none;
-    color: rgb(79, 73, 73);
+    padding: 0;
     cursor: pointer;
-    padding: 20px;
-    font-family: inherit;
+}
+
+/* SVG-Größe */
+.lightbox button img {
+    width: 60px;
+    height: 60px;
+    display: block;
 }
 
 /* Close */
-.lightbox-close {
-    top: 20px;
-    right: 30px;
-    font-size: 70px;
-    line-height: 1;
+.slideshow-close {
+    top: 30px;
+    right: 40px;
 }
 
-.lightbox-prev {
-    left: 10px;
+/* Navigation */
+.slideshow-nav-left {
+    left: 40px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.lightbox-next {
-    right: 10px;
+.slideshow-nav-right {
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
-}
-
-/* =========================
-   LIGHTBOX NAV CURSOR
-========================= */
-
-.lightbox {
-    cursor: default;
-}
-
-/* Rechte Seite */
-.lightbox.nav-right {
-    cursor: url('/assets/cursor.png');
-}
-
-/* Linke Seite */
-.lightbox.nav-left {
-    cursor: url('/assets/cursor-prev.svg') 16 16, w-resize;
 }
 
 /* =========================
