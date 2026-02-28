@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll('.media-grid img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.querySelector('.lightbox-image');
-    const btnPrev = document.querySelector('.lightbox-prev');
-    const btnNext = document.querySelector('.lightbox-next');
-    const btnClose = document.querySelector('.lightbox-close');
+    const btnPrev = document.getElementById('slideshowNavLeft');
+    const btnNext = document.getElementById('slideshowNavRight');
+    const btnClose = document.getElementById('slideshowClose');
 
     let currentIndex = 0;
 
@@ -132,9 +132,10 @@ document.addEventListener("DOMContentLoaded", function () {
             updateImage();
         }
 
-        // Nur X schließt
+        btnNext.addEventListener('click', showNext);
+        btnPrev.addEventListener('click', showPrev);
         btnClose.addEventListener('click', closeLightbox);
-
+        
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
 
