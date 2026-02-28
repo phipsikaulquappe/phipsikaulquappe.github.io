@@ -24,7 +24,7 @@ button,
 .preview-item,
 .media-grid img,
 .media-grid video {
-    cursor: url('/assets/cursor-pointer.png') 16 16, pointer;
+    cursor: url('/assets/cursor-pointer.png') 32 32, pointer;
 }
 
 /* =========================
