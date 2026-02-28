@@ -419,20 +419,12 @@ a:visited {
 
 .project-navigation {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     margin-top: auto;
     padding-top: 40px;
-    position: relative;
-}
-
-/* Prev immer links */
-.project-navigation .nav-prev {
-    margin-right: auto;
-}
-
-/* Next immer rechts */
-.project-navigation .nav-next {
-    margin-left: auto;
+    border-top: none;
+    font-size: 16px;
+    align-items: center;
 }
 
 .project-navigation a {
