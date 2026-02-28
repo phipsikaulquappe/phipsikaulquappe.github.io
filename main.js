@@ -37,10 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (themeBtn) {
 
-        const themes = ["theme-red", "theme-gray", "theme-yellow"];
-        const savedTheme = localStorage.getItem("siteTheme");
+    const themes = ["theme-red", "theme-gray", "theme-yellow"];
+    const savedTheme = localStorage.getItem("siteTheme");
 
-        document.body.classList.add(savedTheme || "theme-gray");
+    if (savedTheme) {
+        document.body.classList.add(savedTheme);
+    } else {
+        const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+        document.body.classList.add(randomTheme);
 
         themeBtn.addEventListener("click", function () {
 
