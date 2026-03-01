@@ -64,6 +64,10 @@ body.theme-red {
 
 /* Hellgrau */
 body.theme-gray {
+    background-color: #e8e8e8;
+}
+
+body.theme-purple {
     background-color: #6157d2;
 }
 
