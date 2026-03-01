@@ -53,17 +53,17 @@ body {
 }
 
 /* Gelb) */
-html.theme-yellow {
+body.theme-yellow {
     background-color: #f6f1c4;
 }
 
 /* Rot */
-html.theme-red {
+body.theme-red {
     background-color: #ee8e8e;
 }
 
 /* Hellgrau */
-html.theme-gray {
+body.theme-gray {
     background-color: #e8e8e8;
 }
 
@@ -435,7 +435,9 @@ a:visited {
 }
 
 .project-navigation a {
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .project-navigation a:hover {
