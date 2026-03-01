@@ -15,7 +15,7 @@
 /* Default */
 html,
 body {
-    cursor: url('/assets/cursor-default.png') 8 8, auto;
+    cursor: url('/assets/cursor-default.png') 16 16, auto;
 }
 
 /* Clickable */
@@ -24,7 +24,7 @@ button,
 .preview-item,
 .media-grid img,
 .media-grid video {
-    cursor: url('/assets/cursor-pointer.png') 8 8, pointer;
+    cursor: url('/assets/cursor-pointer.png') 16 16, pointer;
 }
 
 /* =========================
