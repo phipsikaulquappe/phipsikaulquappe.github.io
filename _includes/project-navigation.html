@@ -48,8 +48,8 @@
     {% if current_index < ordered_items.size | minus: 1 %}
         {% assign next_item = ordered_items[current_index | plus: 1] %}
         <a href="{{ next_item.url }}" class="nav-next">
-            <img src="/assets/next.png" alt="Next project">
             <span>Next Project</span>
+            <img src="/assets/next.png" alt="Next project">
         </a>
     {% endif %}
 
