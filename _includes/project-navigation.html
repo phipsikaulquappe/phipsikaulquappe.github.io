@@ -12,16 +12,28 @@
 
     {% if current_item %}
 
-        {% if current_item.parent %}
-            {% assign siblings = collection
-                | where: "parent", current_item.parent
+        {% assign parents = collection
+            | where_exp: "item", "item.parent == nil"
+            | sort: "date"
+            | reverse %}
+
+        {% assign siblings = "" | split: "" %}
+
+        {% for parent in parents %}
+
+            {% assign children = collection
+                | where: "parent", parent.slug
                 | sort: "date" %}
-        {% else %}
-            {% assign siblings = collection
-                | where_exp: "item", "item.parent == nil"
-                | sort: "date"
-                | reverse %}
-        {% endif %}
+
+            {% if children.size > 0 %}
+                {% for child in children %}
+                    {% assign siblings = siblings | push: child %}
+                {% endfor %}
+            {% else %}
+                {% assign siblings = siblings | push: parent %}
+            {% endif %}
+
+        {% endfor %}
 
         {% assign current_index = nil %}
 
