@@ -172,10 +172,11 @@ a:visited {
 
 /* Bilder Ecken abgerunden */
 .media-grid img,
-.preview-item img,
-.lightbox img {
+.preview-item img {
     border-radius: 6px;
-    overflow: hidden;
+}
+.lightbox img {
+    border-radius: 0;
 }
 
 /* =========================
