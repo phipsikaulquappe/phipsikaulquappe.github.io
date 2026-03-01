@@ -14,7 +14,6 @@
 
 /* Default */
 html,
-button,
 body {
     cursor: url('/assets/cursor-default.png') 14 14, auto;
 }
