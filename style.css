@@ -15,7 +15,7 @@
 /* Default */
 html,
 body {
-    cursor: url('/assets/cursor-default.png') 16 16, auto;
+    cursor: url('/assets/cursor-default.png') 8 8, auto;
 }
 
 /* Clickable */
@@ -24,7 +24,7 @@ button,
 .preview-item,
 .media-grid img,
 .media-grid video {
-    cursor: url('/assets/cursor-pointer.png') 16 16, pointer;
+    cursor: url('/assets/cursor-pointer.png') 8 8, pointer;
 }
 
 /* =========================
@@ -53,17 +53,17 @@ body {
 }
 
 /* Gelb) */
-body.theme-yellow {
+html.theme-yellow {
     background-color: #f6f1c4;
 }
 
 /* Rot */
-body.theme-red {
+html.theme-red {
     background-color: #ee8e8e;
 }
 
 /* Hellgrau */
-body.theme-gray {
+html.theme-gray {
     background-color: #e8e8e8;
 }
 

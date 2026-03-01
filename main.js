@@ -37,28 +37,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (themeBtn) {
 
-        const themes = ["theme-red", "theme-gray", "theme-yellow"];
-        const savedTheme = localStorage.getItem("siteTheme");
+    const themes = ["theme-red", "theme-gray", "theme-yellow"];
 
-        if (savedTheme) {
-            document.body.classList.add(savedTheme);
+    // Falls noch kein Theme gesetzt ist → Default
+    if (
+        !document.documentElement.classList.contains("theme-red") &&
+        !document.documentElement.classList.contains("theme-gray") &&
+        !document.documentElement.classList.contains("theme-yellow")
+    ) {
+        document.documentElement.classList.add("theme-red");
+    }
+
+    themeBtn.addEventListener("click", function () {
+
+        let currentIndex = themes.findIndex(t =>
+        document.documentElement.classList.contains(t)
+        );
+
+        if (currentIndex !== -1) {
+        document.documentElement.classList.remove(themes[currentIndex]);
         }
 
-        themeBtn.addEventListener("click", function () {
+        let nextIndex = (currentIndex + 1) % themes.length;
+        document.documentElement.classList.add(themes[nextIndex]);
+        localStorage.setItem("siteTheme", themes[nextIndex]);
 
-            let currentIndex = themes.findIndex(t =>
-                document.body.classList.contains(t)
-            );
-
-            if (currentIndex !== -1) {
-                document.body.classList.remove(themes[currentIndex]);
-            }
-
-            let nextIndex = (currentIndex + 1) % themes.length;
-            document.body.classList.add(themes[nextIndex]);
-            localStorage.setItem("siteTheme", themes[nextIndex]);
-
-        });
+    });
     }
 
      /* =========================
