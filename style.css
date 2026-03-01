@@ -437,8 +437,8 @@ a:visited {
 .project-navigation a {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 10px;
+    gap: 4px;
+    font-size: 12px;
 }
 
 .project-navigation a:hover {
