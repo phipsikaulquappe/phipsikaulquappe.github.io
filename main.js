@@ -30,14 +30,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /* =========================
+      LOAD SAVED THEME
+    ========================== */
+
+    const themes = ["theme-red", "theme-gray", "theme-yellow"];
+    const savedTheme = localStorage.getItem("siteTheme");
+
+    // Alle Theme-Klassen entfernen
+    document.body.classList.remove(...themes);
+
+    // Falls gespeichert → anwenden
+    if (savedTheme && themes.includes(savedTheme)) {
+        document.body.classList.add(savedTheme);
+    } else {
+        // Default: Gray
+        document.body.classList.add("theme-gray");
+    }
+    
+    /* =========================
        THEME TOGGLE
     ========================== */
 
     const themeBtn = document.getElementById("themeToggle");
 
     if (themeBtn) {
-
-        const themes = ["theme-red", "theme-gray", "theme-yellow"];
 
         themeBtn.addEventListener("click", function () {
 
