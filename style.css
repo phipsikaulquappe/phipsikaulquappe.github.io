@@ -19,13 +19,13 @@ body {
 }
 
 /* Clickable */
-a,
+/* a,
 button,
 .preview-item,
 .media-grid img,
 .media-grid video {
     cursor: url('/assets/cursor-pointer.png') 16 16, pointer;
-}
+} */
 
 /* =========================
    BODY + BACKGROUND
