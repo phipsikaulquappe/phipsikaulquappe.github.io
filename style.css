@@ -170,8 +170,11 @@ a:visited {
     min-height: calc(100vh - 80px); /* 80px = header height */
 }
 
-img {
-    border-radius: 4px;
+/* Bilder Ecken abgerunden */
+.media-grid img,
+.preview-item img,
+.lightbox img {
+    border-radius: 6px;
 }
 
 /* =========================
