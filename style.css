@@ -15,7 +15,7 @@
 /* Default */
 html,
 body {
-    cursor: url('/assets/cursor-default.png') 14 14, auto;
+    cursor: url('/assets/cursor-default.png') 12 10, auto;
 }
 
 /* Clickable */
