@@ -18,7 +18,7 @@
                 | sort: "date" %}
         {% else %}
             {% assign siblings = collection
-                | where_exp: "item", "item.parent == nil"
+                | | where_exp: "item", "item.parent == blank"
                 | sort: "date"
                 | reverse %}
         {% endif %}
