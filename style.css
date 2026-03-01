@@ -14,6 +14,8 @@
 
 /* Default */
 html,
+a,
+button,
 body {
     cursor: url('/assets/cursor-default.png') 14 14, auto;
 }
@@ -24,7 +26,7 @@ button,
 .preview-item,
 .media-grid img,
 .media-grid video {
-    cursor: url('/assets/cursor-pointer.png') 16 16, pointer;
+    cursor: url('/assets/cursor-default.png') 14 14, pointer;
 } */
 
 /* =========================
