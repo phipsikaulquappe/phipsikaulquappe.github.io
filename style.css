@@ -175,6 +175,7 @@ a:visited {
 .preview-item img,
 .lightbox img {
     border-radius: 6px;
+    overflow: hidden;
 }
 
 /* =========================
