@@ -68,7 +68,7 @@ body.theme-gray {
 }
 
 body.theme-purple {
-    background-color: #6157d2;
+    background-color: #7971d4;
 }
 
 /* =========================
@@ -121,6 +121,20 @@ a:visited {
     height: 1.2px;      /* Dicke der Linie */
     background: #000000;
 }
+
+/* =========================
+   SITE LOGO
+========================= */
+
+.site-logo {
+    height: 40px;   /* Größe anpassen */
+    width: auto;
+    display: block;
+}
+
+.site-logo:hover {
+    opacity: 0.6;
+} 
 
 
 /* =========================
