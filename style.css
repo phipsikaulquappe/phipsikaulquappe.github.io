@@ -130,8 +130,8 @@ a:visited {
     height: 300px;   /* Größe anpassen */
     width: auto;
     display: block;
-    margin-top: 12px;     /* nach unten */
-    margin-right: 16px;   /* nach links */
+    margin-top: 14px;     /* nach unten */
+    margin-right: 30px;   /* nach links */
 }
 
 .site-logo:hover {
