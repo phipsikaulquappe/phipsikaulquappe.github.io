@@ -14,9 +14,8 @@
 
         {% if current_item.parent %}
             {% assign siblings = collection
-            | where_exp: "item", "item.parent == nil"
-            | sort: "date"
-            | reverse %}
+                | where: "parent", current_item.parent
+                | sort: "date" %}
         {% else %}
             {% assign siblings = collection
                 | where_exp: "item", "item.parent == nil"
