@@ -5,7 +5,9 @@
     (function() {
         const savedTheme = localStorage.getItem("siteTheme");
         if (savedTheme) {
-            document.documentElement.classList.add(savedTheme);
+            document.addEventListener("DOMContentLoaded", function(){
+                document.body.classList.add(savedTheme);
+            });
         }
     })();
     </script>

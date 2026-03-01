@@ -42,22 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
         themeBtn.addEventListener("click", function () {
 
             let currentIndex = themes.findIndex(t =>
-            document.documentElement.classList.contains(t)
+                document.body.classList.contains(t)
             );
 
-            // Falls noch kein Theme existiert
-            if (currentIndex === -1) {
-            document.documentElement.classList.add("theme-red");
-            localStorage.setItem("siteTheme", "theme-red");
-            return;
+            if (currentIndex !== -1) {
+                document.body.classList.remove(themes[currentIndex]);
             }
 
-            // aktuelles entfernen
-            document.documentElement.classList.remove(themes[currentIndex]);
-
-            // nächstes setzen
             let nextIndex = (currentIndex + 1) % themes.length;
-            document.documentElement.classList.add(themes[nextIndex]);
+            document.body.classList.add(themes[nextIndex]);
             localStorage.setItem("siteTheme", themes[nextIndex]);
 
         });
