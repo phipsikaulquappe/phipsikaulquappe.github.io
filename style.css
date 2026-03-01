@@ -15,7 +15,7 @@
 /* Default */
 html,
 body {
-    cursor: url('/assets/cursor-default.svg') 8 8, auto;
+    cursor: url('/assets/cursor-default.svg') 32 32, auto;
 }
 
 /* Clickable */
