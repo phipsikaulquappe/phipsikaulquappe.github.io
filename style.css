@@ -170,6 +170,10 @@ a:visited {
     min-height: calc(100vh - 80px); /* 80px = header height */
 }
 
+img {
+    border-radius: 4px;
+}
+
 /* =========================
    HEADER NAVIGATION
 ========================= */
