@@ -1,60 +1,59 @@
 {% if page.collection %}
 
-    {% assign collection = site[page.collection] %}
+{% assign collection = site[page.collection] %}
 
-    {% assign current_item = nil %}
+{% assign parents = collection
+   | where_exp: "item", "item.parent == blank"
+   | sort: "date"
+   | reverse %}
 
-    {% for item in collection %}
-        {% if item.url == page.url %}
-            {% assign current_item = item %}
-        {% endif %}
-    {% endfor %}
+{% assign ordered_items = "" | split: "" %}
 
-    {% if current_item %}
+{% for parent in parents %}
 
-        {% if current_item.parent %}
-            {% assign siblings = collection
-                | where: "parent", current_item.parent
-                | sort: "date" %}
-        {% else %}
-            {% assign siblings = collection
-                | where_exp: "item", "item.parent == nil"
-                | sort: "date"
-                | reverse %}
-        {% endif %}
+    {% assign children = collection
+        | where: "parent", parent.slug
+        | sort: "date" %}
 
-        {% assign current_index = nil %}
-
-        {% for item in siblings %}
-            {% if item.url == page.url %}
-                {% assign current_index = forloop.index0 %}
-            {% endif %}
+    {% if children.size > 0 %}
+        {% for child in children %}
+            {% assign ordered_items = ordered_items | push: child %}
         {% endfor %}
-
-        {% if current_index != nil %}
-
-        <div class="project-navigation">
-
-            {% if current_index > 0 %}
-                {% assign prev_index = current_index | minus: 1 %}
-                {% assign prev_item = siblings[prev_index] %}
-                <a href="{{ prev_item.url }}" class="nav-prev">
-                    <img src="/assets/prev.png" alt="Previous project">
-                     <span>Previous Project</span>
-                </a>
-            {% endif %}
-
-            {% if current_index < siblings.size | minus: 1 %}
-                {% assign next_index = current_index | plus: 1 %}
-                {% assign next_item = siblings[next_index] %}
-                <a href="{{ next_item.url }}" class="nav-next">
-                    <img src="/assets/next.png" alt="Next project">
-                     <span>Next Project</span>
-                </a>
-            {% endif %}
-
-        </div>
-
-        {% endif %}
+    {% else %}
+        {% assign ordered_items = ordered_items | push: parent %}
     {% endif %}
+
+{% endfor %}
+
+{% assign current_index = nil %}
+
+{% for item in ordered_items %}
+    {% if item.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+    {% endif %}
+{% endfor %}
+
+{% if current_index != nil %}
+
+<div class="project-navigation">
+
+    {% if current_index > 0 %}
+        {% assign prev_item = ordered_items[current_index | minus: 1] %}
+        <a href="{{ prev_item.url }}" class="nav-prev">
+            <img src="/assets/prev.png" alt="Previous project">
+            <span>Previous Project</span>
+        </a>
+    {% endif %}
+
+    {% if current_index < ordered_items.size | minus: 1 %}
+        {% assign next_item = ordered_items[current_index | plus: 1] %}
+        <a href="{{ next_item.url }}" class="nav-next">
+            <img src="/assets/next.png" alt="Next project">
+            <span>Next Project</span>
+        </a>
+    {% endif %}
+
+</div>
+
+{% endif %}
 {% endif %}
