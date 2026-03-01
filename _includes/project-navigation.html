@@ -7,7 +7,9 @@
    | sort: "date"
    | reverse %}
 
-{% assign ordered_items = "" | split: "" %}
+{% assign previous_item = nil %}
+{% assign next_item = nil %}
+{% assign found = false %}
 
 {% for parent in parents %}
 
@@ -17,36 +19,50 @@
 
     {% if children.size > 0 %}
         {% for child in children %}
-            {% assign ordered_items = ordered_items | push: child %}
+
+            {% if found and next_item == nil %}
+                {% assign next_item = child %}
+            {% endif %}
+
+            {% if child.url == page.url %}
+                {% assign found = true %}
+            {% endif %}
+
+            {% unless found %}
+                {% assign previous_item = child %}
+            {% endunless %}
+
         {% endfor %}
     {% else %}
-        {% assign ordered_items = ordered_items | push: parent %}
+
+        {% if found and next_item == nil %}
+            {% assign next_item = parent %}
+        {% endif %}
+
+        {% if parent.url == page.url %}
+            {% assign found = true %}
+        {% endif %}
+
+        {% unless found %}
+            {% assign previous_item = parent %}
+        {% endunless %}
+
     {% endif %}
 
 {% endfor %}
 
-{% assign current_index = nil %}
-
-{% for item in ordered_items %}
-    {% if item.url == page.url %}
-        {% assign current_index = forloop.index0 %}
-    {% endif %}
-{% endfor %}
-
-{% if current_index != nil %}
+{% if previous_item or next_item %}
 
 <div class="project-navigation">
 
-    {% if current_index > 0 %}
-        {% assign prev_item = ordered_items[current_index | minus: 1] %}
-        <a href="{{ prev_item.url }}" class="nav-prev">
+    {% if previous_item %}
+        <a href="{{ previous_item.url }}" class="nav-prev">
             <img src="/assets/prev.png" alt="Previous project">
             <span>Previous Project</span>
         </a>
     {% endif %}
 
-    {% if current_index < ordered_items.size | minus: 1 %}
-        {% assign next_item = ordered_items[current_index | plus: 1] %}
+    {% if next_item %}
         <a href="{{ next_item.url }}" class="nav-next">
             <span>Next Project</span>
             <img src="/assets/next.png" alt="Next project">
