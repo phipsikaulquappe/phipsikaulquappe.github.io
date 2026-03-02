@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       LOAD SAVED THEME
     ========================== */
 
-    const themes = ["theme-red", "theme-gray", "theme-yellow", "theme-purple"];
+    const themes = ["theme-red", "theme-gray", "theme-yellow", "theme-blue"];
     const savedTheme = localStorage.getItem("siteTheme");
 
     // Alle Theme-Klassen entfernen
