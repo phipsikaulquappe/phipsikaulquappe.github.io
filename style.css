@@ -493,11 +493,12 @@ a:visited {
 
 .video-wrapper {
     position: relative;
-    width: 80%;          /* statt 100% */
+    width: 80%;  
+    height: 80%;        /* statt 100% */
     max-width: 800px;    /* optional */
     margin: 0 auto;      /* zentriert */
     grid-column: span 2;
-    padding-bottom: 75%;
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
     overflow: hidden;
     border-radius: 6px;
