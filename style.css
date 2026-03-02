@@ -278,7 +278,7 @@ a:visited {
 
 .media-grid img,
 .media-grid video {
-    width: 500%;
+    width: 50%;
     height: auto;
     display: block;
     cursor: pointer;
