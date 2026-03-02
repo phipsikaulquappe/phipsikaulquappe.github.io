@@ -494,6 +494,7 @@ a:visited {
 .video-wrapper {
     position: relative;
     width: 100%;
+    grid-column: span 2;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
     overflow: hidden;
