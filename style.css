@@ -286,12 +286,14 @@ a:visited {
 }
 
 /* Projekttitel anzeigen */
-.project-title {
-    display: block;
-    font-size: 22px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-weight: normal;
+@media (min-width: 901px) {
+    .project-title {
+        display: block;
+        font-size: 22px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-weight: normal;
+    }
 }
 
 /* YOUTUBE VIDEO */
