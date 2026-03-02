@@ -270,6 +270,10 @@ a:visited {
     margin-top: 20px;
 }
 
+.media-grid .large {
+    grid-column: span 2;
+}
+
 .media-grid img,
 .media-grid video {
     width: 100%;
