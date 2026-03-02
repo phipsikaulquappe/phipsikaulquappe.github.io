@@ -265,20 +265,20 @@ a:visited {
 
 .media-grid {
     display: grid;
-    grid-template-columns: 1fr;   /* exakt 2 Spalten */
+    grid-template-columns: 1fr 1fr;   /* exakt 2 Spalten */
     gap: 30px;                        /* Abstand zwischen den Bildern */
     margin-top: 20px;
-    justify-items: center;   /* horizontal */
-    align-items: center;     /* vertikal */
 }
 
 .media-grid .large {
     grid-column: span 2;
+    width: 70%;
+    align-items: center;    
 }
 
 .media-grid img,
 .media-grid video {
-    width: 50%;
+    width: 100%;
     height: auto;
     display: block;
     cursor: pointer;
