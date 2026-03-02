@@ -278,12 +278,19 @@ a:visited {
     cursor: pointer;
 }
 
+.media-description {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    max-width: 700px;   /* angenehme Lesebreite */
+    line-height: 1.5;
+}
+
 /* YOUTUBE VIDEO */
 
 .video-wrapper {
     position: relative;
-    width: 60%;  
-    height: 60%;        /* statt 100% */
+    width: 50%;  
+    height: 50%;        /* statt 100% */
     max-width: 900px;    /* optional */
     margin: 0 auto;      /* zentriert */
     grid-column: span 2;
