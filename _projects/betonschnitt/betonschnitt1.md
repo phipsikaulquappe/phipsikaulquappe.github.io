@@ -9,7 +9,15 @@ thumbnail: /images/betonschnitt1a.jpg
 <div class="media-grid">
     <img src="/images/betonschnitt1a.jpg" loading="eager">
     <img src="/images/betonschnitt1b.jpg" loading="eager">
-    <!-- <img src="/images/untitled26_detail.jpg" loading="lazy"> -->
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/cvon189vx0I"
+            title="Beton-Schnitt I"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
 </div>
 
 <p>

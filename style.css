@@ -34,7 +34,7 @@ button,
 body {
     font-family: "Courier New", Courier, monospace;
     background-color: #ee8e8e; /* #f6f1c4; */
-    /* background-image:
+    background-image:
         linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px),
         linear-gradient(to right, rgba(0,0,0,0.18) 1px, transparent 1px),
@@ -49,7 +49,7 @@ body {
         0 -20px,
         0 -20px,
         0 -20px;
-    color: #000; */
+    color: #000;
 }
 
 /* Gelb) */
