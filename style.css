@@ -286,14 +286,12 @@ a:visited {
 }
 
 /* Projekttitel anzeigen */
-@media (min-width: 901px) {
-    .project-title {
-        display: block;
-        font-size: 22px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        font-weight: normal;
-    }
+.project-title {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: normal;
 }
 
 /* YOUTUBE VIDEO */
@@ -305,7 +303,6 @@ a:visited {
     aspect-ratio: 16 / 9;
     border-radius: 6px;
     overflow: hidden;
-    grid-column: span 2;
 }
 
 .video-wrapper iframe {
@@ -469,12 +466,6 @@ a:visited {
 .slideshow-nav img {
     width: 50px;
     height: 50px;
-}
-
-
-/* Kein Projekt Titel im Desktop anzeigen */
-.project-title {
-    display: none;
 }
 
 
