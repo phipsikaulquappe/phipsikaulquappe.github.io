@@ -617,6 +617,10 @@ a:visited {
         grid-template-columns: 1fr;
     }
 
+    .video-wrapper {
+    grid-column: span 1;
+    }
+
     #preview-grid {
         grid-template-columns: 1fr;
     }
@@ -629,4 +633,5 @@ a:visited {
         margin-top: 10px;
         font-weight: normal;
     }
+
 }
