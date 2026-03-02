@@ -495,7 +495,7 @@ a:visited {
     position: relative;
     width: 100%;
     grid-column: span 2;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 75%; /* 4:3 */
     height: 0;
     overflow: hidden;
     border-radius: 6px; /* gleiche Rundung wie Bilder */
