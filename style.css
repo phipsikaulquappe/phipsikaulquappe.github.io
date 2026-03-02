@@ -497,7 +497,7 @@ a:visited {
     height: 70%;        /* statt 100% */
     max-width: 900px;    /* optional */
     margin: 0 auto;      /* zentriert */
-    grid-column: span 2;
+    grid-column: span 1;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
     overflow: hidden;
