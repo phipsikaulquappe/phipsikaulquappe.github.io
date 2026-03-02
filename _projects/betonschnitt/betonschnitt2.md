@@ -9,6 +9,7 @@ thumbnail: /images/betonschnitt2.jpg
 
 <div class="media-grid">
     <img src="/images/betonschnitt2.jpg" loading="eager">
+    <img src="/images/untitled26.jpg" loading="eager">
 </div>
 <p class="media-description">
     Beton-Schnitt II, 2024, DC-Getriebemotor, Beton, Holz, Draht, 
