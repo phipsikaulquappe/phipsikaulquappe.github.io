@@ -282,8 +282,8 @@ a:visited {
 
 .video-wrapper {
     position: relative;
-    width: 85%;  
-    height: 70%;        /* statt 100% */
+    width: 60%;  
+    height: 60%;        /* statt 100% */
     max-width: 900px;    /* optional */
     margin: 0 auto;      /* zentriert */
     grid-column: span 2;

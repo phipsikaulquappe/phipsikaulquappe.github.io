@@ -9,17 +9,16 @@ thumbnail: /images/betonschnitt2.jpg
 
 <div class="media-grid">
     <img src="/images/betonschnitt2.jpg" loading="eager">
-    <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/c0oEE93s2eg"
-            title="Beton-Schnitt II"
-            allowfullscreen>
-        </iframe>
-    </div>
 </div>
-
 <p class="media-description">
     Beton-Schnitt II, 2024, DC-Getriebemotor, Beton, Holz, Draht, 
     Blech, unterschiedliche Metallteile, USB-Akku-betrieben, 
     17 x 15 x 21 cm
 </p>
+<div class="video-wrapper">
+    <iframe 
+        src="https://www.youtube.com/embed/c0oEE93s2eg"
+        title="Beton-Schnitt II"
+        allowfullscreen>
+    </iframe>
+</div>
