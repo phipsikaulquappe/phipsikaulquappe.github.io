@@ -285,6 +285,15 @@ a:visited {
     line-height: 1.5;
 }
 
+/* Projekttitel anzeigen */
+.project-title {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
 /* YOUTUBE VIDEO */
 
 .video-wrapper {
