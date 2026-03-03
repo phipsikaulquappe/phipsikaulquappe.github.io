@@ -307,7 +307,7 @@ a:visited {
 .media-description {
     margin-top: 25px;
     margin-bottom: 25px;
-    max-width: 700px;   /* angenehme Lesebreite */
+    max-width: 900px;   /* angenehme Lesebreite */
     line-height: 1.5;
 }
 

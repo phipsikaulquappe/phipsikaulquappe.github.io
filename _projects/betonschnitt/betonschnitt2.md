@@ -7,7 +7,7 @@ thumbnail: /images/betonschnitt2.jpg
 ---
 <h1 class="project-title">{{ page.title }}</h1>
 
-<div class="media-grid-stack">
+<div class="media grid media-grid-stack">
     <img src="/images/betonschnitt2.jpg" loading="eager" class="large"> 
     <img src="/images/untitled26.jpg" loading="eager">
 </div>

@@ -12,6 +12,8 @@ thumbnail: /images/betonschnitt1a.jpg
     <p class="media-description">
         Beton-Schnitt I, 2024, DC-Getriebemotor, Beton, Draht, Blech, unterschiedliche Metallteile, USB-Akku-betrieben, 11 × 14,5 × 9,5 cm
     </p>
+</div>
+<div class="media grid media-grid-stack">
     <div class="video-wrapper">
         <iframe 
             src="https://www.youtube.com/embed/cvon189vx0I"
