@@ -275,10 +275,19 @@ a:visited {
     justify-items: center; /* horizontal zentriert */
 }
 
-.media-grid-stack img,
-.media-grid-stack .video-wrapper {
+.media-grid-stack img {
     max-width: 900px;
     width: 100%;
+}
+
+.media-grid-stack .video-wrapper {
+    width: 60%;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    overflow: hidden;
+    grid-column: span 1;
 }
 
 /* Zwei Spalten Grid */
