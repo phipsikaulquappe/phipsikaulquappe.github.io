@@ -1,20 +1,19 @@
----
-layout: default
-title: Beton-Schnitt II
-parent: betonschnitt
-date: 2024-09-11
-thumbnail: /images/betonschnitt2.jpg
----
 <h1 class="project-title">{{ page.title }}</h1>
+
 <div class="media-grid">
-    <img src="/images/betonschnitt2.jpg" loading="eager" class="large"> 
-    <img src="/images/untitled26.jpg" loading="eager">
+    <div class="media-item">
+        <img src="/images/betonschnitt2.jpg" loading="eager">
+        <p class="media-description">
+            Beton-Schnitt II, 2024<br>
+            DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
+            17 × 15 × 21 cm
+        </p>
+    </div>
+    <div class="media-item">
+        <img src="/images/untitled26.jpg" loading="eager">
+    </div>
 </div>
-<p class="media-description">
-    Beton-Schnitt II, 2024<br> 
-    DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
-    17 x 15 x 21 cm
-</p>
+
 <div class="media-grid">
     <div class="video-wrapper">
         <iframe 

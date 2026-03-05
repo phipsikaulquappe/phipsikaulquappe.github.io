@@ -285,6 +285,11 @@ a:visited {
     max-width: 900px;   /* angenehme Lesebreite */
     line-height: 1;
 }
+.media-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
 /* Projekttitel anzeigen */
 .project-title {
