@@ -6,15 +6,21 @@ date: 2024-09-10
 thumbnail: /images/betonschnitt1a.jpg
 ---
 <h1 class="project-title">{{ page.title }}</h1>
+
 <div class="media-grid">
-    <img src="/images/betonschnitt1a.jpg" loading="eager">
-    <img src="/images/betonschnitt1b.jpg" loading="eager">
+    <div class="media-item">
+        <img src="/images/betonschnitt1a.jpg" loading="eager">
+        <p class="media-description">
+            Beton-Schnitt I, 2024<br>
+            DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
+            11 × 14,5 × 9,5 cm
+        </p>
+    </div>
+    <div class="media-item">
+        <img src="/images/betonschnitt1b.jpg" loading="eager">
+    </div>    
 </div>
-<p class="media-description">
-        Beton-Schnitt I, 2024<br>
-        DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
-        11 × 14,5 × 9,5 cm
-</p>
+
 <div class="media-grid">
     <div class="video-wrapper">
         <iframe 
