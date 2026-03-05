@@ -281,7 +281,7 @@ a:visited {
 }
 
 .media-grid-stack .video-wrapper {
-    width: 60%;
+    width: 80%;
     max-width: 900px;
     margin: 0 auto;
     aspect-ratio: 16 / 9;
