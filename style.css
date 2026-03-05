@@ -281,7 +281,7 @@ a:visited {
 
 /* Medien Beschriftung */
 .media-description {
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 25px;
     max-width: 900px;   /* angenehme Lesebreite */
     line-height: 1;
@@ -289,7 +289,7 @@ a:visited {
 .media-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 /* Projekttitel anzeigen */
