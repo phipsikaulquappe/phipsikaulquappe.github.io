@@ -16,10 +16,11 @@ thumbnail: /images/betonschnitt2.jpg
     Blech, unterschiedliche Metallteile, USB-Akku-betrieben, 
     17 x 15 x 21 cm
 </p>
-<div class="video-wrapper">
-    <iframe 
-        src="https://www.youtube.com/embed/c0oEE93s2eg"
-        title="Beton-Schnitt II"
-        allowfullscreen>
-    </iframe>
-</div>
+<div class="media grid">
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/c0oEE93s2eg"
+            title="Beton-Schnitt II"
+            allowfullscreen>
+        </iframe>
+    </div>
