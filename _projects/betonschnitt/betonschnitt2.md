@@ -24,3 +24,4 @@ thumbnail: /images/betonschnitt2.jpg
             allowfullscreen>
         </iframe>
     </div>
+</div>
