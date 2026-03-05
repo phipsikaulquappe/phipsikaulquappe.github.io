@@ -269,10 +269,18 @@ a:visited {
     margin-top: 20px;
 }
 
+.media-grid img,
+.media-grid video {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
 /* Media Stack img & vids untereinander zentriert */
-.media-grid-stack {
+/* .media-grid-stack {
     grid-template-columns: 1fr;
-    justify-items: center; /* horizontal zentriert */
+    justify-items: center;
 }
 
 .media-grid-stack img {
@@ -288,28 +296,16 @@ a:visited {
     border-radius: 6px;
     overflow: hidden;
     grid-column: span 1;
-}
+} */
 
 /* Zwei Spalten Grid */
 .media-grid-2column {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.media-grid-2column .large {
-    grid-column: span 2;
-    width: 70%; 
-}
-
 .media-grid-2column .video-wrapper {
     width: 100%;
-}
-
-.media-grid img,
-.media-grid video {
-    width: 100%;
-    height: auto;
-    display: block;
-    cursor: pointer;
+    grid-column: span 2;
 }
 
 /* Medien Beschriftung */
