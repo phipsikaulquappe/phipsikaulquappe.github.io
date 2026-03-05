@@ -9,7 +9,7 @@ thumbnail: /images/betonschnitt2.jpg
 
 <div class="media-grid">
     <div class="media-item">
-        <img src="/images/betonschnitt2.jpg" loading="eager">
+        <img src="/images/betonschnitt2a.jpg" loading="eager">
         <p class="media-description">
             Beton-Schnitt II, 2024<br>
             DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
