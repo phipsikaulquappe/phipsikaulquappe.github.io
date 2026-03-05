@@ -16,7 +16,7 @@ thumbnail: /images/betonschnitt2.jpg
     Blech, unterschiedliche Metallteile, USB-Akku-betrieben, 
     17 x 15 x 21 cm
 </p>
-<div class="media grid">
+<div class="media grid media-grid-2column">
     <div class="video-wrapper">
         <iframe 
             src="https://www.youtube.com/embed/c0oEE93s2eg"
