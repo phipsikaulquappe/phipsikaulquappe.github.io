@@ -294,10 +294,10 @@ a:visited {
 /* Projekttitel anzeigen */
 .project-title {
     display: block;
-    font-size: 22px;
+    /* font-size: 22px; */
     margin-bottom: 8px;
     margin-top: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* YOUTUBE VIDEO */
