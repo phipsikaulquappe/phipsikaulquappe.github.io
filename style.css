@@ -275,7 +275,6 @@ a:visited {
     width: 100%;
     height: auto;
     display: block;
-    cursor: pointer;
 }
 
 /* Medien Beschriftung */
@@ -369,7 +368,6 @@ a:visited {
     padding: 6px 16px;
     font-family: inherit;
     font-size: 16px;
-    cursor: pointer;
     border-radius: 4px;
     transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
@@ -432,7 +430,6 @@ a:visited {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
 }
 
 /* SVG-Größe */
