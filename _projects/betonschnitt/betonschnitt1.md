@@ -14,8 +14,8 @@ thumbnail: /images/betonschnitt1a.jpg
     <div class="media-item">
         <img src="/images/betonschnitt1a.jpg" loading="eager">
         <p class="media-description">
-            <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
-            {{ page.materials }}<br>
+            <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span>
+            {{ page.materials }}
             {{ page.dimensions }}
         </p>
     </div>
