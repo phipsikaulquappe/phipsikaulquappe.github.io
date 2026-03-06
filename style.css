@@ -294,10 +294,9 @@ a:visited {
 /* Projekttitel anzeigen */
 .project-title {
     display: block;
-    /* font-size: 22px; */
-    margin-bottom: 8px;
-    margin-top: 10px;
-    /* font-weight: bold; */
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.08vw, 1.875rem);
 }
 
 /* YOUTUBE VIDEO */
