@@ -39,7 +39,7 @@ title: Projects
                 class="preview-item"
                 data-project="{{ parent.url }}">
                 <div class="preview-image">
-                <img src="{{ child.thumbnail }}" loading="eager" alt="{{ child.title }}">
+                <img src="{{ parent.thumbnail }}" loading="eager">
                 </div>
                 <div class="preview-title">
                     <em>{{ parent.title }}</em>{% if parent.year %}<span class="year">, {{ parent.year }}</span>{% endif %}
