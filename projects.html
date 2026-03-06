@@ -42,7 +42,7 @@ title: Projects
                 <img src="{{ parent.thumbnail }}" loading="eager">
                 </div>
                 <div class="preview-title">
-                    {{ parent.title }}
+                    <em>{{ parent.title }}</em>{% if parent.year %}, {{ parent.year }}{% endif %}
                 </div>
             </a>
         {% endif %}
