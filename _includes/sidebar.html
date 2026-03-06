@@ -54,8 +54,8 @@
                     {% else %}
                         <a href="{{ item.url }}"
                             data-project="{{ item.url }}"
-                           class="{% if page.url == item.url %}active{% endif %}">
-                           <em>{{ item.title }}</em><span class="year">, {{ item.year }}</span>
+                            class="{% if page.url == item.url %}active{% endif %}">
+                            <em class="title">{{ item.title }}</em><span class="year">, {{ item.year }}</span>
                         </a>
                     {% endif %}
 
