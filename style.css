@@ -21,12 +21,8 @@ body {
 /* Clickable */
 a,
 button,
-.theme-toggle,
-.sidebar a,
-.preview-item,
-.media-grid img,
-.media-grid video, 
-.lightbox button {
+img,
+.preview-item {
     cursor: url('/assets/cursor-pointer.png') 12 10, pointer;
 }
 
