@@ -297,6 +297,7 @@ a:visited {
 /* Projekttitel anzeigen */
 .project-title {
     font-weight: 500;
+    font-size: 20;
 }
 
 /* YOUTUBE VIDEO */
