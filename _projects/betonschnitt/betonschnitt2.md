@@ -2,10 +2,11 @@
 layout: default
 title: Beton-Schnitt II
 parent: betonschnitt
+year: 2024
 date: 2024-09-11
 thumbnail: /images/betonschnitt2a.jpg
 ---
-<h1 class="project-title">{{ page.title }}</h1>
+<h1 class="project-title"><em>{{ page.title }}</em>, {{ page.year }}</h1>
 
 <div class="media-grid">
     <div class="media-item">

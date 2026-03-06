@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Untitled, 2026
+title: Untitled
+year: 2026
 date: 2026-02-08
 thumbnail: /images/untitled26.jpg
 ---
-<h1 class="project-title">{{ page.title }}</h1>
+<h1 class="project-title"><em>{{ page.title }}</em>, {{ page.year }}</h1>
 <div class="media-grid">
     <img src="/images/untitled26.jpg" loading="eager">
     <!-- <img src="/images/untitled26_detail.jpg" loading="lazy"> -->
