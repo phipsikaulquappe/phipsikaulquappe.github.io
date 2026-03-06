@@ -348,6 +348,10 @@ a:visited {
     transition: transform 0.25s ease;
 }
 
+.year {
+    margin-left: 2px;
+}
+
 
 @media (hover: hover) and (pointer: fine) {
     .preview-item:hover,
@@ -639,6 +643,7 @@ a:visited {
         margin-top: 10px;
         font-weight: bold;
     }
+    
 
     .media-description {
         margin-top: 2px;
