@@ -22,6 +22,7 @@ body {
 a,
 button,
 img,
+video,
 .preview-item {
     cursor: url('/assets/cursor-pointer.png') 12 10, pointer;
 }
