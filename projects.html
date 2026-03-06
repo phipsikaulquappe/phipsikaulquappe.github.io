@@ -27,7 +27,7 @@ title: Projects
                     <img src="{{ child.thumbnail }}" loading="eager">
                 </div>
                 <div class="preview-title">
-                    <em>{{ child.title }}</em><span class="year">, {{ child.year }}</span>
+                    <em>{{ child.title }}</em>{% if child.year %}<span class="year">, {{ child.year }}</span>{% endif %}
                 </div>
             </a>
         {% endfor %}
@@ -39,10 +39,10 @@ title: Projects
                 class="preview-item"
                 data-project="{{ parent.url }}">
                 <div class="preview-image">
-                <img src="{{ parent.thumbnail }}" loading="eager">
+                <img src="{{ child.thumbnail }}" loading="eager" alt="{{ child.title }}">
                 </div>
                 <div class="preview-title">
-                    <em>{{ parent.title }}</em><span class="year">, {{ parent.year }}</span>
+                    <em>{{ parent.title }}</em>{% if parent.year %}<span class="year">, {{ parent.year }}</span>{% endif %}
                 </div>
             </a>
         {% endif %}
