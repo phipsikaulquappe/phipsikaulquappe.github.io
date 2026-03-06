@@ -19,13 +19,13 @@ body {
 }
 
 /* Clickable */
-/* a,
+a,
 button,
 .preview-item,
 .media-grid img,
 .media-grid video {
-    cursor: url('/assets/cursor-default.png') 14 14, pointer;
-} */
+    cursor: url('/assets/cursor-pointer.png') 12 10, pointer;
+}
 
 /* =========================
    BODY + BACKGROUND
@@ -284,7 +284,7 @@ a:visited {
     margin-top: 10px;
     margin-bottom: 25px;
     max-width: 900px;   /* angenehme Lesebreite */
-    line-height: 1;
+    line-height: 1,2;
 }
 .media-item {
     display: flex;
