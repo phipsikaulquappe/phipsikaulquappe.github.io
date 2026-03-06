@@ -295,7 +295,6 @@ a:visited {
 .project-title {
     display: block;
     font-weight: 500;
-    font-style: italic;
     font-size: clamp(1.5rem, 2.08vw, 1.875rem);
 }
 
@@ -349,9 +348,6 @@ a:visited {
     transition: transform 0.25s ease;
 }
 
-.overview-title {
-    font-weight: 500;
-}
 
 @media (hover: hover) and (pointer: fine) {
     .preview-item:hover,

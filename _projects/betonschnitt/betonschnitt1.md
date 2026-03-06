@@ -11,7 +11,7 @@ thumbnail: /images/betonschnitt1a.jpg
     <div class="media-item">
         <img src="/images/betonschnitt1a.jpg" loading="eager">
         <p class="media-description">
-            Beton-Schnitt I, 2024<br>
+            <i>Beton-Schnitt I</i>, 2024<br>
             DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
             11 × 14,5 × 9,5 cm
         </p>
