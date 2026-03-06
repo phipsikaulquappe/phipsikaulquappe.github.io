@@ -209,12 +209,13 @@ a:visited {
 
 .sidebar-group {
     margin-bottom: 6px;
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .sidebar-group > a {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .sidebar a.active {
@@ -225,15 +226,15 @@ a:visited {
 /* Subnavigation */
 .sidebar-sub a {
     display: block;        /* WICHTIG */
-    font-size: 18px;
-    margin-bottom: 4.5px;
+    font-size: 14px;
+    margin-bottom: 2.5px;
     transition: opacity 0.2s ease;
 }
 
 /* Subnavigation Container */
 .sidebar-sub {
     display: none;
-    margin-top: 4.5px;
+    margin-top: 2.5px;
     padding-left: 18px;
 }
 
