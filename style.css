@@ -349,10 +349,8 @@ a:visited {
 }
 
 .year {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 1px;
 }
-
 
 @media (hover: hover) and (pointer: fine) {
     .preview-item:hover,
