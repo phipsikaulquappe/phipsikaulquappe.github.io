@@ -294,7 +294,7 @@ a:visited {
 /* Projekttitel anzeigen */
 .project-title {
     display: block;
-    font-weight: 500;
+    font-weight: 700;
     font-size: clamp(1.5rem, 2.08vw, 1.875rem);
 }
 
