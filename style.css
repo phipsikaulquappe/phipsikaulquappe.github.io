@@ -648,8 +648,8 @@ a:visited {
     }
 
     .media-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-}
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
 }
