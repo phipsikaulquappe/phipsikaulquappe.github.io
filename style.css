@@ -140,26 +140,6 @@ a:visited {
 
 
 /* =========================
-   SIDEBAR
-========================= */
-
-.sidebar {
-    padding: 40px 20px 40px 30px;
-    position: relative;
-}
-
-/* Vertikale Linie rechts von Sidebar */
-.sidebar::after {
-    content: "";
-    position: absolute;
-    top: 20px;        /* kleine Lücke zur oberen Linie */
-    bottom: 20px;     /* etwas Luft unten */
-    right: 0;
-    width: 1.2px;       /* Dicke der Linie */
-    background: #000000;
-}
-
-/* =========================
   MAIN 
 ========================= */
 
@@ -203,13 +183,35 @@ a:visited {
     padding-bottom: 2px;
 }
 
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    padding: 40px 20px 40px 30px;
+    position: relative;
+}
+
+/* Vertikale Linie rechts von Sidebar */
+.sidebar::after {
+    content: "";
+    position: absolute;
+    top: 20px;        /* kleine Lücke zur oberen Linie */
+    bottom: 20px;     /* etwas Luft unten */
+    right: 0;
+    width: 1.2px;       /* Dicke der Linie */
+    background: #000000;
+}
+
+
 /* =========================
    SIDEBAR NAVIGATION
 ========================= */
 
 .sidebar-group {
     margin-bottom: 6px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -226,7 +228,7 @@ a:visited {
 /* Subnavigation */
 .sidebar-sub a {
     display: block;        /* WICHTIG */
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 2.5px;
     transition: opacity 0.2s ease;
 }
