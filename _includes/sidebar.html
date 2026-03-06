@@ -49,13 +49,13 @@
                         <a href="{{ first_child.url }}"
                             data-project="{{ first_child.url }}"
                            class="{% if page.url contains item.url %}active{% endif %}">
-                            <em>{{ item.title }}</em>{% if item.year %}, {{ item.year }}{% endif %}
+                            <em>{{- item.title -}}</em>{% if item.year %}, {{- item.year -}}{% endif %}
                         </a>
                     {% else %}
                         <a href="{{ item.url }}"
                             data-project="{{ item.url }}"
                            class="{% if page.url == item.url %}active{% endif %}">
-                            <em>{{ item.title }}</em>{% if item.year %}, {{ item.year }}{% endif %}
+                            <em>{{- item.title -}}</em>{% if item.year %}, {{- item.year -}}{% endif %}
                         </a>
                     {% endif %}
 
@@ -65,7 +65,7 @@
                                 <a href="{{ child.url }}"
                                     data-project="{{ child.url }}"
                                    class="{% if page.url == child.url %}active{% endif %}">
-                                    <em>{{ child.title }}</em>
+                                    <em>{{- child.title -}}</em>
                                 </a>
                             {% endfor %}
                         </div>
