@@ -350,15 +350,6 @@ a:visited {
     transition: transform 0.25s ease;
 }
 
-.project-title em,
-.media-description em {
-    margin-right: -0.15em;
-}
-
-.year {
-    margin-left: 1px;
-}
-
 @media (hover: hover) and (pointer: fine) {
     .preview-item:hover,
     .preview-item.sidebar-hover {
