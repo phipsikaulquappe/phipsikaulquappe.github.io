@@ -211,7 +211,7 @@ a:visited {
 
 .sidebar-group {
     margin-bottom: 6px;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .sidebar-group > a {
@@ -227,7 +227,7 @@ a:visited {
 /* Subnavigation */
 .sidebar-sub a {
     display: block;        /* WICHTIG */
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 2.5px;
     transition: opacity 0.2s ease;
 }
