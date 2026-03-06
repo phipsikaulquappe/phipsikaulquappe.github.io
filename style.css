@@ -349,6 +349,10 @@ a:visited {
     transition: transform 0.25s ease;
 }
 
+.overview-title {
+    font-weight: 500;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .preview-item:hover,
     .preview-item.sidebar-hover {
