@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add(savedTheme);
     } else {
         // Default: Gray
-        document.body.classList.add("theme-gray");
+        document.body.classList.add("theme-red");
     }
 
     /* =========================
