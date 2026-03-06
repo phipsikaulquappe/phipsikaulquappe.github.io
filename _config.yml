@@ -2,7 +2,7 @@ title: Mein Name
 collections:
   index:
     output: true
-    permalink: /projects/:path/
+    permalink: /index/:path/
   projects:
     output: true
     permalink: /projects/:path/
