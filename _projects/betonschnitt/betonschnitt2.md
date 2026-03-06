@@ -1,8 +1,10 @@
 ---
 layout: default
 title: Beton-Schnitt II
-parent: betonschnitt
 year: 2024
+materials: DC-Motor, Concrete, Wood, Wire, Sheet Metal
+dimensions: 17 × 15 × 21 cm
+parent: betonschnitt
 date: 2024-09-11
 thumbnail: /images/betonschnitt2a.jpg
 ---
@@ -12,9 +14,9 @@ thumbnail: /images/betonschnitt2a.jpg
     <div class="media-item">
         <img src="/images/betonschnitt2a.jpg" loading="eager">
         <p class="media-description">
-            Beton-Schnitt II, 2024<br>
-            DC-Motor, Concrete, Wood, Wire, Sheet Metal<br>
-            17 × 15 × 21 cm
+            <em>{{ page.title }}</em>, {{ page.year }}<br>
+            {{ page.materials }}<br>
+            {{ page.dimensions }}
         </p>
     </div>
     <div class="media-item">
@@ -26,7 +28,7 @@ thumbnail: /images/betonschnitt2a.jpg
     <div class="video-wrapper">
         <iframe 
             src="https://www.youtube.com/embed/c0oEE93s2eg"
-            title="Beton-Schnitt II"
+            title="{{ page.title }}"
             allowfullscreen>
         </iframe>
     </div>

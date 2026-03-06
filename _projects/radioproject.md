@@ -2,6 +2,8 @@
 layout: default
 title: Radioproject
 year: 2026
+materials: 
+dimensions: 
 date: 2026-02-24
 thumbnail: /images/radioproject.jpg
 ---
@@ -11,6 +13,8 @@ thumbnail: /images/radioproject.jpg
     <!-- <img src="/images/untitled26_detail.jpg" loading="lazy"> -->
 </div>
 
-<p>
-Beschreibungstext.
+<p class="media-description">
+    <em>{{ page.title }}</em>, {{ page.year }}<br>
+    {{ page.materials }}<br>
+    {{ page.dimensions }}
 </p>

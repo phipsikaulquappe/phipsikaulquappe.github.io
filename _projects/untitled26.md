@@ -2,6 +2,8 @@
 layout: default
 title: Untitled
 year: 2026
+materials: 
+dimensions: 
 date: 2026-02-08
 thumbnail: /images/untitled26.jpg
 ---
@@ -11,6 +13,8 @@ thumbnail: /images/untitled26.jpg
     <!-- <img src="/images/untitled26_detail.jpg" loading="lazy"> -->
 </div>
 
-<p>
-Beschreibungstext.
+<p class="media-description">
+    <em>{{ page.title }}</em>, {{ page.year }}<br>
+    {{ page.materials }}<br>
+    {{ page.dimensions }}
 </p>
