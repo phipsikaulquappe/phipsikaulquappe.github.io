@@ -3,7 +3,7 @@ layout: default
 title: Beton-Schnitt I
 year: 2024
 materials: DC-Motor, Concrete, Wood, Wire, Sheet Metal
-dimensions: 11 × 14,5 × 9,5 cm
+dimensions: 11 × 14.5 × 9.5 cm
 parent: betonschnitt
 date: 2024-09-10
 thumbnail: /images/betonschnitt1a.jpg
