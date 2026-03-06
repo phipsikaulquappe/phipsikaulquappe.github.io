@@ -288,6 +288,10 @@ a:visited {
     line-height: 1.2;
     font-size: 0.9rem;
 }
+
+.wide {
+    grid-column: span 2;
+}
 .media-item {
     display: flex;
     flex-direction: column;

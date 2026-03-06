@@ -8,11 +8,11 @@ parent: betonschnitt
 date: 2024-09-11
 thumbnail: /images/betonschnitt2a.jpg
 ---
-<h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><h1>
+<h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 <div class="media-grid">
     <div class="media-item">
         <img src="/images/betonschnitt2a.jpg" loading="eager">
-        <p class="media-description">
+        <p class="media-description wide">
             <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span>
             {{ page.materials }}
             {{ page.dimensions }}
