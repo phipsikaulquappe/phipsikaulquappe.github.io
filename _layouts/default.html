@@ -9,17 +9,26 @@
         }
     })();
     </script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="UTF-8">
+
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Leipzig-based artist exploring material and spacial relations."/>
-    <meta property="og:title" content="{{ page.title }} — Dein Name">
+
+    <meta property="og:title" content="{{ page.title }} — {{ site.title }}">
     <meta property="og:description" content="Artist portfolio">
-    <meta property="og:image" content="{{ page.thumbnail }}">
+    <meta property="og:image" content="{{ site.url }}{{ page.thumbnail }}">
     <meta property="og:type" content="website">
-    <title>{{page.title}} – {{site.title}}</title>
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="stylesheet" href="/style.css">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
 </head>
 
 <div id="lightbox" class="lightbox hidden">
