@@ -267,12 +267,12 @@ a:visited {
 
 .media-grid {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     margin-top: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: start;
 }
 
+/* normale Medien */
 .media-grid img,
 .media-grid video {
     width: 100%;
@@ -280,24 +280,30 @@ a:visited {
     display: block;
 }
 
-/* Medien Beschriftung */
+/* Video */
+.video-wrapper {
+    grid-column: 1 / -1;   /* über beide Spalten */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Beschreibung */
 .media-description {
-    margin-top: 10px;
-    margin-bottom: 25px;
-    max-width: 900px;   /* angenehme Lesebreite */
+    grid-column: 1 / -1;
+    max-width: 900px;
     line-height: 1.2;
     font-size: 0.9rem;
-    /* font-weight: bold; */
 }
 
-.wide {
-    grid-column: span 2;
-}
-
-.media-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+/* optional: großes Bild */
+.media-wide {
+    grid-column: 1 / -1;
 }
 
 /* Projekttitel anzeigen */
@@ -306,22 +312,6 @@ a:visited {
     font-size: 20;
 }
 
-/* YOUTUBE VIDEO */
-.video-wrapper {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9;
-    /* border-radius: 6px; */
-    overflow: hidden;
-    grid-column: span 2;
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
 /* =========================
    Thumbnail-Preview GRID
@@ -626,16 +616,19 @@ a:visited {
         height: 30px;
     }
 
+    #preview-grid {
+    grid-template-columns: 1fr;
+    }
+
     .media-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
 
-    .video-wrapper {
-    grid-column: span 1;
-    }
-
-    #preview-grid {
-        grid-template-columns: 1fr;
+    .video-wrapper,
+    .media-wide,
+    .media-description {
+        grid-column: span 1;
     }
 
     /* Projekttitel in Mobile anzeigen */

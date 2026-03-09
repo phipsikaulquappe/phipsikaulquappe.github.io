@@ -11,20 +11,13 @@ thumbnail: /images/beton-schnitt-i-a.jpg
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <div class="media-item">
         <img src="/images/beton-schnitt-i-a.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">
+        <img src="/images/beton-schnitt-i-b.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">  
         <p class="media-description">
             <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span>
             {{ page.materials }}
             {{ page.dimensions }}
         </p>
-    </div>
-    <div class="media-item">
-        <img src="/images/beton-schnitt-i-b.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">
-    </div>    
-</div>
-
-<div class="media-grid">
     <div class="video-wrapper">
         <iframe 
             src="https://www.youtube.com/embed/cvon189vx0I"
