@@ -13,8 +13,8 @@ thumbnail: /images/beton-schnitt-ii-a.jpg
     <img src="/images/beton-schnitt-ii-a.jpg" alt="Beton-Schnitt II, 2024, kinetic sculpture" loading="eager">
     <img src="/images/beton-schnitt-ii-b.jpg" alt="Beton-Schnitt II, 2024, kinetic sculpture" loading="eager">
     <p class="media-description-wide">
-        <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span>
-        {{ page.materials }}
+        <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
+        {{ page.materials }}<br>
         {{ page.dimensions }}
     </p>
     <div class="video-wrapper">

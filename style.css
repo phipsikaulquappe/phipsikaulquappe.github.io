@@ -268,8 +268,8 @@ a:visited {
 .media-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
     margin-top: 20px;
+    gap: 15px 40px;   
 }
 
 /* normale Medien */
@@ -298,7 +298,6 @@ a:visited {
     max-width: 900px;
     line-height: 1.2;
     font-size: 0.9rem;
-    margin-top: 2px;
 }
 
 .media-description-wide {
@@ -306,7 +305,6 @@ a:visited {
     max-width: 900px;
     line-height: 1.2;
     font-size: 0.9rem;
-    margin-top: 2px;
 }
 
 /* optional: großes Bild */
