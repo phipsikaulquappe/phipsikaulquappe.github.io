@@ -5,11 +5,12 @@
     (function() {
         const savedTheme = localStorage.getItem("siteTheme");
         if (savedTheme) {
-            document.documentElement.classList.add(savedTheme);
+            document.addEventListener("DOMContentLoaded", function(){
+                document.body.classList.add(savedTheme);
+            });
         }
     })();
     </script>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="UTF-8">
 
