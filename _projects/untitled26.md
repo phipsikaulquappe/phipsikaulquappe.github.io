@@ -11,10 +11,9 @@ thumbnail: /images/untitled26.jpg
 <div class="media-grid">
     <img src="/images/untitled26.jpg" loading="eager">
     <!-- <img src="/images/untitled26_detail.jpg" loading="lazy"> -->
+    <p class="media-description">
+        <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
+        {{ page.materials }}<br>
+        {{ page.dimensions }}
+    </p>
 </div>
-
-<p class="media-description">
-    <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
-    {{ page.materials }}<br>
-    {{ page.dimensions }}
-</p>

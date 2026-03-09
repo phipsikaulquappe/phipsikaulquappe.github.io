@@ -295,11 +295,18 @@ a:visited {
 
 /* Beschreibung */
 .media-description {
+    max-width: 900px;
+    line-height: 1.2;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.media-description-wide {
     grid-column: 1 / -1;
     max-width: 900px;
     line-height: 1.2;
     font-size: 0.9rem;
-    padding-top: 5px;
+    margin-top: 2px;
 }
 
 /* optional: großes Bild */
@@ -641,7 +648,6 @@ a:visited {
         font-weight: bold;
     }
     
-
     .media-description {
         margin-top: 2px;
         margin-bottom: 0px;
@@ -650,10 +656,4 @@ a:visited {
         font-size: 0.9rem;
     }
 
-    .media-item {
-        margin-top: 2px;
-        display: flex;
-        flex-direction: column;
-        gap: 0px;
-    }
 }
