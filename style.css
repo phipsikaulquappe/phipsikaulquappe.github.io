@@ -319,6 +319,8 @@ a:visited {
 .project-title {
     font-weight: 500;
     font-size: 20;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 
