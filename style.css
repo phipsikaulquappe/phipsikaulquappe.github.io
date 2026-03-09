@@ -271,7 +271,7 @@ a:visited {
     margin-top: 20px;
     margin-bottom: 25px;
     column-gap: 40px;   
-    row-gap: 0px;
+    row-gap: 20px;
 }
 
 /* normale Medien */
