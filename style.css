@@ -269,7 +269,9 @@ a:visited {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 20px;
-    gap: 15px 40px;   
+    margin-bottom: 25px;
+    column-gap: 40px;   
+    row-gap: 0px;
 }
 
 /* normale Medien */
