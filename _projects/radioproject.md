@@ -11,7 +11,7 @@ thumbnail: /images/radioproject.jpg
 <div class="media-grid">
     <img src="/images/radioproject.jpg" loading="eager">
     <!-- <img src="/images/untitled26_detail.jpg" loading="lazy"> -->
-    <p class="media-description">
+    <p class="media-description-wide">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}<br>
         {{ page.dimensions }}
