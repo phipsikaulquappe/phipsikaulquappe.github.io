@@ -594,6 +594,7 @@ a:visited {
 
     .main {
         padding-top: 10px;
+        padding: 20px 10px 40px 10px;
     }
 
     /* Sidebar weiterhin off-canvas */
