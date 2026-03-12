@@ -52,15 +52,15 @@
                 {% assign prev_item = siblings[prev_index] %}
                 <a href="{{ prev_item.url }}" class="nav-prev">
                     <img src="/assets/prev.png" alt="Previous project">
-                     <span>Previous Project</span>
+                     <span>Previous <br> Project</span>
                 </a>
             {% endif %}
-
+            
             {% if current_index < siblings.size | minus: 1 %}
                 {% assign next_index = current_index | plus: 1 %}
                 {% assign next_item = siblings[next_index] %}
                 <a href="{{ next_item.url }}" class="nav-next">
-                    <span>Next Project</span>
+                    <span>Next <br> Project</span>
                     <img src="/assets/next.png" alt="Next project">
                 </a>
             {% endif %}
