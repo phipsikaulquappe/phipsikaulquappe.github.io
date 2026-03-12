@@ -299,7 +299,7 @@ a:visited {
 /* Beschreibung */
 .media-description {
     max-width: 900px;
-    line-height: 1.2;
+    line-height: 125%;
     font-size: 0.9rem;
 }
 
@@ -307,8 +307,9 @@ a:visited {
 .media-description-wide {
     grid-column: 1 / -1;
     max-width: 900px;
-    line-height: 1.2;
+    line-height: 125%;
     font-size: 0.9rem;
+    margin-top: 10px;
 }
 
 /* optional: großes Bild */
