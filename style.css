@@ -189,8 +189,9 @@ a:visited {
 ========================= */
 
 .sidebar {
-    padding: 40px 20px 40px 30px;
+    padding: 40px 30px 40px 30px;
     position: relative;
+    font-weight: 600;
 }
 
 /* Vertikale Linie rechts von Sidebar */
@@ -309,7 +310,6 @@ a:visited {
     max-width: 900px;
     line-height: 125%;
     font-size: 0.9rem;
-    margin-top: 10px;
 }
 
 /* optional: großes Bild */
