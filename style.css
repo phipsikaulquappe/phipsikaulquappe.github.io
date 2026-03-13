@@ -179,7 +179,7 @@ a:visited {
 }
 
 .nav-right a.active {
-    border-bottom: 1px solid #c50e0e;
+    border-bottom: 1px solid #000000;
     padding-bottom: 2px;
 }
 
@@ -221,7 +221,7 @@ a:visited {
 }
 
 .sidebar a.active {
-    border-left: 2px solid #c50e0e;
+    border-left: 2px solid #000000;
     padding-left: 6px;
 }
 
