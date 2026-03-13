@@ -14,7 +14,7 @@ thumbnail: /images/beton-schnitt-i-a.jpg
     <img src="/images/beton-schnitt-i-a.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">
     <img src="/images/beton-schnitt-i-b.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">  
     <img src="/images/beton-schnitt-i-b.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">  
-    <p class="media-description">
+    <p class="media-description-wide">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}<br>
         {{ page.dimensions }}
