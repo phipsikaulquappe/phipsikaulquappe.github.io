@@ -647,6 +647,41 @@ a:visited {
     line-height: 1.2;
 }
 
+/* =========================
+   DRAWING SOUND BUTTON)
+========================= */
+
+/* sitzt links in der Zeile, gespiegelt zum Autornamen rechts */
+.drawing-sound {
+    position: absolute;
+    left: 0;
+    top: 18px;               /* = margin-top von .drawing-controls */
+    height: 52px;            /* = Höhe der Pfeil-Zeile (40px + Padding) */
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    color: rgba(119, 145, 250, 0.78);   /* gleiche Farbe wie die Pfeile */
+    opacity: 0.55;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    /* kein cursor hier → dein eigener Pointer-Cursor von "button" bleibt aktiv */
+}
+
+.drawing-sound:hover,
+.drawing-sound:focus-visible {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.drawing-sound svg {
+    display: block;
+}
+
+.drawing-sound .icon-on  { display: none; }
+.drawing-sound.is-on .icon-on  { display: block; }
+.drawing-sound.is-on .icon-off { display: none; }
+.drawing-sound.is-on { opacity: 1; }
 
 
 /* =========================
@@ -830,5 +865,9 @@ a:visited {
 
     .draw-instructions {
         display: none;
+    }
+
+    .drawing-sound {
+        top: 14px;           /* = margin-top von .drawing-controls mobil */
     }
 }
